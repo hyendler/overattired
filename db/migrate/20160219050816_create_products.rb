@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration
     	t.string :url
     	t.string :gender
     	t.integer :hip
-    	t.interger :waist
+    	t.integer :waist
     	t.integer :bust
     	t.integer :chest
     	t.integer :inseam
