@@ -10,10 +10,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    # returns @product
+    @product.measurement.build
+    @product
   end
 
   def update
+    # might need to debug
     if @product.update(product_params)
       @product
     else
@@ -22,6 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # might need to debug
     @product = Product.new(product_params)
     if @product.save
       @product
@@ -35,7 +38,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.permit(:name, :gender, :url)
+    params.require(:product).permit(:name, :gender, :url, measurement_attributes: [:id, :gender, :hip, :waist, :bust, :chest, :inseam])
   end
 
   def set_product

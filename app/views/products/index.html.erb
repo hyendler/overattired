@@ -2,7 +2,6 @@
 
 <ul>
   <% @products.each do |product| %>
-  <li><a href="products/<%= product.id %>"></a>
-  <%= product.name %></li>
+  <li><%= link_to "#{product.name}" product_path(product) %></li>
   <% end %>
 </ul>

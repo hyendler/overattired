@@ -1,0 +1,49 @@
+<p>
+  <strong>Title:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @product.gender %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <a href="@product.url"><%= @product.url %></a>
+</p>
+
+<h2>Measurements:</h2>
+
+<% if @product.gender == 'F' %>
+  <p>
+    <strong>Hip:</strong>
+    <%= @measurement.hip %>
+  </p>
+
+  <p>
+    <strong>waist:</strong>
+    <%= @measurement.waist %>
+  </p>
+
+  <p>
+    <strong>bust:</strong>
+    <%= @measurement.bust %>
+  </p>
+
+<% else %>
+
+  <p>
+    <strong>chest:</strong>
+    <%= @measurement.chest %>
+  </p>
+
+  <p>
+    <strong>inseam:</strong>
+    <%= @measurement.inseam %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
