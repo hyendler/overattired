@@ -1,8 +1,13 @@
 class CreateMeasurements < ActiveRecord::Migration
   def change
     create_table :measurements do |t|
-
-      t.timestamps null: false
+    	t.string :gender
+    	t.integer :hip
+    	t.interger :waist
+    	t.integer :bust
+    	t.integer :chest
+    	t.integer :inseam
+    	t.timestamps null: false
     end
   end
 end
