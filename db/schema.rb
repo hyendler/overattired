@@ -17,16 +17,16 @@ ActiveRecord::Schema.define(version: 20160219191623) do
   enable_extension "plpgsql"
 
   create_table "measurements", force: :cascade do |t|
-    t.integer  "measureable_id"
-    t.string   "measureable_type"
+    t.integer  "measurable_id"
+    t.string   "measurable_type"
     t.string   "gender"
-    t.integer  "hip"
-    t.integer  "waist"
-    t.integer  "bust"
-    t.integer  "chest"
-    t.integer  "inseam"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.float    "hip"
+    t.float    "waist"
+    t.float    "bust"
+    t.float    "chest"
+    t.float    "inseam"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "products", force: :cascade do |t|

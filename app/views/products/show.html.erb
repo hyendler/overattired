@@ -15,32 +15,32 @@
 
 <h2>Measurements:</h2>
 
-<% if @product.gender == 'F' %>
+<% if @product.gender != 'F' %>
   <p>
     <strong>Hip:</strong>
-    <%= @measurement.hip %>
+    <%= @product.measurement.hip %>
   </p>
 
   <p>
     <strong>waist:</strong>
-    <%= @measurement.waist %>
+    <%= @product.measurement.waist %>
   </p>
 
   <p>
     <strong>bust:</strong>
-    <%= @measurement.bust %>
+    <%= @product.measurement.bust %>
   </p>
 
 <% else %>
 
   <p>
     <strong>chest:</strong>
-    <%= @measurement.chest %>
+    <%= @product.measurement.chest %>
   </p>
 
   <p>
     <strong>inseam:</strong>
-    <%= @measurement.inseam %>
+    <%= @product.measurement.inseam %>
   </p>
 
 <% end %>
