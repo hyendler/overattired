@@ -3,7 +3,7 @@ class CreateMeasurements < ActiveRecord::Migration
     create_table :measurements do |t|
     	t.string :gender
     	t.integer :hip
-    	t.interger :waist
+    	t.integer :waist
     	t.integer :bust
     	t.integer :chest
     	t.integer :inseam
