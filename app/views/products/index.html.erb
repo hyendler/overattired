@@ -1,0 +1,8 @@
+<h1>Hello from Products Index page!</h1>
+
+<ul>
+  <% @products.each do |product| %>
+  <li><a href="products/<%= product.id %>"></a>
+  <%= product.name %></li>
+  <% end %>
+</ul>
