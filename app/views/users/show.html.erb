@@ -1,3 +1,6 @@
 <h1>Hello from the Profile Page!</h1>
 
 <p><%= @user.first_name %>'s Profile!</p>
+
+<%= link_to "Back", '/' %>
+<%= link_to "Edit My Profile", edit_user_path(@user) %>

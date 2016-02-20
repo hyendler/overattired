@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
     # returns @user
+  end
+
+  def edit
   end
 
   private
