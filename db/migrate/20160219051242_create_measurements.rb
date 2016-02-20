@@ -7,7 +7,7 @@ class CreateMeasurements < ActiveRecord::Migration
     	t.float :bust
     	t.float :chest
     	t.float :inseam
-    	t.references :imageable, polymorphic: true, index: true
+    	t.references :measurable, polymorphic: true, index: true
     	t.timestamps null: false
     end
   end
