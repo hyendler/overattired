@@ -1,8 +1,7 @@
 class CreateMeasurements < ActiveRecord::Migration
   def change
     create_table :measurements do |t|
-        t.integer :measurable_id
-        t.string :measurable_type
+        t.references :imageable, polymorphic: true, index: true
     	t.string :gender
     	t.float :hip
     	t.float :waist
