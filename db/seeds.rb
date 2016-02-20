@@ -38,7 +38,7 @@ Product.create(name: "Vintage 1950's Skirt", gender: "female" , url: "https://ww
 #description: "This wool skirt features a great variety of lovely colors! It is pleated from the waist, and vertically striped in Forest Green, Navy Blue, Royal Purple and Yellow! The flattering wide waistband has buttonhole style belt loops. The skirt fastens with a metal zipper and two buttons.This skirt is in excellent vintage condition, with no holes, stains, odors to note."
 #tags: "Clothing", "Women's Clothing", "Skirts", "Striped 50s Skirt", "Pleated 1950's Skirt", "Forest Green", "Navy Blue", "Royal Purple", "Yellow", "Vertical stripes", "Wool skirt", "Midi Skirt", "Overattired", "Small Sm S", "Pleats", "Blue Grey"
 
-Measurement.create(measurable_type: Product, measurable_id: 2, gender: "female", hip: , waist: 26, bust: )
+Measurement.create(measurable_type: Product, measurable_id: 2, gender: "female", waist: 26)
 # Waist: 26
 # Hips: free
 # Overall Length: 30
@@ -50,7 +50,7 @@ Product.create(name: "Vintage 1950s Jacket", gender: "female" , url: "https://ww
 #description: "This black jacket is a wardrobe staple with just enough charming details to keep it interesting! Made of a soft true black wool and only very lightly padded at the shoulders, it is also fully lined. The jacket has a sweet curved notched collar and real pockets, both of which are decorated with a western style curved appliqué. It fastens in front with 4 fabric covered buttons, and even has an extra button inside just in case! The long sleeves have a small turned up cuff. This jacket is in good vintage condition, with no holes, stains, odors to note. It has been pinned on model to show fit."
 #tags: "Clothing", "Women's Clothing", "Jackets & Coats", "Black wool jacket", "50s coat", "1950s blazer", "western vintage", "Overattired", "Large Lg L", "Medium Med M", "covered buttons", "business jacket", "suit jacket", "pockets", "tailored coat", "1940s 40s"
 
-Measurement.create(measurable_type: Product, measurable_id: 3, gender: "female", hip: , waist: 34, bust: 40)
+Measurement.create(measurable_type: Product, measurable_id: 3, gender: "female", waist: 34, bust: 40)
 # Bust: 40
 # Waist: 34
 # Overall Length: 23
@@ -62,7 +62,7 @@ Product.create(name: "Vintage 1950s Jacket", gender: "female", url: "https://www
 # description: "This mulberry wool tailored jacket is just stunning! It is made of a soft wool gabardine, and the photos don't quite do the color justice- it is squarely in between royal purple and maroon- a true jewel tone! It is fitted with princess seams and has light padding in the hips to reinforce that hourglass silhouette. The shoulders are also lightly padded. The deep neckline has a wide shawl collar, and the jacket fastens slightly asymmetrically with two black buttons. The label inside is from Craig's in Houston. The jacket is fully lined with raspberry silk crepe. This jacket is in excellent vintage condition, with no holes, stains, odors to note."
 # tags: "Clothing", "Women's Clothing", "Jackets & Coats", "Red 50s Jacket", "Mulberry 1950s coat", "Purple blazer", "Maroon suit jacket", "Hourglass", "Overattired", "Extra Small XS", "Wool jacket", "1940s 40s", "Shawl collar", "V neckline", "Tailored jacket", "Jewel tone"
 
-Measurement.create(measurable_type: Product, measurable_id: 4, gender: "female", hip: , waist: 25, bust: 35)
+Measurement.create(measurable_type: Product, measurable_id: 4, gender: "female", waist: 25, bust: 35)
 # Bust: 35
 # Waist: 25
 # Overall Length: 21.5
@@ -92,7 +92,7 @@ Product.create(name: "Vintage 1950s dress", gender: "female", url: "https://www.
 # There is a little bit of pilling throughout the dress, but it is still in great wearable vintage condition, and has been priced accordingly. There are no holes, stains, odors to note. It has been belted on model to show fit."
 # tags: "Clothing", "Women's Clothing", "Dresses", "Paisley 50s dress", "Green 1950s Dress", "Purple and green", "Extra Large XL", "shirtwaist dress", "short sleeved dress", "Dacron", "1960s 60s", "Fit and flare", "Overattired", "pleated skirt", "button up dress", "collared dress"
 
-Measurement.create(measurable_type: Product, measurable_id: 6, gender: "female", hip: , waist: 33, bust: 44)
+Measurement.create(measurable_type: Product, measurable_id: 6, gender: "female", waist: 33, bust: 44)
 # Bust: 44
 # Waist: 33
 # Hips: free
