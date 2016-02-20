@@ -4,12 +4,6 @@ class CreateProducts < ActiveRecord::Migration
     	t.string :name
     	t.string :gender
     	t.string :url
-    	t.string :gender
-    	t.integer :hip
-    	t.integer :waist
-    	t.integer :bust
-    	t.integer :chest
-    	t.integer :inseam
     	t.timestamps null: false
     end
   end
