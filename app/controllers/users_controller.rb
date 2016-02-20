@@ -26,10 +26,14 @@ class UsersController < ApplicationController
       end
     else # user does not have a measurement
       measurement = Measurement.new(params[:user][:measurement])
-      measurement.measurable_id = @user.id
+      @user.measurement = measurement
       if measurement.save!
-
-
+        if @user.update(user_params)
+          redirect_to user_path
+        else
+          errs
+          render 'edit'
+        end
       end
     end
   end
