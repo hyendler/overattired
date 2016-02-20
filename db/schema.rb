@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160220022134) do
     t.datetime "updated_at",      null: false
   end
 
+  add_index "measurements", ["measurable_type", "measurable_id"], name: "index_measurements_on_measurable_type_and_measurable_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.string   "gender"
