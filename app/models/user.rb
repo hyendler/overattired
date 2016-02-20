@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   # before_action :authenticate_user!
 
 	def match
@@ -36,6 +35,12 @@ class User < ActiveRecord::Base
 		matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where(:gender => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
 
 	end
+
+  def user_has_measurement
+    # return true or false if the current user has a measurement already
+    # this will help us determine if we need to create a new measurement
+    # or edit the existing measurement
+  end
 end
 
 
