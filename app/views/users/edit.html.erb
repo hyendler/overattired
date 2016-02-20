@@ -32,6 +32,8 @@
   </p>
 
   <%= f.fields_for :measurement do |measurement_form| %>
+    <%= f.hidden_field :measurable_id, :value => @user.id %>
+    <%= f.hidden_field :gender, :value => @user.gender %>
 
     <p>
       <%= measurement_form.label :hip %>

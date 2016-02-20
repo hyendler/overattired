@@ -2,7 +2,13 @@
 
 <p><%= @user.first_name %>'s Profile!</p>
 
+<% if @user.measurement %>
 
+  <p>Bust: <%= @user.measurement.bust %></p>
+  <p>Waist: <%= @user.measurement.waist %></p>
+  <p>Hip: <%= @user.measurement.hip %></p>
+
+<% end %>
 
 <%= link_to "Back", '/' %>
 <%= link_to "Edit My Profile", edit_user_path(@user) %>
