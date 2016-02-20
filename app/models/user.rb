@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   # before_action :authenticate_user!
 
 	def match
@@ -33,11 +34,8 @@ class User < ActiveRecord::Base
 		value = self.measurement[unit]
 
 		matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where(:gender => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
+
 	end
 end
-
-
-
-
 
 
