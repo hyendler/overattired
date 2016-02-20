@@ -19,11 +19,12 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # might need to debug
+
     if @product.update(product_params)
-      @product
+      redirect_to products_path
     else
       errs
+      render 'edit'
     end
   end
 
