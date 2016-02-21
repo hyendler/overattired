@@ -64,18 +64,4 @@ class MeasurementsController < ApplicationController
     errors = @measurement.errors
   end
 
-  def find_measurable
-    params.each do |name, value|
-      if name =~ /(.+)-id$/
-        return $1.classify.constantize.find(value)
-      end
-    end
-    nil
-    # if params[:product_id]
-    #   @measurable = Product.find(params[:product_id])
-    # else
-    #   @measurable = User.find(params[:user_id])
-    # end
-  end
-
 end
