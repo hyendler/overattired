@@ -7,10 +7,11 @@ RSpec.describe User, type: :model do
   let(:form_no_password)  {User.new(first_name: 'Ovi', last_name: 'Calvo', email: 'ovi@gmail.com')}
 
   let(:form)  {User.new(id: 1, first_name: 'Ovi', last_name: 'Calvo', email: 'ovi@gmail.com', password: '12345678')}
-  let(:measurement_for_ovi) {Measurement.create(gender: "male", chest: 30, measurable_type: "User", measurable_id: 1)}
+  let(:measurement_for_form) {Measurement.create(gender: "male", chest: 30, measurable_type: "User", measurable_id: 1)}
 
-  let(:form_2)  {User.new(id: 2, first_name: 'Olaf', last_name: 'Snow', email: 'olaf@gmail.com', password: '12345678')}
-  let(:measurement_for_olaf) {Measurement.create(gender: "male", chest: 31, measurable_type: "User", measurable_id: 2)}
+  let(:product)  {Product.create(name: "Vintage 1950s Jacket", url: "https://www.etsy.com/listing/268514567/vintage-1950s-jacket-mulberry-wool?ref=shop_home_active_6")}
+  
+  let(:measurement_for_product) {Measurement.create(gender: "male", chest: 31, measurable_type: "Product", measurable_id: 2)}
 
   describe 'validations' do
   	context 'will raise an error' do
@@ -46,8 +47,7 @@ RSpec.describe User, type: :model do
   describe 'instance method' do
   	context 'for the match method'
   	it 'should return array of matched products' do
-  		form.match 
-  		form2.match 
+  		form.match  
   	
 
 
