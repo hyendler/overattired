@@ -9,6 +9,13 @@ class User < ActiveRecord::Base
 
   # before_action :authenticate_user!
 
+  	def querying(unit, range, gender)
+
+		value = self.measurement[unit]
+
+		matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
+	end
+
 	def match
 		gender = self.measurement.gender
 
@@ -29,12 +36,6 @@ class User < ActiveRecord::Base
 		return matched_products
 	end
 
-	def querying(unit, range, gender)
-
-		value = self.measurement[unit]
-
-		matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
-	end
 end
 
 

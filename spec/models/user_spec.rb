@@ -5,7 +5,12 @@ RSpec.describe User, type: :model do
   let(:form_no_last_name)  {User.new(first_name: 'Ovi', email:'ovi@gmail.com', password: '12345678')}
   let(:form_no_email)  {User.new(first_name: 'Ovi', last_name: 'Calvo', password: '12345678')}
   let(:form_no_password)  {User.new(first_name: 'Ovi', last_name: 'Calvo', email: 'ovi@gmail.com')}
-  let(:form)  {User.new(first_name: 'Ovi', last_name: 'Calvo', email: 'ovi@gmail.com', password: '12345678')}
+
+  let(:form)  {User.new(id: 1, first_name: 'Ovi', last_name: 'Calvo', email: 'ovi@gmail.com', password: '12345678')}
+  let(:measurement_for_ovi) {Measurement.create(gender: "male", chest: 30, measurable_type: "User", measurable_id: 1)}
+
+  let(:form_2)  {User.new(id: 2, first_name: 'Olaf', last_name: 'Snow', email: 'olaf@gmail.com', password: '12345678')}
+  let(:measurement_for_olaf) {Measurement.create(gender: "male", chest: 31, measurable_type: "User", measurable_id: 2)}
 
   describe 'validations' do
   	context 'will raise an error' do
@@ -36,6 +41,17 @@ RSpec.describe User, type: :model do
   		t = User.reflect_on_association(:measurement)
     	t.macro.should == :has_one
   	end
-
   end
+
+  describe 'instance method' do
+  	context 'for the match method'
+  	it 'should return array of matched products' do
+  		form.match 
+  		form2.match 
+  	
+
+
+  	end
+  end
+
 end
