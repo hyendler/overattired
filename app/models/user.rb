@@ -5,10 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :measurement, as: :measurable, dependent: :destroy
+
   # before_action :authenticate_user!
 
 	def match
-		gender = self.gender
+		gender = self.measurement.gender
 
 		if gender == "female"
 			unit = "waist"
@@ -29,10 +31,9 @@ class User < ActiveRecord::Base
 
 	def querying(unit, range, gender)
 
-		value = self[unit]
+		value = self.measurement[unit]
 
-		matched_products = Product.where(gender: gender).where(["#{unit} >= ? AND #{unit} <= ?", value, value + range])
-
+		matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
 	end
 end
 

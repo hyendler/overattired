@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :products
+  resources :measurements
 
   get '/admin', to: 'admin/products#index'
   get '/admin/products/new', to: 'admin/products#new'
