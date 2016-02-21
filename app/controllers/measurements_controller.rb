@@ -21,7 +21,6 @@ class MeasurementsController < ApplicationController
     @measurement.measurable = @measurable
 
     if @measurement.save
-      p @measurement
       if @measurement.measurable_type == "Product"
         redirect_to product_measurement_path(@measurable.id, @measurement.id)
       else
@@ -33,14 +32,18 @@ class MeasurementsController < ApplicationController
     end
   end
 
-  # def update
-  #   if @measurement.update(measurement_params)
-  #     redirect_to
-  #   else
-  #     errs
-  #     render 'edit'
-  #   end
-  # end
+  def update
+    if @measurement.update(measurement_params)
+      if @measurement.measurable_type == "Product"
+        redirect_to product_measurement_path(@measurement.measurable.id, @measurement.id)
+      else
+        redirect_to user_measurement_path(@measurement.measurable.id, @measurement.id)
+      end
+    else
+      errs
+      render 'edit'
+    end
+  end
 
   def new
     @product = Product.find(params[:product_id])
