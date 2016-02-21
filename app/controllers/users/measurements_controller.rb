@@ -10,6 +10,20 @@ class Users::MeasurementsController < ApplicationController
   end
 
   def update
+    if @measurement.update(measurement_params)
+      redirect to users_measurement_path
+    else
+      errs
+      render 'edit'
+    end
+  end
+
+  def new
+    @measurement = Measurement.new
+  end
+
+  def create
+
   end
 
   private
@@ -17,4 +31,11 @@ class Users::MeasurementsController < ApplicationController
     @measurement = Measurement.find(params[:id])
   end
 
+  def measurement_params
+    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :measurable_type, :measurable_id)
+  end
+
+  def errs
+    errors = @measurement.errors
+  end
 end
