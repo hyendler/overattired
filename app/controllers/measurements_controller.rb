@@ -8,6 +8,10 @@ class MeasurementsController < ApplicationController
   end
 
   def create
+    @measurement = Measurement.new(measurement_params)
+    if @measurement.save
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update
@@ -23,4 +27,11 @@ class MeasurementsController < ApplicationController
     @measurement = Measurement.find(params[:id])
   end
 
+  def measurement_params
+    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :measurable_type, :measurable_id)
+  end
+
 end
+
+
+

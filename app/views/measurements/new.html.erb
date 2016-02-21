@@ -1,7 +1,7 @@
 <h1>Measurements#new</h1>
 <p>Find me in app/views/measurements/new.html.erb</p>
 
-<%= form_for :measurement, url: new_measurement_path do |f| %>
+<%= form_for @measurement do |f| %>
 <% if @measurement.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -15,6 +15,12 @@
       </ul>
     </div>
   <% end %>
+
+  <!-- if we've just come from a user sign up form, we need to send the current stuff 
+  else 
+  send in product stuff -->
+    <%= f.hidden_field :measurable_id, value: current_user.id %>
+    <%= f.hidden_field :measurable_type, value: current_user.class %>
 
   <p>
     <%= f.label :gender %>
