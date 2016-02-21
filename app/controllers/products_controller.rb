@@ -1,22 +1,22 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
-  def index
-    @products = Product.all
-  end
+  # def index
+  #   @products = Product.all
+  # end
 
   def show
     # returns @product
   end
 
-  def new
-    @product.measurement.build
-    @product
-  end
+  # def new
+  #   @product.measurement.build
+  #   @product
+  # end
 
-  def edit
-    @product = Product.find(params[:id])
-  end
+  # def edit
+  #   @product = Product.find(params[:id])
+  # end
 
   def update
 

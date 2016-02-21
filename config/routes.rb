@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :products
 
   get '/admin', to: 'admin/products#index'
+  get '/admin/products/new', to: 'admin/products#new'
+  get '/admin/products/:id/edit', to: 'admin/products#edit'
+
 
   namespace :admin do
     resources :products
