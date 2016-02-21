@@ -13,14 +13,14 @@
 Product.delete_all
 User.delete_all
 
-Product.create(name: "Vintage 1950s Suit", gender: "female" , url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1", hip: 41, waist: 29, bust: 38)
+Product.create(name: "Vintage 1950s Suit", gender: "female" , url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1", hips: 41, waist: 29, bust: 38)
 #sub-name: "Red and Black 50s Suit with Peplum"
 #size: Medium
 #description: "This suit is totally classy! The black rayon has very thin red striped woven through. The jacket has a V neckline and a collar trimmed with bows. It buttons down the waist with fabric covered buttons (the bottom button is faked with a hook behind it. There is a lightly flare peplum trimmed with an extra flap in back, with even more bows! The front of the jacket is fitted with normal darts, but the back has a fascinating horizontal curved seam for fit. The skirt is a classic straight silhouette with a vertical tuck down the front, and a kick pleat in back. It fastens with a side metal zipper and button. This suit is in excellent vintage condition, with no holes, stains, odors to note. It has been pinned on model to show fit."
 #price: 110.00
 #tags: "Clothing", "Women's Clothing", "Suits", "Black 50s suit", "Red 1950's suit", "peplum", "pencil skirt", "black and red", "Overattired", "Medium Med M", "Rayon suit", "1940's 40's", "Striped suit", "V neck", "business suit", "kick pleat"
 
-# Measurement.create(measurable_type: Product, measurable_id: 1, gender: "female", hip: 41, waist: 29, bust: 38)
+# Measurement.create(measurable_type: Product, measurable_id: 1, gender: "female", hips: 41, waist: 29, bust: 38)
 # Jacket
 # Bust: 38
 # Waist: 29
@@ -28,7 +28,7 @@ Product.create(name: "Vintage 1950s Suit", gender: "female" , url: "https://www.
 
 # Skirt
 # Waist: 28
-# Hips: 41
+# hipss: 41
 # Length: 27
 
 Product.create(name: "Vintage 1950's Skirt", gender: "female" , url: "https://www.etsy.com/listing/268527485/vintage-1950s-skirt-pleated-and-striped?ref=shop_home_active_2", waist: 26)
@@ -40,7 +40,7 @@ Product.create(name: "Vintage 1950's Skirt", gender: "female" , url: "https://ww
 
 # Measurement.create(measurable_type: Product, measurable_id: 2, gender: "female", waist: 26)
 # Waist: 26
-# Hips: free
+# hipss: free
 # Overall Length: 30
 
 Product.create(name: "Vintage 1950s Jacket", gender: "female" , url: "https://www.etsy.com/listing/268629438/vintage-1950s-jacket-black-50s-western?ref=shop_home_active_4", waist: 34, bust: 40)
@@ -59,7 +59,7 @@ Product.create(name: "Vintage 1950s Jacket", gender: "female" , url: "https://ww
 Product.create(name: "Vintage 1950s Jacket", gender: "female", url: "https://www.etsy.com/listing/268514567/vintage-1950s-jacket-mulberry-wool?ref=shop_home_active_6", waist: 25, bust: 35)
 # sub-name: "Mulberry Wool Tailored Blazer"
 # size: "Extra Small"
-# description: "This mulberry wool tailored jacket is just stunning! It is made of a soft wool gabardine, and the photos don't quite do the color justice- it is squarely in between royal purple and maroon- a true jewel tone! It is fitted with princess seams and has light padding in the hips to reinforce that hourglass silhouette. The shoulders are also lightly padded. The deep neckline has a wide shawl collar, and the jacket fastens slightly asymmetrically with two black buttons. The label inside is from Craig's in Houston. The jacket is fully lined with raspberry silk crepe. This jacket is in excellent vintage condition, with no holes, stains, odors to note."
+# description: "This mulberry wool tailored jacket is just stunning! It is made of a soft wool gabardine, and the photos don't quite do the color justice- it is squarely in between royal purple and maroon- a true jewel tone! It is fitted with princess seams and has light padding in the hipss to reinforce that hourglass silhouette. The shoulders are also lightly padded. The deep neckline has a wide shawl collar, and the jacket fastens slightly asymmetrically with two black buttons. The label inside is from Craig's in Houston. The jacket is fully lined with raspberry silk crepe. This jacket is in excellent vintage condition, with no holes, stains, odors to note."
 # tags: "Clothing", "Women's Clothing", "Jackets & Coats", "Red 50s Jacket", "Mulberry 1950s coat", "Purple blazer", "Maroon suit jacket", "Hourglass", "Overattired", "Extra Small XS", "Wool jacket", "1940s 40s", "Shawl collar", "V neckline", "Tailored jacket", "Jewel tone"
 
 # Measurement.create(measurable_type: Product, measurable_id: 4, gender: "female", waist: 25, bust: 35)
@@ -68,19 +68,19 @@ Product.create(name: "Vintage 1950s Jacket", gender: "female", url: "https://www
 # Overall Length: 21.5
 # Sleeve Length: 23
 
-Product.create(name: "Vintage 1960s Dress", gender: "female", url: "https://www.etsy.com/listing/267581417/vintage-1960s-dress-black-jersey-belted?ref=shop_home_active_3", hip: 36, waist: 27, bust: 37)
+Product.create(name: "Vintage 1960s Dress", gender: "female", url: "https://www.etsy.com/listing/267581417/vintage-1960s-dress-black-jersey-belted?ref=shop_home_active_3", hips: 36, waist: 27, bust: 37)
 # sub-name: "Black Jersey Belted Dress"
 # size: "Small"
 # price: 55.00
 # description: "Great little black dress by Catalina! Slightly stretchy jersey knit in inky black. Long sleeved and pencil fit skirt. Matching let included. Nylon zipper up the back. This dress is in excellent vintage condition, with no holes, stains, odors to note."
 # tags: "Clothing", "Women's Clothing", "Dresses", "1960s dress", "belted jersey dress", "long sleeved dress", "belt dress", "60s catalina", "Overattired", "small sm s", "inky black", "knit dress", "fitted dress", "pencil dress"
 
-# Measurement.create(measurable_type: Product, measurable_id: 5, gender: "female", hip: 36, waist: 27, bust: 37)
+# Measurement.create(measurable_type: Product, measurable_id: 5, gender: "female", hips: 36, waist: 27, bust: 37)
 # *****NOTE: measurements are in a range, so we have to somehow account for that in the database
 # Shoulders: 15
 # Bust: 37 to 41
 # Waist: belt fits up to 27
-# Hips: 36 to 42
+# hipss: 36 to 42
 # Overall Length: 37
 # Sleeve Length: 23.5
 
@@ -95,7 +95,7 @@ Product.create(name: "Vintage 1950s dress", gender: "female", url: "https://www.
 # Measurement.create(measurable_type: Product, measurable_id: 6, gender: "female", waist: 33, bust: 44)
 # Bust: 44
 # Waist: 33
-# Hips: free
+# hipss: free
 # Overall Length: 44
 
 
@@ -155,12 +155,12 @@ Product.create(name: "Vintage 1940s Mens Suit", gender: "male", url: "https://ww
 # Inseam: 31” (plus another 3" to let out)
 
 
-User.create(first_name: "Lindsey", last_name: "Stevens", email: "lindsey@gmail.com", password: "12345678", gender: "female",  hip: 36, waist: 25, bust: 35)
-# Measurement.create(measurable_type: User, measurable_id: 1, gender: "female", hip: 36, waist: 25, bust: 35)
+User.create(first_name: "Lindsey", last_name: "Stevens", email: "lindsey@gmail.com", password: "12345678", gender: "female",  hips: 36, waist: 25, bust: 35)
+# Measurement.create(measurable_type: User, measurable_id: 1, gender: "female", hips: 36, waist: 25, bust: 35)
 
 
-User.create(first_name: "Hanah", last_name: "Yen", email: "hanah@gmail.com", password: "12345678", gender: "female", hip: 42, waist: 33, bust: 40)
-# Measurement.create(measurable_type: User, measurable_id: 2, gender: "female", hip: 42, waist: 33, bust: 40)
+User.create(first_name: "Hanah", last_name: "Yen", email: "hanah@gmail.com", password: "12345678", gender: "female", hips: 42, waist: 33, bust: 40)
+# Measurement.create(measurable_type: User, measurable_id: 2, gender: "female", hips: 42, waist: 33, bust: 40)
 
 
 User.create(first_name: "Ovi", last_name: "Calvin", email: "ovi@gmail.com", password: "12345678", gender: "male", waist: 30, chest: 42, inseam: 31)
