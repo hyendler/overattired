@@ -6,16 +6,12 @@ class MeasurementsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @measurable = find_measurable
     # returns @measurement
   end
 
   def create
-    if params[:product_id]
-      @measurable = Product.find(params[:product_id])
-    else
-      @measurable = User.find(params[:user_id])
-    end
+    @measurable = find_measurable
 
     @measurement = Measurement.new(measurement_params)
     @measurement.measurable = @measurable
@@ -24,7 +20,7 @@ class MeasurementsController < ApplicationController
       if @measurement.measurable_type == "Product"
         redirect_to product_measurement_path(@measurable.id, @measurement.id)
       else
-        redirect_to user_measurement_path(@measurable.id, @measurement.id)
+        redirect_to user_path(@measurable)
       end
     else
       errs
@@ -46,7 +42,8 @@ class MeasurementsController < ApplicationController
   end
 
   def new
-    @product = Product.find(params[:product_id])
+    @measurable = find_measurable
+
   	@measurement = Measurement.new
   end
 
@@ -58,6 +55,14 @@ class MeasurementsController < ApplicationController
 
   def measurement_params
     params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :gender)
+  end
+
+  def find_measurable
+    if params[:product_id]
+      @measurable = Product.find(params[:product_id])
+    else
+      @measurable = User.find(params[:user_id])
+    end
   end
 
   def errs

@@ -16,9 +16,9 @@
 <%= link_to "Edit My Account Details", edit_user_path(@user) %>
 
 <% if @user.measurement %>
-  <%= link_to "Edit My Measurements", edit_users_measurement_path(@user.measurement) %>
+  <%= link_to "Edit My Measurements", edit_user_measurement_path(@user.id, @user.measurement.id) %>
 <% else %>
-  <%= link_to "Add My Measurements", new_measurement_path %>
+  <%= link_to "Add My Measurements", new_user_measurement_path(@user.id) %>
 <% end %>
 
 <%= link_to "Delete My Profile", user_path(@user), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
