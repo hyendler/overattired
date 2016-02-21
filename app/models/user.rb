@@ -29,9 +29,9 @@ class User < ActiveRecord::Base
 
 	def querying(unit, range, gender)
 
-		value = self.measurement[unit]
+		value = self[unit]
 
-		matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where(:gender => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
+		matched_products = Product.where(gender: gender).where(["#{unit} >= ? AND #{unit} <= ?", value, value + range])
 
 	end
 end
