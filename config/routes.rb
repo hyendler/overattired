@@ -2,13 +2,21 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :users, :products, :measurements
+  resources :users
 
   devise_for :users, controllers: { registrations: "registrations" }
 
   get "/admin", to: "admin/products#index"
 
   get "/admin/products/:id/edit", to: "admin/products#edit"
+
+  namespace :products do
+    resources :measurements
+  end
+
+  namespace :users do
+    resources :measurements
+  end
 
   namespace :admin do
     resources :products
