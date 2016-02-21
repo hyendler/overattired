@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.string :gender
       t.string :url
-      t.float :hip
+      t.float :hips
       t.float :waist
       t.float :bust
       t.float :chest
