@@ -11,20 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220230416) do
+ActiveRecord::Schema.define(version: 20160221015053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "products", force: :cascade do |t|
-    t.string   "name"
+  create_table "measurements", force: :cascade do |t|
     t.string   "gender"
-    t.string   "url"
     t.float    "hips"
     t.float    "waist"
     t.float    "bust"
     t.float    "chest"
     t.float    "inseam"
+    t.integer  "measurable_id"
+    t.string   "measurable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "measurements", ["measurable_type", "measurable_id"], name: "index_measurements_on_measurable_type_and_measurable_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,12 +41,6 @@ ActiveRecord::Schema.define(version: 20160220230416) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "gender"
-    t.float    "hips"
-    t.float    "waist"
-    t.float    "bust"
-    t.float    "chest"
-    t.float    "inseam"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"

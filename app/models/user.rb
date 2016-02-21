@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  has_one :measurement, as: :measurable, dependent: :destroy
 
   # before_action :authenticate_user!
 
