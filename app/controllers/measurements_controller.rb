@@ -8,10 +8,6 @@ class MeasurementsController < ApplicationController
   end
 
   def create
-    p "***********************"
-    p "THIS IS IT"
-        p "***********************"
-
     @measurement = Measurement.new(measurement_params)
     if @measurement.save
       redirect_to user_path(current_user.id)
