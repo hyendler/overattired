@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :measurements
 
   get '/admin', to: 'admin/products#index'
-  get '/admin/products/new', to: 'admin/products#new'
   get '/admin/products/:id/edit', to: 'admin/products#edit'
 
 
