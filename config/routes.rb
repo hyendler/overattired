@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   get "/admin", to: "admin/products#index"
 
-  namespace :products do
+  resources :products do
     resources :measurements
   end
 
-  namespace :users do
+  resources :users do
     resources :measurements
   end
 
