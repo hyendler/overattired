@@ -1,12 +1,17 @@
 <h1><%= "Details for #{@product.name}" %></h1>
 
 <p><%= link_to "Edit Product Details", edit_admin_product_path %></p>
+
 <% if @product.measurement %>
-	<p><%= link_to "Edit Product Measurements", edit_measurement_path(@product.measurement) %></p>
+
+	<p><%= link_to "Edit Product Measurements", edit_product_measurement_path(@product.measurement, @product) %></p>
+
 <% else %>
-<!--don't know if the new_measurement_path accepts @product.measurement-->
-	<p><%= link_to "Add Product Measurements", new_measurement_path(@product.measurement) %></p>
+
+	<p><%= link_to "Add Product Measurements", new_product_measurement_path(@product.id) %></p>
+
 <% end %>
+
 <p><%= link_to "Delete Product", admin_product_path, method: :delete %></p>
 <p><%= link_to "Back to All Products", admin_products_path %></p>
 
@@ -59,4 +64,4 @@
 	<% end %>
 
 <% end %>
- 
+

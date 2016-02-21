@@ -60,6 +60,4 @@ private
   def errs
     errors = @product.errors
   end
-
-
 end

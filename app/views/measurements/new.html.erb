@@ -1,8 +1,8 @@
-<h1>Measurements#new</h1>
-<p>Find me in app/views/measurements/new.html.erb</p>
+<h1>Add a Measurements</h1>
 
-<%= form_for @measurement do |f| %>
-<% if @measurement.errors.any? %>
+<%= form_for([@product, @measurement]) do |f| %>
+
+  <% if @measurement.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@measurement.errors.count, "error") %> prohibited
@@ -16,11 +16,9 @@
     </div>
   <% end %>
 
-  <!-- if we've just come from a user sign up form, we need to send the current stuff 
-  else 
+  <!-- if we've just come from a user sign up form, we need to send the current stuff
+  else
   send in product stuff -->
-    <%= f.hidden_field :measurable_id, value: current_user.id %>
-    <%= f.hidden_field :measurable_type, value: current_user.class %>
 
   <p>
     <%= f.label :gender %>

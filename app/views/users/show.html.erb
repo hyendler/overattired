@@ -16,7 +16,7 @@
 <%= link_to "Edit My Account Details", edit_user_path(@user) %>
 
 <% if @user.measurement %>
-  <%= link_to "Edit My Measurements", edit_measurement_path(@user.measurement.id) %>
+  <%= link_to "Edit My Measurements", edit_users_measurement_path(@user.measurement) %>
 <% else %>
   <%= link_to "Add My Measurements", new_measurement_path %>
 <% end %>
