@@ -9,9 +9,22 @@ class Products::MeasurementsController < ApplicationController
     # returns @measurement
   end
 
+  def update
+    if @measurement.update(measurement_params)
+      redirect_to products_measurement_path
+    else
+      errs
+      render 'edit'
+    end
+  end
+
   private
   def set_measurement
     @measurement = Measurement.find(params[:id])
+  end
+
+  def measurement_params
+    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :measurable_type, :measurable_id)
   end
 
 end
