@@ -1,6 +1,6 @@
 class MeasurementsController < ApplicationController
   before_action :set_measurement, only: [:show, :update]
-  
+
   def show
   end
 
@@ -14,6 +14,7 @@ class MeasurementsController < ApplicationController
   end
 
   def new
+  	@measurement = Measurement.new
   end
 
   private
