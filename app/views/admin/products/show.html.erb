@@ -4,6 +4,7 @@
 <% if @product.measurement %>
 	<p><%= link_to "Edit Product Measurements", edit_measurement_path(@product.measurement) %></p>
 <% else %>
+<!--don't know if the new_measurement_path accepts @product.measurement-->
 	<p><%= link_to "Add Product Measurements", new_measurement_path(@product.measurement) %></p>
 <% end %>
 <p><%= link_to "Delete Product", admin_product_path, method: :delete %></p>
