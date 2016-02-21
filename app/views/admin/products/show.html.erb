@@ -4,7 +4,7 @@
 
 <% if @product.measurement %>
 
-	<p><%= link_to "Edit Product Measurements", edit_products_measurement_path(@product.measurement) %></p>
+	<p><%= link_to "Edit Product Measurements", edit_product_measurement_path(@product.measurement, @product) %></p>
 
 <% else %>
 
