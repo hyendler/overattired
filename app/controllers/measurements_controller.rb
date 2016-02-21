@@ -10,12 +10,28 @@ class MeasurementsController < ApplicationController
     # returns @measurement
   end
 
-  # def create
-  #   @measurement = Measurement.new(measurement_params)
-  #   if @measurement.save
-  #     redirect_to user_path(current_user.id)
-  #   end
-  # end
+  def create
+    if params[:product_id]
+      @measurable = Product.find(params[:product_id])
+    else
+      @measurable = User.find(params[:user_id])
+    end
+
+    @measurement = Measurement.new(measurement_params)
+    @measurement.measurable = @measurable
+
+    if @measurement.save
+      p @measurement
+      if @measurement.measurable_type == "Product"
+        redirect_to product_measurement_path(@measurable.id, @measurement.id)
+      else
+        redirect_to user_measurement_path(@measurable.id, @measurement.id)
+      end
+    else
+      errs
+      render 'new'
+    end
+  end
 
   # def update
   #   if @measurement.update(measurement_params)
@@ -26,9 +42,10 @@ class MeasurementsController < ApplicationController
   #   end
   # end
 
-  # def new
-  # 	@measurement = Measurement.new
-  # end
+  def new
+    @product = Product.find(params[:product_id])
+  	@measurement = Measurement.new
+  end
 
   private
 
@@ -36,12 +53,26 @@ class MeasurementsController < ApplicationController
     @measurement = Measurement.find(params[:id])
   end
 
-  # def measurement_params
-  #   params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :measurable_type, :measurable_id)
-  # end
+  def measurement_params
+    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :gender)
+  end
 
-  # def errs
-  #   errors = @measurement.errors
-  # end
+  def errs
+    errors = @measurement.errors
+  end
+
+  def find_measurable
+    params.each do |name, value|
+      if name =~ /(.+)-id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+    # if params[:product_id]
+    #   @measurable = Product.find(params[:product_id])
+    # else
+    #   @measurable = User.find(params[:user_id])
+    # end
+  end
 
 end

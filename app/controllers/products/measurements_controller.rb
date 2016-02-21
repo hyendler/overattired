@@ -24,7 +24,7 @@ class Products::MeasurementsController < ApplicationController
   end
 
   def new
-    product = Product.find(params[:id])
+    @product = Product.find(params[:id])
     @measurement = Measurement.new
   end
 
