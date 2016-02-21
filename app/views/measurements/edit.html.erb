@@ -1,2 +1,11 @@
-<h1>Measurements#edit</h1>
-<p>Find me in app/views/measurements/edit.html.erb</p>
+<% if @measurement.measurable_type == "Product" %>
+
+  <%= render "edit_product_measurement_form" %>
+
+<% else %>
+
+  <%= render "edit_user_measurement_form" %>
+
+<% end %>
+
+
