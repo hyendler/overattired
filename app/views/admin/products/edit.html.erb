@@ -1,6 +1,6 @@
 <h1>Editing <%= "#{@product.name}" %></h1>
 
-<%= form_for :product, url: product_path(@product), method: :patch, html: { class: "test_class" } do |f| %>
+<%= form_for :product, url: admin_product_path(@product), method: :patch, html: { class: "test_class" } do |f| %>
 
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -22,50 +22,12 @@
   </p>
 
   <p>
-    <%= f.label :gender %>
-    <%= f.text_area :gender %>
-  </p>
-
-  <p>
     <%= f.label :url %>
     <%= f.text_area :url %>
   </p>
-
-  <%= f.fields_for :measurements do |measurements_form| %>
-
-    <p>
-      <%= measurements_form.label :gender %>
-      <%= measurements_form.text_field :gender %>
-    </p>
-
-    <p>
-      <%= measurements_form.label :hip %>
-      <%= measurements_form.text_field :hip %>
-    </p>
-
-    <p>
-      <%= measurements_form.label :waist %>
-      <%= measurements_form.text_area :waist %>
-    </p>
-
-    <p>
-      <%= measurements_form.label :bust %>
-      <%= measurements_form.text_area :bust %>
-    </p>
-
-    <p>
-      <%= measurements_form.label :chest %>
-      <%= measurements_form.text_area :chest %>
-    </p>
-
-    <p>
-      <%= measurements_form.label :inseam %>
-      <%= measurements_form.text_area :inseam %>
-    </p>
 
     <p>
       <%= f.submit %>
     </p>
 
-  <% end %>
 <% end %>

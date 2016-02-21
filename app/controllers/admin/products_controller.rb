@@ -32,6 +32,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(product_params)
+      redirect_to admin_products_path
+    else
+      errs
+      render 'edit'
+    end
   end
 
   def destroy

@@ -1,5 +1,5 @@
 <p> Show Page </p>
-
+<%= link_to "Edit Product", edit_admin_product_path %>
 <p>
   <strong>Title:</strong>
   <%= @product.name %>
@@ -9,3 +9,4 @@
   <strong>Link:</strong>
   <a href=<%= @product.url %>><%= @product.url %></a>
 </p>
+ 
