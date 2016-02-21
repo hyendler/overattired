@@ -1,10 +1,12 @@
 class MeasurementsController < ApplicationController
-  before_action :set_measurement, only: [:show, :update]
+  before_action :set_measurement, only: [:show, :edit, :update]
 
   def show
+    # returns @measurement
   end
 
   def edit
+    # returns @measurement
   end
 
   def create
@@ -15,6 +17,12 @@ class MeasurementsController < ApplicationController
   end
 
   def update
+    if @measurement.update(measurement_params)
+      redirect_to
+    else
+      errs
+      render 'edit'
+    end
   end
 
   def new
@@ -31,7 +39,7 @@ class MeasurementsController < ApplicationController
     params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :measurable_type, :measurable_id)
   end
 
+  def errs
+    errors = @measurement.errors
+  end
 end
-
-
-
