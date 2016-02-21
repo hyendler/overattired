@@ -35,7 +35,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to admin_products_path
+      redirect_to admin_product_path(@product.id)
     else
       errs
       render 'edit'
@@ -50,7 +50,7 @@ class Admin::ProductsController < ApplicationController
 private
 
   def product_params
-    params.require(:product).permit(:name, :url)
+    params.require(:product).permit(:name, :url, measurement_attributes: [:id, :gender, :hips, :waist, :chest, :inseam, :bust])
   end
 
   def set_product

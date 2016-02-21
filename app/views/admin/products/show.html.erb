@@ -29,7 +29,13 @@
 <% if @product.measurement %>
 	<h2>Product Measurements</h2>
 
+	  <p>
+	    <strong>Gender:</strong>
+	    <%= @product.measurement.gender %>
+	  </p>
+
 	<% if @product.measurement.gender == 'female' || @product.measurement.gender == 'Female' %>
+
 	  <p>
 	    <strong>Hip:</strong>
 	    <%= @product.measurement.hips %>
