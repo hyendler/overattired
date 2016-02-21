@@ -46,9 +46,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'instance method' do
-  	# context 'for the match method'
-  	# let(:test_array) { Array.new(1) { :product } }
-  	# let(:match_test){form.match}
+  	# test_array is an array containing the instantiation of product
+  	let(:test_array) { Array.new(1) { product } }
 
   	it 'the first_name method words for the User object' do
   		expect(form2.first_name).to eq("Ovi")
@@ -59,9 +58,11 @@ RSpec.describe User, type: :model do
   		expect(form2.measurement).to be_kind_of(Measurement)
   	end
 
-  	# it 'should return array of matched products' do
-  	# 	expect(match_test).to match_array(test_array)
-  	# end
+  	it 'should return array of matched products' do
+  		form2.measurement = measurement_for_form
+  		product.measurement = measurement_for_product
+  	 	expect(form2.match).to eq(test_array)
+  	end
   end
 
 end
