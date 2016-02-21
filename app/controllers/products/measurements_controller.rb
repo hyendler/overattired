@@ -18,13 +18,33 @@ class Products::MeasurementsController < ApplicationController
     end
   end
 
+  def new
+    @measurement = Measurement.new
+  end
+
+  def create
+    @measurement = Measurement.new(measurement_params)
+    if @measurement.save
+      redirect_to products_measurement_path
+    else
+      errs
+      render 'new'
+    end
+  end
+
+
   private
+
   def set_measurement
     @measurement = Measurement.find(params[:id])
   end
 
   def measurement_params
     params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :measurable_type, :measurable_id)
+  end
+
+  def errs
+    errors = @measurement.errors
   end
 
 end
