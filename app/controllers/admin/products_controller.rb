@@ -12,10 +12,12 @@ class Admin::ProductsController < ApplicationController
 
   def edit
   	@product = Product.find(params[:id])
-
-  	# if @product == nil
-  	# 	err
-  	# end
+    # if @product
+    #   # do your normal thing
+    # else
+    #   errs
+    #   # render somewhere?
+    # end
   end
 
   def create
@@ -41,6 +43,8 @@ class Admin::ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy
+    redirect_to admin_products_path
   end
 
 private
