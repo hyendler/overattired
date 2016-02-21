@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   get "/admin", to: "admin/products#index"
 
-  get "/admin/products/:id/edit", to: "admin/products#edit"
-
   namespace :products do
     resources :measurements
   end

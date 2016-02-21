@@ -1,6 +1,6 @@
-<h1>New Measurements for <%= "#{@measurement.measurable.name}" %></h1>
+<h1>New Measurements</h1>
 
-<%= form_for :measurement, url: products_measurement_path(@measurement), method: :patch do |f| %>
+<%= form_for :measurement, url: products_measurement_path, method: :post do |f| %>
 
   <% if @measurement.errors.any? %>
     <div id="error_explanation">
