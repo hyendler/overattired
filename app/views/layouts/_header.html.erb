@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">OverAttired</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav navbar-right">
+    <% if current_user %>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+  	  <li><%= link_to "my profile", user_path(current_user.id) %></li>
+    <% else %>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "login", new_user_session_path %></li> 
+      <li><%= link_to "register", new_user_registration_path %></li>
+     <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
