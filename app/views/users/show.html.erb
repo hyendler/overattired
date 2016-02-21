@@ -12,6 +12,15 @@
   <p>Inseam: <%= @user.measurement.inseam %></p>
 <% end %>
 
+<h3>Your Matches</h3>
+<ul>
+	<% @matches.each do |match| %>
+		<li><%= match.name %></li>
+		<li><a href="<%= match.url %>"><%= match.url %></a></li>
+	<% end %>
+</ul>
+
+
 <%= link_to "Back", '/' %>
 <%= link_to "Edit My Account Details", edit_user_path(@user) %>
 

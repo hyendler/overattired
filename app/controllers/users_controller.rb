@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     # returns @user
+    @matches = @user.match
   end
 
   def edit
