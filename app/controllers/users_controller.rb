@@ -15,25 +15,13 @@ class UsersController < ApplicationController
   # end
 
   def update
-
-    if @user.measurement
-      if @user.update(params[:user]) && @user.measurement.update(params[:user][:measurement])
+      if @user.update(user_params)
         # p @user.measurement
         redirect_to user_path
       else
         errs
         render 'edit'
       end
-    else
-      measurement = Measurement.new(user_params[:measurement])
-      @user.measurement = measurement
-      if @user.update(user_params)
-        redirect_to user_path
-      else
-        errs
-        render 'edit'
-      end
-    end
     # p "************************"
     # p params
     # p "************************"
@@ -56,7 +44,7 @@ class UsersController < ApplicationController
       p "************************"
       p params
       p "************************"
-    params.require(:user).permit(:first_name, :last_name, :gender, {measurement: [:id, :gender, :hip, :waist, :bust, :chest, :inseam]})
+    params.require(:user).permit(:first_name, :last_name, :gender, :hips, :waist, :bust, :chest, :inseam)
   end
 
   def errs

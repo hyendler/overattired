@@ -2,12 +2,14 @@
 
 <p><%= @user.first_name %>'s Profile!</p>
 
-<% if @user.measurement %>
-
-  <p>Bust: <%= @user.measurement.bust %></p>
-  <p>Waist: <%= @user.measurement.waist %></p>
-  <p>Hip: <%= @user.measurement.hip %></p>
-
+<% if @user.gender == "female"%>
+  <p>Bust: <%= @user.bust %></p>
+  <p>Waist: <%= @user.waist %></p>
+  <p>Hip: <%= @user.hips %></p>
+<% else %>
+  <p>Chest: <%= @user.chest %></p>
+  <p>Waist: <%= @user.waist %></p>
+  <p>Inseam: <%= @user.inseam %></p>
 <% end %>
 
 <%= link_to "Back", '/' %>
