@@ -51,6 +51,6 @@ class ProductsController < ApplicationController
   end
 
   def errs
-    errors = @badge.errors
+    errors = @product.errors
   end
 end

@@ -1,0 +1,68 @@
+<h1>Editing <%= "#{@user.first_name}" %>'s Profile</h1>
+
+<%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        these edits from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </p>
+
+  <%= f.fields_for :measurement do |measurement_form| %>
+    <%= f.hidden_field :measurable_id, :value => @user.id %>
+    <%= f.hidden_field :gender, :value => @user.gender %>
+
+    <p>
+      <%= measurement_form.label :hip %>
+      <%= measurement_form.text_field :hip %>
+    </p>
+
+    <p>
+      <%= measurement_form.label :waist %>
+      <%= measurement_form.text_field :waist %>
+    </p>
+
+    <p>
+      <%= measurement_form.label :bust %>
+      <%= measurement_form.text_field :bust %>
+    </p>
+
+    <p>
+      <%= measurement_form.label :chest %>
+      <%= measurement_form.text_field :chest %>
+    </p>
+
+    <p>
+      <%= measurement_form.label :inseam %>
+      <%= measurement_form.text_field :inseam %>
+    </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <% end %>
+<% end %>

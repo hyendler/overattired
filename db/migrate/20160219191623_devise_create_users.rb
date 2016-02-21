@@ -3,6 +3,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       t.string :first_name
       t.string :last_name
+      t.string :gender
+      t.float :hips
+      t.float :waist
+      t.float :bust
+      t.float :chest
+      t.float :inseam
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

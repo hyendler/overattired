@@ -1,11 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_one :measurement, as: :measurable, dependent: :destroy
   validates :first_name, :last_name, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
 
   # before_action :authenticate_user!
 
@@ -31,9 +29,9 @@ class User < ActiveRecord::Base
 
 	def querying(unit, range, gender)
 
-		value = self.measurement[unit]
+		value = self[unit]
 
-		matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where(:gender => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
+		matched_products = Product.where(gender: gender).where(["#{unit} >= ? AND #{unit} <= ?", value, value + range])
 
 	end
 end
