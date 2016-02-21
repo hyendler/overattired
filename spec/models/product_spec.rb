@@ -12,4 +12,11 @@ RSpec.describe Product, type: :model do
 		end
 	end
 
+	describe 'associations' do
+    it 'should have one measurement' do
+      t = Product.reflect_on_association(:measurement)
+      t.macro.should == :has_one
+    end
+  end
+
 end
