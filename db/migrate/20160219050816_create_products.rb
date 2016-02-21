@@ -4,6 +4,11 @@ class CreateProducts < ActiveRecord::Migration
     	t.string :name
     	t.string :gender
     	t.string :url
+      t.float :hip
+      t.float :waist
+      t.float :bust
+      t.float :chest
+      t.float :inseam
     	t.timestamps null: false
     end
   end
