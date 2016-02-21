@@ -30,4 +30,12 @@ RSpec.describe User, type: :model do
 	  expect{form.save}.to change{User.count}.by(1)
 	end
   end
+
+  describe 'associations' do
+  	it 'should have one measurement' do
+  		t = User.reflect_on_association(:measurement)
+    	t.macro.should == :has_one
+  	end
+
+  end
 end
