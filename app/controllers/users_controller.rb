@@ -20,8 +20,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    p "HERE"
-    # @user.destroy
+    @user.destroy
     redirect_to "/"
     # send a flash success
   end
