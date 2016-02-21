@@ -6,7 +6,11 @@ class MeasurementsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    if params[:product_id]
+      @measurable = Product.find(params[:product_id])
+    else
+      @measurable = User.find(params[:user_id])
+    end
     # returns @measurement
   end
 
@@ -24,7 +28,7 @@ class MeasurementsController < ApplicationController
       if @measurement.measurable_type == "Product"
         redirect_to product_measurement_path(@measurable.id, @measurement.id)
       else
-        redirect_to user_measurement_path(@measurable.id, @measurement.id)
+        redirect_to user_path(@measurable)
       end
     else
       errs
@@ -46,7 +50,12 @@ class MeasurementsController < ApplicationController
   end
 
   def new
-    @product = Product.find(params[:product_id])
+    if params[:product_id]
+      @measurable = Product.find(params[:product_id])
+    else
+      @measurable = User.find(params[:user_id])
+    end
+
   	@measurement = Measurement.new
   end
 
