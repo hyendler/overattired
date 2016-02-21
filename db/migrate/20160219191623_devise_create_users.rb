@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :gender
-      t.float :hip
+      t.float :hips
       t.float :waist
       t.float :bust
       t.float :chest
