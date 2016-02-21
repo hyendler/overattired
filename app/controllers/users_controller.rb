@@ -19,11 +19,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @user.destroy
-  #   redirect_to "/"
-  #   # send a flash success
-  # end
+  def destroy
+    p "HERE"
+    # @user.destroy
+    redirect_to "/"
+    # send a flash success
+  end
 
   private
   def set_user

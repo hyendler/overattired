@@ -1,13 +1,14 @@
 class MeasurementsController < ApplicationController
-  # before_action :set_measurement, only: [:show, :edit, :update]
+  before_action :set_measurement, only: [:show, :edit, :update]
 
-  # def show
-  #   # returns @measurement
-  # end
+  def show
+    # returns @measurement
+  end
 
-  # def edit
-  #   # returns @measurement
-  # end
+  def edit
+    @product = Product.find(params[:id])
+    # returns @measurement
+  end
 
   # def create
   #   @measurement = Measurement.new(measurement_params)
@@ -29,11 +30,11 @@ class MeasurementsController < ApplicationController
   # 	@measurement = Measurement.new
   # end
 
-  # private
+  private
 
-  # def set_measurement
-  #   @measurement = Measurement.find(params[:id])
-  # end
+  def set_measurement
+    @measurement = Measurement.find(params[:id])
+  end
 
   # def measurement_params
   #   params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :measurable_type, :measurable_id)

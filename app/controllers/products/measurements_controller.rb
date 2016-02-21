@@ -6,6 +6,11 @@ class Products::MeasurementsController < ApplicationController
   end
 
   def edit
+    p "*******************************"
+    p "Hitting Products Measurement Controller"
+    p "*******************************"
+
+    @product = Product.find(params[:id])
     # returns @measurement
   end
 
