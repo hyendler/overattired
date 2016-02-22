@@ -16,7 +16,9 @@
     <ul class="nav navbar-nav navbar-right">
     <% if current_user %>
       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+      <% if current_user.admin == false %>
   	  <li><%= link_to "my profile", user_path(current_user.id) %></li>
+      <% end %>
     <% else %>
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "login", new_user_session_path %></li>
