@@ -22,6 +22,22 @@ RSpec.describe Measurement, type: :model do
 	  	expect(user_measurement1).to have_attributes(:waist => 30)
 	  end
 	end
+
+	context 'for a female product' do
+	  it 'has a gender' do
+	  	expect(product_measurement1).to have_attributes(:gender => "female")
+	  end
+	  it 'has an hips' do
+	  	expect(product_measurement1).to have_attributes(:hips => 41)
+	  end
+	  it 'has an bust' do
+	  	expect(product_measurement1).to have_attributes(:bust => 38)
+	  end
+	  it 'has an waist' do
+	  	expect(product_measurement1).to have_attributes(:waist => 29)
+	  end
+	end
   end
+
 
 end
