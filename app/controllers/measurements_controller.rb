@@ -60,13 +60,10 @@ class MeasurementsController < ApplicationController
 
   def find_measurable
     if params[:product_id]
-      p params[:product_id]
       @measurable = Product.find(params[:product_id])
     else
       @measurable = User.find(params[:user_id])
     end
-    p "------------------------------------"
-    p @measurable
   end
 
   def errs
