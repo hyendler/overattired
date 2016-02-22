@@ -59,6 +59,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dotenv (2.1.0)
     erubis (2.7.0)
     execjs (2.6.0)
     faker (1.6.1)
@@ -173,6 +174,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   devise
+  dotenv
   faker
   jbuilder (~> 2.0)
   jquery-rails
