@@ -58,9 +58,7 @@
       <%= measurements_form.text_area :inseam, :class => "form-control", :value => "#{@product.measurement.inseam}" %>
     </fieldset>
 
-    <fieldset class="form-group">
-      <%= f.submit %>
-    </fieldset>
+      <%= f.submit :class => "btn btn-primary"%>
 
   <% end %>
 <% end %>

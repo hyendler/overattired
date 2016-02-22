@@ -16,18 +16,18 @@
     </div>
   <% end %>
 
-  <p>
+  <fieldset class="form-group">   
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </p>
+    <%= f.text_field :first_name, :class => "form-control" %>
+  </fieldset>
 
-  <p>
+  <fieldset class="form-group">
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </p>
+    <%= f.text_field :last_name, :class => "form-control" %>
+  </fieldset>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <!-- update email, password? -->
+
+    <%= f.submit :class => "btn btn-primary"%>
 
 <% end %>

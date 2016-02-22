@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+/* get all media queries in here, and check container widths at each size
+* organize product page to look similar in html
+*/
+@media (min-width: 1200px){
+	.container {
+	    width: 1000px;
+	}
+}
+
+@media (min-width: 768px){
+
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0px;
+}
+
+.info-display__links, .info-display__details {
+	margin-top: 15px;
+}
