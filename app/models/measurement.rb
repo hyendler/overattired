@@ -9,8 +9,8 @@ class Measurement < ActiveRecord::Base
 
   # end
 
-  def measurement_is_a_number
-    case
-  end
+  # def measurement_is_a_number
+  #   case
+  # end
 
 end
