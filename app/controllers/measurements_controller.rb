@@ -31,9 +31,10 @@ class MeasurementsController < ApplicationController
   def update
     if @measurement.update(measurement_params)
       if @measurement.measurable_type == "Product"
-        redirect_to product_measurement_path(@measurement.measurable.id, @measurement.id)
+        redirect_to product_path(@measurement.measurable.id)
       else
-        redirect_to user_measurement_path(@measurement.measurable.id, @measurement.id)
+        redirect_to user_path(@measurement.measurable.id)
+        # redirect_to user_measurement_path(@measurement.id, @measurement.measurable.id)
       end
     else
       errs
