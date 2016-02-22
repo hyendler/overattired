@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
     # returns @user
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :gender, :hips, :waist, :bust, :chest, :inseam)
+    params.require(:user).permit(:first_name, :last_name)
   end
 
   def errs
