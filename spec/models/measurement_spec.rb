@@ -9,6 +9,8 @@ RSpec.describe Measurement, type: :model do
 
   let(:no_gender_measurement) {Measurement.new(measurable_type: User, measurable_id: 3, waist: 30, chest: 42, inseam: 31)}
 
+  let (:bad_input_measurement) {Measurement.new(measurable_type: User, measurable_id: 3, chest: "hairy")}
+
   describe 'attributes' do
   	context 'for a male user' do
 	  it 'has a gender' do
@@ -28,6 +30,11 @@ RSpec.describe Measurement, type: :model do
       it 'when the gender field is empty' do
         no_gender_measurement.save
         expect(no_gender_measurement.errors[:gender]).to include("can't be blank")
+      end
+
+      it 'when the chest measurement is not an integer' do
+        bad_input_measurement.save
+        expect(bad_input_measurement.errors[:chest]).to include("is not a number")
       end
     end
 	end
