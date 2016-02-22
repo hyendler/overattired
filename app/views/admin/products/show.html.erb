@@ -1,73 +1,63 @@
 <h1><%= "Details for #{@product.name}" %></h1>
 
-<p><%= link_to "Edit Product Details", edit_admin_product_path %></p>
+<div class="row info-display">
+  <div class="col-md-4">
+    <div class="sidebar info-display__links"> 
+			<p><%= link_to "Edit Product Details", edit_admin_product_path %></p>
 
-<% if @product.measurement %>
+			<% if @product.measurement %>
 
-	<p><%= link_to "Edit Product Measurements", edit_product_measurement_path(@product.measurement, @product) %></p>
+				<p><%= link_to "Edit Product Measurements", edit_product_measurement_path(@product.measurement, @product) %></p>
 
-<% else %>
+			<% else %>
 
-	<p><%= link_to "Add Product Measurements", new_product_measurement_path(@product.id) %></p>
+				<p><%= link_to "Add Product Measurements", new_product_measurement_path(@product.id) %></p>
 
-<% end %>
+			<% end %>
 
-<p><%= link_to "Delete Product", admin_product_path, method: :delete %></p>
-<p><%= link_to "Back to All Products", admin_products_path %></p>
+			<p><%= link_to "Delete Product", admin_product_path, method: :delete %></p>
+			<p><%= link_to "Back to All Products", admin_products_path %></p>
+		</div>
+	</div>
 
-<h2>Product Details</h2>
-<p>
-  <strong>Title:</strong>
-  <%= @product.name %>
-</p>
+	<div class="col-md-8">
+    <div class="row">
+      <div class="col-md-12 info-display__details">
+				<h2>Product Details</h2>
+				<p>
+				  <strong>Title:</strong>
+				  <%= @product.name %>
+				</p>
 
-<p>
-  <strong>Link:</strong>
-  <a href=<%= @product.url %>><%= @product.url %></a>
-</p>
+				<p>
+				  <strong>Link:</strong>
+				  <a href=<%= @product.url %>><%= @product.url %></a>
+				</p>
+			</div><!--col-12-close-->
+		</div><!-- row close-->
+	
 
-<% if @product.measurement %>
-	<h2>Product Measurements</h2>
+	<div class="row">
+    <div class="col-md-12 info-display__details">
 
-	  <p>
-	    <strong>Gender:</strong>
-	    <%= @product.measurement.gender %>
-	  </p>
+			<% if @product.measurement %>
+				
+				<h2>Product Measurements</h2>
+				  <p><strong>Gender: </strong><%= @product.measurement.gender %></p>
 
-	<% if @product.measurement.gender == 'female' || @product.measurement.gender == 'Female' %>
+				<% if @product.measurement.gender == 'female' || @product.measurement.gender == 'Female' %>
+				  <p><strong>Hips: </strong><%= @product.measurement.hips %></p>
+				  <p><strong>Waist: </strong><%= @product.measurement.waist %></p>
+				  <p><strong>Bust: </strong><%= @product.measurement.bust %></p>
+				<% else %>
+				  <p><strong>Waist: </strong><%= @product.measurement.waist %></p>
+				  <p><strong>Chest: </strong><%= @product.measurement.chest %></p>
+				  <p><strong>Inseam: </strong><%= @product.measurement.inseam %></p>
+				<% end %>
 
-	  <p>
-	    <strong>Hip:</strong>
-	    <%= @product.measurement.hips %>
-	  </p>
+			<% end %>
 
-	  <p>
-	    <strong>waist:</strong>
-	    <%= @product.measurement.waist %>
-	  </p>
-
-	  <p>
-	    <strong>bust:</strong>
-	    <%= @product.measurement.bust %>
-	  </p>
-
-	<% else %>
-	  <p>
-	    <strong>waist:</strong>
-	    <%= @product.measurement.waist %>
-	  </p>
-
-	  <p>
-	    <strong>chest:</strong>
-	    <%= @product.measurement.chest %>
-	  </p>
-
-	  <p>
-	    <strong>inseam:</strong>
-	    <%= @product.measurement.inseam %>
-	  </p>
-
-	<% end %>
-
-<% end %>
-
+			</div>
+		</div>
+  </div><!-- col-8-close-->
+</div>
