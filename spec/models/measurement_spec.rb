@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Measurement, type: :model do
   let(:product_measurement1) {Measurement.create(measurable_type: Product, measurable_id: 1, gender: "female", hips: 41, waist: 29, bust: 38)}
-  let(:product) {Product.create(name: "Vintage 1950s Suit", url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1")}
+  let(:product1) {Product.create(name: "Vintage 1950s Suit", url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1")}
 
   let(:user_measurement1) {Measurement.create(measurable_type: User, measurable_id: 3, gender: "male" , waist: 30, chest: 42, inseam: 31)}
-  let(:user) {User.create(first_name: "Ovi", last_name: "Calvin", email: "ovi@gmail.com", password: "12345678")}
+  let(:user1) {User.create(first_name: "Ovi", last_name: "Calvin", email: "ovi@gmail.com", password: "12345678")}
 
   describe 'attributes' do
   	context 'for a male user' do
@@ -39,5 +39,11 @@ RSpec.describe Measurement, type: :model do
 	end
   end
 
+  describe 'associations' do
+		it 'belongs to measurable' do
+		  t = Measurement.reflect_on_association(:measurable)
+		  t.macro.should == :belongs_to
+		end
+  end
 
 end
