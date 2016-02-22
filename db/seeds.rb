@@ -149,7 +149,6 @@ Measurement.create(measurable_type: Product, measurable_id: 9, gender: "male" , 
 # Chest: 42”
 # Shoulders: 19”
 # Sleeves: 25”
-# Length: 29”
 
 # Trousers
 # Waist: 29” (plus another 3" to let out)
