@@ -1,6 +1,7 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < Admin::BaseController
   before_action :set_product, only: [:show, :update, :destroy]
   before_action :authenticate_user!
+  before_filter :verify_admin
 
   def index
   	@products = Product.all
@@ -48,7 +49,6 @@ class Admin::ProductsController < ApplicationController
   end
 
 private
-
   def product_params
     params.require(:product).permit(:name, :url, measurement_attributes: [:id, :gender, :hips, :waist, :chest, :inseam, :bust])
   end
