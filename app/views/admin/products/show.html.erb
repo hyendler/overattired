@@ -5,14 +5,8 @@
     <div class="sidebar info-display__links"> 
 			<p><%= link_to "Edit Product Details", edit_admin_product_path %></p>
 
-			<% if @product.measurement %>
-
-				<p><%= link_to "Edit Product Measurements", edit_product_measurement_path(@product.measurement, @product) %></p>
-
-			<% else %>
-
+			<% if !@product.measurement %>
 				<p><%= link_to "Add Product Measurements", new_product_measurement_path(@product.id) %></p>
-
 			<% end %>
 
 			<p><%= link_to "Delete Product", admin_product_path, method: :delete %></p>

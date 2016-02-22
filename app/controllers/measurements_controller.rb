@@ -31,9 +31,10 @@ class MeasurementsController < ApplicationController
   def update
     if @measurement.update(measurement_params)
       if @measurement.measurable_type == "Product"
-        redirect_to product_measurement_path(@measurement.measurable.id, @measurement.id)
+        redirect_to product_path(@measurement.measurable.id)
       else
-        redirect_to user_measurement_path(@measurement.measurable.id, @measurement.id)
+        redirect_to user_path(@measurement.measurable.id)
+        # redirect_to user_measurement_path(@measurement.id, @measurement.measurable.id)
       end
     else
       errs
@@ -59,10 +60,13 @@ class MeasurementsController < ApplicationController
 
   def find_measurable
     if params[:product_id]
+      p params[:product_id]
       @measurable = Product.find(params[:product_id])
     else
       @measurable = User.find(params[:user_id])
     end
+    p "------------------------------------"
+    p @measurable
   end
 
   def errs
