@@ -14,8 +14,8 @@ Product.delete_all
 User.delete_all
 Measurement.delete_all
 
-Product.create(name: "Vintage 1950s Suit", url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1")
-#sub-name: "Red and Black 50s Suit with Peplum"
+Product.create(title: "Vintage 1950s Suit", url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1")
+#sub-title: "Red and Black 50s Suit with Peplum"
 #size: Medium
 #description: "This suit is totally classy! The black rayon has very thin red striped woven through. The jacket has a V neckline and a collar trimmed with bows. It buttons down the waist with fabric covered buttons (the bottom button is faked with a hook behind it. There is a lightly flare peplum trimmed with an extra flap in back, with even more bows! The front of the jacket is fitted with normal darts, but the back has a fascinating horizontal curved seam for fit. The skirt is a classic straight silhouette with a vertical tuck down the front, and a kick pleat in back. It fastens with a side metal zipper and button. This suit is in excellent vintage condition, with no holes, stains, odors to note. It has been pinned on model to show fit."
 #price: 110.00
@@ -32,8 +32,8 @@ Measurement.create(measurable_type: Product, measurable_id: 1, gender: "female",
 # hipss: 41
 # Length: 27
 
-Product.create(name: "Vintage 1950's Skirt", url: "https://www.etsy.com/listing/268527485/vintage-1950s-skirt-pleated-and-striped?ref=shop_home_active_2")
-#sub-name: Pleated and Striped 50s Wool Skirt
+Product.create(title: "Vintage 1950's Skirt", url: "https://www.etsy.com/listing/268527485/vintage-1950s-skirt-pleated-and-striped?ref=shop_home_active_2")
+#sub-title: Pleated and Striped 50s Wool Skirt
 #size: "small"
 #price: 50.00
 #description: "This wool skirt features a great variety of lovely colors! It is pleated from the waist, and vertically striped in Forest Green, Navy Blue, Royal Purple and Yellow! The flattering wide waistband has buttonhole style belt loops. The skirt fastens with a metal zipper and two buttons.This skirt is in excellent vintage condition, with no holes, stains, odors to note."
@@ -44,8 +44,8 @@ Measurement.create(measurable_type: Product, measurable_id: 2, gender: "female",
 # hipss: free
 # Overall Length: 30
 
-Product.create(name: "Vintage 1950s Jacket", url: "https://www.etsy.com/listing/268629438/vintage-1950s-jacket-black-50s-western?ref=shop_home_active_4")
-#sub-name: "Black 50s Western Blazer"
+Product.create(title: "Vintage 1950s Jacket", url: "https://www.etsy.com/listing/268629438/vintage-1950s-jacket-black-50s-western?ref=shop_home_active_4")
+#sub-title: "Black 50s Western Blazer"
 #size: "Medium Large"
 #price: 55.00
 #description: "This black jacket is a wardrobe staple with just enough charming details to keep it interesting! Made of a soft true black wool and only very lightly padded at the shoulders, it is also fully lined. The jacket has a sweet curved notched collar and real pockets, both of which are decorated with a western style curved appliqué. It fastens in front with 4 fabric covered buttons, and even has an extra button inside just in case! The long sleeves have a small turned up cuff. This jacket is in good vintage condition, with no holes, stains, odors to note. It has been pinned on model to show fit."
@@ -57,8 +57,8 @@ Measurement.create(measurable_type: Product, measurable_id: 3, gender: "female",
 # Overall Length: 23
 # Sleeve Length: 23.5
 
-Product.create(name: "Vintage 1950s Jacket", url: "https://www.etsy.com/listing/268514567/vintage-1950s-jacket-mulberry-wool?ref=shop_home_active_6")
-# sub-name: "Mulberry Wool Tailored Blazer"
+Product.create(title: "Vintage 1950s Jacket", url: "https://www.etsy.com/listing/268514567/vintage-1950s-jacket-mulberry-wool?ref=shop_home_active_6")
+# sub-title: "Mulberry Wool Tailored Blazer"
 # size: "Extra Small"
 # description: "This mulberry wool tailored jacket is just stunning! It is made of a soft wool gabardine, and the photos don't quite do the color justice- it is squarely in between royal purple and maroon- a true jewel tone! It is fitted with princess seams and has light padding in the hipss to reinforce that hourglass silhouette. The shoulders are also lightly padded. The deep neckline has a wide shawl collar, and the jacket fastens slightly asymmetrically with two black buttons. The label inside is from Craig's in Houston. The jacket is fully lined with raspberry silk crepe. This jacket is in excellent vintage condition, with no holes, stains, odors to note."
 # tags: "Clothing", "Women's Clothing", "Jackets & Coats", "Red 50s Jacket", "Mulberry 1950s coat", "Purple blazer", "Maroon suit jacket", "Hourglass", "Overattired", "Extra Small XS", "Wool jacket", "1940s 40s", "Shawl collar", "V neckline", "Tailored jacket", "Jewel tone"
@@ -69,8 +69,8 @@ Measurement.create(measurable_type: Product, measurable_id: 4, gender: "female",
 # Overall Length: 21.5
 # Sleeve Length: 23
 
-Product.create(name: "Vintage 1960s Dress", url: "https://www.etsy.com/listing/267581417/vintage-1960s-dress-black-jersey-belted?ref=shop_home_active_3")
-# sub-name: "Black Jersey Belted Dress"
+Product.create(title: "Vintage 1960s Dress", url: "https://www.etsy.com/listing/267581417/vintage-1960s-dress-black-jersey-belted?ref=shop_home_active_3")
+# sub-title: "Black Jersey Belted Dress"
 # size: "Small"
 # price: 55.00
 # description: "Great little black dress by Catalina! Slightly stretchy jersey knit in inky black. Long sleeved and pencil fit skirt. Matching let included. Nylon zipper up the back. This dress is in excellent vintage condition, with no holes, stains, odors to note."
@@ -85,8 +85,8 @@ Measurement.create(measurable_type: Product, measurable_id: 5, gender: "female",
 # Overall Length: 37
 # Sleeve Length: 23.5
 
-Product.create(name: "Vintage 1950s dress", url: "https://www.etsy.com/listing/268485785/vintage-1950s-dress-green-and-purple?ref=shop_home_active_7")
-# sub-name: "Green and Purple Paisley 50s Shirtwaist Dress"
+Product.create(title: "Vintage 1950s dress", url: "https://www.etsy.com/listing/268485785/vintage-1950s-dress-green-and-purple?ref=shop_home_active_7")
+# sub-title: "Green and Purple Paisley 50s Shirtwaist Dress"
 # size: "Extra Large"
 # price: 55.00
 # text-description: "This great paisley shirtwaist dress is was made by Palm Fashion of 100% Dacron Polyester. It is a great example of 50s permanent press technology- the knife pleats in the skirt are just as precise as when it was made, and the fabric won't even think about wrinkling! The fabric is slightly sheer when held up to the light, so wearing a slip underneath would be advisable. It fastens with pearlescent grey buttons down the front and one hook at the waist. Belt is shown for inspiration only and is not included.
@@ -100,8 +100,8 @@ Measurement.create(measurable_type: Product, measurable_id: 6, gender: "female",
 # Overall Length: 44
 
 
-Product.create(name: "Vintage 1950s Mens Suit", url: "https://www.etsy.com/listing/268235639/vintage-1950s-mens-suit-brown-striped?ref=shop_home_active_18")
-# sub-name: "Brown Striped 50s Two Piece Suit"
+Product.create(title: "Vintage 1950s Mens Suit", url: "https://www.etsy.com/listing/268235639/vintage-1950s-mens-suit-brown-striped?ref=shop_home_active_18")
+# sub-title: "Brown Striped 50s Two Piece Suit"
 # size: 40
 # price: 225.00
 # description: "This 50s two piece suit by Fieldshire is made of tone on tone striped fabric with a great mid-century look! The single breasted narrow lapel jacket closes with two buttons and has a single vent at back. The lower outside pockets are welted and have an optional pocket flap. The trousers have a flat front, close with a metal zipper fly, and are cuffed. This suit is in excellent vintage condition with no holes, stains, or odors to note."
@@ -118,8 +118,8 @@ Measurement.create(measurable_type: Product, measurable_id: 7, gender: "male", w
 # Waist: 36”
 # Inseam: 30” (plus another 3" to let out)
 
-Product.create(name: "Vintage 1930s Style Mens Suit", url: "https://www.etsy.com/listing/268332362/vintage-1930s-style-mens-suit-brown-and?ref=shop_home_active_19")
-# sub-name:  "Brown and Blue Tweed Belted Back Suit"
+Product.create(title: "Vintage 1930s Style Mens Suit", url: "https://www.etsy.com/listing/268332362/vintage-1930s-style-mens-suit-brown-and?ref=shop_home_active_19")
+# sub-title:  "Brown and Blue Tweed Belted Back Suit"
 # size: 42
 # price 250.00
 # description: "This fantastic single breasted suit is made in a 1930s Belted Back style with box pleated flap pockets of a brown and blue tweed wool with an intricate pattern. The belted back has a western style yoke and a single center box pleat above the belt with a single vent below.
@@ -136,8 +136,8 @@ Measurement.create(measurable_type: Product, measurable_id: 8, gender: "male", w
 # Waist: 33 (plus another 2 to let out)
 # Inseam: 28 (plus another 1.5 to let out)
 
-Product.create(name: "Vintage 1940s Mens Suit", url: "https://www.etsy.com/listing/268234425/vintage-1940s-mens-suit-blue-peak-lapel?ref=related-0")
-# sub-name: "Blue Peak Lapel 40s Suit"
+Product.create(title: "Vintage 1940s Mens Suit", url: "https://www.etsy.com/listing/268234425/vintage-1940s-mens-suit-blue-peak-lapel?ref=related-0")
+# sub-title: "Blue Peak Lapel 40s Suit"
 # size: 40
 # price: 225.00
 # description: "Can you imagine a more classic 1940s suit? The true blue wool and giant peaked lapels are just perfect! The suit is made by Siegel's of San Francisco from a smooth wool twill. The double breasted jacket has 6 outer buttons. Two are functional, and there is an extra keeper button on the inside of the jacket. The two lower jacket pockets are welted, and the pocket on the right has an additional smaller pocket inside! The back is unvented. The Hollywood waist trousers have front pleats and dropped belt loops. The back left pocket has a great pointed button tab, and the trousers are cuffed. Please note: The blue color is vibrant and true throughout the suit, with no fading. Our lights reflected off this to create the apparent fade in some photos. This suit is in excellent vintage condition with no holes, stains, or odors to note."

@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
 
   has_one :measurement, as: :measurable, dependent: :destroy
 
-  # before_action :authenticate_user!
-
   	def querying(unit, range, gender)
 
 		value = self.measurement[unit]
