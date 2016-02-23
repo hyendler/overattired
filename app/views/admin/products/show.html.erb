@@ -1,8 +1,8 @@
-<h1><%= "Details for #{@product.name}" %></h1>
+<h1><%= "Details for #{@product.title}" %></h1>
 
 <div class="row info-display">
   <div class="col-md-4">
-    <div class="sidebar info-display__links"> 
+    <div class="sidebar info-display__links">
 			<p><%= link_to "Edit Product Details", edit_admin_product_path %></p>
 
 			<% if !@product.measurement %>
@@ -20,7 +20,7 @@
 				<h2>Product Details</h2>
 				<p>
 				  <strong>Title:</strong>
-				  <%= @product.name %>
+				  <%= @product.title %>
 				</p>
 
 				<p>
@@ -29,13 +29,13 @@
 				</p>
 			</div><!--col-12-close-->
 		</div><!-- row close-->
-	
+
 
 	<div class="row">
     <div class="col-md-12 info-display__details">
 
 			<% if @product.measurement %>
-				
+
 				<h2>Product Measurements</h2>
 				  <p><strong>Gender: </strong><%= @product.measurement.gender %></p>
 
