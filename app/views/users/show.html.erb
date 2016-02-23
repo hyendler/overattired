@@ -20,12 +20,22 @@
     <div class="row">
       <div class="col-md-12 info-display__details">
         <h3>Your Matches</h3>
-          <ul>
-            <% @matches.each do |match| %>
+
+          <% @matches.each do |match| %>
+            <ul>
               <li><%= match.title %></li>
-              <li><a href="<%= match.url %>"><%= match.url %></a></li>
-            <% end %>
-          </ul>
+              <ul>
+                <li><%= match.subtitle %></li>
+                <li>Category: <%= match.category %></li>
+                <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
+                <li><a href="<%= match.image_url %>">Image Link: <%= match.image_url %></a></li>
+                <li>Price: $<%= match.price %></li>
+                <li>Size: <%= match.size %></li>
+                <li>Decade: <%= match.when_made %></li>
+                <li>Description: <%= match.description %></li>
+              </ul>
+            </ul>
+          <% end %>
       </div><!--col close-->
     </div><!--row close-->
 
