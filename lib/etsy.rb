@@ -6,7 +6,7 @@ require 'json'
 
 def scrape_etsy
   # request all products (150 limit) in OverAttired Vintage Shop, Include Main Image url
-  url = URI("https://openapi.etsy.com/v2/shops/10849718/listings/active?includes=MainImage&limit=150&api_key=#{ENV["ETSY_KEYSTRING"]}")
+  url = URI("https://openapi.etsy.com/v2/shops/10849718/listings/active?includes=MainImage&limit=12&api_key=#{ENV["ETSY_KEYSTRING"]}")
   data = Net::HTTP.get(url)
   parsed_data = JSON(data)
 end
@@ -27,10 +27,10 @@ def description_parse(listing)
 end
 
 def store_data_from_etsy
-  product = Product.new
+  # product = Product.new
   # measurement = Measurement.new
 
-  parsed_data = scrape_etsy
+  p parsed_data = scrape_etsy
 
   parsed_data["results"].each do |listing|
 
@@ -57,7 +57,7 @@ def store_data_from_etsy
     product.image_url = listing["image_url"]
   end
 
-  product.save
+  # product.save
 end
 
 

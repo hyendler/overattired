@@ -6,6 +6,7 @@ class Admin::ProductsController < Admin::BaseController
   before_filter :verify_admin
 
   def index
+    store_data_from_etsy
   	@products = Product.all
   end
 
