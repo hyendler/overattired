@@ -170,3 +170,5 @@ User.create(first_name: "Stuart", last_name: "Ed", email: "stuart@gmail.com", pa
 
 Measurement.create(measurable_type: User, measurable_id: 4, gender: "male" , waist: 33, chest: 43, inseam: 29)
 
+# ADMIN
+User.create(first_name: "Sam", last_name: "Simmons", email: "admin@admin.com", password: "12345678", admin = true)
