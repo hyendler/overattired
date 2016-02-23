@@ -30,7 +30,7 @@ class Admin::ProductsController < Admin::BaseController
       redirect_to admin_products_path
     else
       errs
-      render 'edit'
+      render 'new'
     end
   end
 
