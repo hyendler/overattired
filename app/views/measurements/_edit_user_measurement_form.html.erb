@@ -1,6 +1,6 @@
 <h1>Editing Measurements for <%= "#{@measurement.measurable.first_name}" %></h1>
 
-<%= form_for :measurement, url: user_measurement_path(@measurement.id, current_user), method: :patch do |f| %>
+<%= form_for :measurement, url: user_measurement_path(current_user, @measurement.id), method: :patch do |f| %>
 
 <% if @measurement.errors.any? %>
     <div id="error_explanation">
