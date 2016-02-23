@@ -1,0 +1,33 @@
+<h1>Editing <%= "#{@user.first_name}" %>'s Profile</h1>
+
+<%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        these edits from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="form-group">   
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, :class => "form-control" %>
+  </fieldset>
+
+  <!-- update email, password? -->
+
+    <%= f.submit :class => "btn btn-primary"%>
+
+<% end %>
