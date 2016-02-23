@@ -1,0 +1,35 @@
+<h1>Showing the Measurement Page</h1>
+
+<h2>Measurement Details for 
+	<% if @measurement.measurable_type == "Product" %>
+	<%= @measurement.measurable.name %>
+	<% else %>
+	<%= @measurement.measurable.first_name %>
+	<% end %>
+</h2>
+
+<p><%= @measurement.gender %></p>
+
+<% if @measurement.gender == "Female" || @measurement.gender == "female" %>
+
+  <p>Hips: <%= @measurement.hips %></p>
+
+  <p>Bust: <%= @measurement.bust %></p>
+
+  <p>Waist: <%= @measurement.waist %></p>
+
+<% else %>
+
+  <p>Chest: <%= @measurement.chest %></p>
+
+  <p>Inseam: <%= @measurement.inseam %></p>
+
+  <p>Waist: <%= @measurement.waist %></p>
+
+<% end %>
+
+<% if @measurement.measurable_type == "Product" %>
+	<%= link_to "Back to Product Details", admin_product_path(@measurement.measurable.id) %>
+<% else %>
+	<%= link_to "Back to User Details", user_path(@measurement.measurable.id) %>
+<% end %>

@@ -1,0 +1,11 @@
+<% if @measurement.measurable_type == "Product" %>
+
+  <%= render "edit_product_measurement_form" %>
+
+<% else %>
+
+  <%= render "edit_user_measurement_form" %>
+
+<% end %>
+
+
