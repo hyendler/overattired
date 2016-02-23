@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
   let(:form2)  {User.create(id: 51, first_name: 'Ovi', last_name: 'Calvo', email: 'ovi222@gmail.com', password: '12345678')}
   let(:measurement_for_form) {Measurement.create(gender: "male", chest: 30, measurable_type: "User", measurable_id: 51)}
 
-  let(:product)  {Product.create(id: 30, name: "Vintage 1950s Jacket", url: "https://www.etsy.com/listing/268514567/vintage-1950s-jacket-mulberry-wool?ref=shop_home_active_6")}
+  let(:product)  {Product.create(id: 30, title: "Vintage 1950s Jacket", url: "https://www.etsy.com/listing/268514567/vintage-1950s-jacket-mulberry-wool?ref=shop_home_active_6")}
   let(:measurement_for_product) {Measurement.create(gender: "male", chest: 31, measurable_type: "Product", measurable_id: 30)}
 
   describe 'validations' do

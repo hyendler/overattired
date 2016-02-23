@@ -1,8 +1,8 @@
 <h1>Showing the Measurement Page</h1>
 
-<h2>Measurement Details for 
+<h2>Measurement Details for
 	<% if @measurement.measurable_type == "Product" %>
-	<%= @measurement.measurable.name %>
+	<%= @measurement.measurable.title %>
 	<% else %>
 	<%= @measurement.measurable.first_name %>
 	<% end %>

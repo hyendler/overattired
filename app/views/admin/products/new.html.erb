@@ -1,4 +1,4 @@
-<p> Create a new product </p>
+<h1> Create a new product </h1>
 
 <%= form_for :product, url: admin_products_path, method: :post, html: { class: "test_class" } do |f| %>
 
@@ -16,15 +16,50 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+  <fieldset class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </fieldset>
 
-  <p>
+  <fieldset class="form-group">
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :category %>
+    <%= f.text_field :category, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
     <%= f.label :url %>
-    <%= f.text_area :url %>
-  </p>
+    <%= f.text_field :url, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :size %>
+    <%= f.text_field :size, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :when_made %>
+    <%= f.text_field :when_made, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "form-control" %>
+  </fieldset>
 
     <p>
       <%= f.submit %>
