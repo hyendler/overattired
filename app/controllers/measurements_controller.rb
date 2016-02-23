@@ -7,6 +7,8 @@ class MeasurementsController < ApplicationController
 
   def edit
     @measurable = find_measurable
+    p "EDIT"
+    p @measurement.id
     # returns @measurement
   end
 
@@ -30,6 +32,8 @@ class MeasurementsController < ApplicationController
 
   def update
     if @measurement.update(measurement_params)
+      p "UPDATE"
+      p @measurement.id
       if @measurement.measurable_type == "Product"
         redirect_to product_path(@measurement.measurable.id)
       else
