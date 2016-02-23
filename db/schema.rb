@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223023302) do
+ActiveRecord::Schema.define(version: 20160223191108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20160223023302) do
     t.string   "measurable_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.float    "shoulder"
+    t.float    "sleeve_length"
+    t.float    "overall_length"
   end
 
   add_index "measurements", ["measurable_type", "measurable_id"], name: "index_measurements_on_measurable_type_and_measurable_id", using: :btree
