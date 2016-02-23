@@ -27,7 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
 gem 'dotenv-rails', '~> 2.1'
 gem 'devise'
-
+gem 'awesome_print'
+gem 'pry'
 gem 'rspec'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
