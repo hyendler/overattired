@@ -71,7 +71,7 @@ Measurement.create(measurable_type: Product, measurable_id: 3, gender: "female",
 
 Product.create(
   title: "Vintage 1940s Jacket",
-  url: "https://www.etsy.com/listing/264705266/vintage-1940s-jacket-cranberry-wool?ref=related-1"
+  url: "https://www.etsy.com/listing/264705266/vintage-1940s-jacket-cranberry-wool?ref=related-1",
   subtitle: "Cranberry Wool Gabardine 40s 50s Coat",
   size: "Large",
   description: "Gorgeous late 1940s / early 1950s rich cranberry colored wool gabardine jacket with large notched lapels, great curvy pocket details, and self covered buttons up the front. Beautifully tailored and fully lined. Made by 'Best Apparel Seattle'. This jacket is in excellent vintage condition, with no holes, stains, odors to note - some incredibly minor wear on the inside of the collar and one tiny pin head hole in the fabric, neither of which are not seen during wear. It has been pinned on model to show fit.",
