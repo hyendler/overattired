@@ -22,14 +22,14 @@
         <h3>Your Matches</h3>
           <ul>
             <% @matches.each do |match| %>
-              <li><%= match.name %></li>
+              <li><%= match.title %></li>
               <li><a href="<%= match.url %>"><%= match.url %></a></li>
             <% end %>
           </ul>
       </div><!--col close-->
     </div><!--row close-->
 
-  
+
     <div class="row">
       <div class="col-md-12 info-display__details">
         <h3>Your Measurements</h3>
@@ -42,7 +42,7 @@
           <p><strong>Waist: </strong><%= @user.measurement.waist %></p>
           <p><strong>Inseam: </strong><%= @user.measurement.inseam %></p>
         <% end %>
-      </div><!--col close-->    
+      </div><!--col close-->
     </div><!--row close-->
 
   </div>
