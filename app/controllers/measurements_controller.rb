@@ -19,7 +19,6 @@ class MeasurementsController < ApplicationController
 
   def create
     @measurable = find_measurable
-
     @measurement = Measurement.new(measurement_params)
     @measurement.measurable = @measurable
 

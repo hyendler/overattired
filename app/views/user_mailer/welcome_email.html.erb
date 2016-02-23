@@ -9,6 +9,20 @@
       You have successfully signed up to overattired.com,
       your email is: <%= @user.email %>.<br>
     </p>
+
+    <h1> YOUR MATHCES </h1>
+
+    
+    <% @user.match.each do |product| %>
+      <p> Title: <%= product.title %></p>
+      <p> Link: <%= product.url %></p>
+    <% end %>
+
+
+
+
+
+
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>
