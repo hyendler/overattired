@@ -16,36 +16,50 @@
     </div>
   <% end %>
 
-  <p>
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
-  </p>
+   <fieldset class="form-group">
+      <%= f.radio_button :gender, 'female' %> 
+      <%= f.label :gender, 'Female', :value => 'female' %>
+    </fieldset>
 
-  <p>
-    <%= f.label :waist %>
-    <%= f.text_field :waist %>
-  </p>
+    <fieldset class="form-group">
+      <%= f.radio_button :gender, 'male' %>
+      <%= f.label :gender, 'Male', :value => 'male' %>
+    </fieldset>
 
-  <p>
-    <%= f.label :hips %>
-    <%= f.text_field :hips %>
-  </p>
+    <% hips_range = (30..60).map { |i| [i, i]} %>
 
-  <p>
-    <%= f.label :bust %>
-    <%= f.text_field :bust %>
-  </p>
+    <fieldset class="form-group">
+      <%= f.label :hips %>
+      <%= f.select :hips, hips_range, {}, {class: "measurement-input form-control"} %>
+    </fieldset>
 
-  <p>
-    <%= f.label :inseam %>
-    <%= f.text_field :inseam %>
-  </p>
+    <% waist_range = (20..50).map { |i| [i, i]} %>
 
-  <p>
-    <%= f.label :chest %>
-    <%= f.text_field :chest %>
-  </p>
+    <fieldset class="form-group">
+      <%= f.label :waist %>
+      <%= f.select :waist, waist_range, {}, {class: "measurement-input form-control"} %>
+    </fieldset>
 
+    <% bust_range = (20..60).map { |i| [i, i]} %>
+
+    <fieldset class="form-group">
+      <%= f.label :bust %>
+      <%= f.select :bust, bust_range, {}, {class: "measurement-input form-control"} %>
+    </fieldset>
+
+    <% chest_range = (30..60).map { |i| [i, i]} %>
+
+    <fieldset class="form-group">
+      <%= f.label :chest %>
+      <%= f.select :chest, chest_range, {}, {:class => "measurement-input form-control"}%>
+    </fieldset>
+
+    <% inseam_range = (25..35).map { |i| [i, i]} %>
+
+    <fieldset class="form-group">
+      <%= f.label :inseam %>
+      <%= f.select :inseam, inseam_range, {}, {:class => "measurement-input form-control"} %>
+    </fieldset>
   <p>
     <%= f.submit %>
   </p>
