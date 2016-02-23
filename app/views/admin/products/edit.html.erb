@@ -22,8 +22,43 @@
   </fieldset>
 
   <fieldset class="form-group">
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :price %>
+    <%= f.text_field :price, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :category %>
+    <%= f.text_field :category, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
     <%= f.label :url %>
-    <%= f.text_area :url, :class => "form-control" %>
+    <%= f.text_field :url, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :size %>
+    <%= f.text_field :size, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :when_made %>
+    <%= f.text_field :when_made, :class => "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "form-control" %>
   </fieldset>
 
   <% if @product.measurement %>
@@ -41,22 +76,22 @@
 
       <fieldset class="form-group">
         <%= measurements_form.label :waist %>
-        <%= measurements_form.text_area :waist, :class => "form-control", :value => "#{@product.measurement.waist}" %>
+        <%= measurements_form.text_field :waist, :class => "form-control", :value => "#{@product.measurement.waist}" %>
       </fieldset>
 
       <fieldset class="form-group">
         <%= measurements_form.label :bust %>
-        <%= measurements_form.text_area :bust, :class => "form-control", :value => "#{@product.measurement.bust}" %>
+        <%= measurements_form.text_field :bust, :class => "form-control", :value => "#{@product.measurement.bust}" %>
       </fieldset>
 
       <fieldset class="form-group">
         <%= measurements_form.label :chest %>
-        <%= measurements_form.text_area :chest, :class => "form-control", :value => "#{@product.measurement.chest}"%>
+        <%= measurements_form.text_field :chest, :class => "form-control", :value => "#{@product.measurement.chest}"%>
       </fieldset>
 
       <fieldset class="form-group">
         <%= measurements_form.label :inseam %>
-        <%= measurements_form.text_area :inseam, :class => "form-control", :value => "#{@product.measurement.inseam}" %>
+        <%= measurements_form.text_field :inseam, :class => "form-control", :value => "#{@product.measurement.inseam}" %>
       </fieldset>
 
     <% end %>
