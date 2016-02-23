@@ -1,5 +1,12 @@
 class MeasurementsController < ApplicationController
   before_action :set_measurement, only: [:show, :edit, :update]
+  after_action :send_user_mail, only: [:create]
+
+  def send_user_mail
+    @user = User.find(@measurement.measurable.id)
+    UserMailer.welcome_email(@user).deliver_now
+    p @user.measurement
+  end
 
   def show
     # returns @measurement
