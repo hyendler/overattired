@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
   default from: 'letthewookiewin13@gmail.com'
 	 
-  def welcome_email(user)
+  def sample_email(user)
     @user = user
-    @url  = 'http://overattired.com'
+#     @url  = 'http://overattired.com'
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
 end
