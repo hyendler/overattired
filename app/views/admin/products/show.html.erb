@@ -24,8 +24,33 @@
 				</p>
 
 				<p>
-				  <strong>Link:</strong>
+				  <strong>Sub Title:</strong>
+				  <%= @product.subtitle %>
+				</p>
+
+				<p>
+				  <strong>Price:</strong>
+				  $ <%= @product.price %>
+				</p>
+
+				<p>
+				  <strong>Category:</strong>
+				  <%= @product.category %>
+				</p>
+
+				<p>
+				  <strong>Decade:</strong>
+				  <%= @product.when_made %>
+				</p>
+
+				<p>
+				  <strong>Listing Link:</strong>
 				  <a href=<%= @product.url %>><%= @product.url %></a>
+				</p>
+
+				<p>
+				  <strong>Image Link:</strong>
+				  <a href=<%= @product.image_url %>><%= @product.image_url %></a>
 				</p>
 			</div><!--col-12-close-->
 		</div><!-- row close-->
