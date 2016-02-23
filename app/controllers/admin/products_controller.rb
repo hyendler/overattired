@@ -1,3 +1,5 @@
+require_dependency 'etsy.rb'
+
 class Admin::ProductsController < Admin::BaseController
   before_action :set_product, only: [:show, :update, :destroy]
   before_action :authenticate_user!
