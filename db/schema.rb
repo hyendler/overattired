@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160223191108) do
     t.string   "measurable_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.float    "shoulder"
+    t.float    "shoulders"
     t.float    "sleeve_length"
     t.float    "overall_length"
   end

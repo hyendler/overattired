@@ -10,7 +10,7 @@ def scrape_etsy
   url = URI("https://openapi.etsy.com/v2/shops/10849718/listings/active?includes=MainImage&limit=150&api_key=#{ENV["ETSY_KEYSTRING"]}")
   data = Net::HTTP.get(url)
   parsed_data = JSON(data)
-  count_listings(parsed_data)
+  # count_listings(parsed_data)
   return parsed_data
 end
 
