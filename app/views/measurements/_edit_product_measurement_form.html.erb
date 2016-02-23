@@ -1,0 +1,53 @@
+<h1>Editing Measurements for <%= "#{@measurement.measurable.name}" %></h1>
+
+<%= form_for :measurement, url: product_measurement_path(@measurement.id, @measurement.measurable), method: :patch do |f| %>
+
+<% if @measurement.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@measurement.errors.count, "error") %> prohibited
+        these edits from being saved:
+      </h2>
+      <ul>
+        <% @measurement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </p>
+
+  <p>
+    <%= f.label :hips %>
+    <%= f.text_field :hips %>
+  </p>
+
+  <p>
+    <%= f.label :bust %>
+    <%= f.text_field :bust %>
+  </p>
+
+  <p>
+    <%= f.label :waist %>
+    <%= f.text_field :waist %>
+  </p>
+
+  <p>
+    <%= f.label :chest %>
+    <%= f.text_field :chest %>
+  </p>
+
+  <p>
+    <%= f.label :inseam %>
+    <%= f.text_field :inseam %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
