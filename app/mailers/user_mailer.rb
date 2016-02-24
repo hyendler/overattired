@@ -9,10 +9,10 @@ class UserMailer < ApplicationMailer
   
 
    def send_updates(user)
-  	@user = user
-  	@url = 'http://overattired.com'
-  	
-  	mail(to: @user.email, subject: 'Welcome to Over Attired!')
+  	@users = User.all
+  	@users.each do |user|
+  		mail(to: user.email, subject: 'Here are your matches!')
+  	end
   end
   
 
