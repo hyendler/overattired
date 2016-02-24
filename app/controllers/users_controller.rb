@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def show
     # returns @user
-    p @user.measurement
     p @matches = @user.match
   end
 

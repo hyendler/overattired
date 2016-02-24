@@ -27,6 +27,7 @@
     </fieldset>
 
     <% hips_range = (30..60).map { |i| [i, i]} %>
+    <% hips_range.unshift([nil, ""])%>
 
     <fieldset class="form-group">
       <%= f.label :hips %>
@@ -34,6 +35,7 @@
     </fieldset>
 
     <% waist_range = (20..50).map { |i| [i, i]} %>
+    <% waist_range.unshift([nil, ""])%>
 
     <fieldset class="form-group">
       <%= f.label :waist %>
@@ -41,6 +43,7 @@
     </fieldset>
 
     <% bust_range = (20..60).map { |i| [i, i]} %>
+    <% bust_range.unshift([nil, ""])%>
 
     <fieldset class="form-group">
       <%= f.label :bust %>
@@ -48,6 +51,7 @@
     </fieldset>
 
     <% chest_range = (30..60).map { |i| [i, i]} %>
+    <% chest_range.unshift([nil, ""])%>
 
     <fieldset class="form-group">
       <%= f.label :chest %>
@@ -55,6 +59,7 @@
     </fieldset>
 
     <% inseam_range = (25..35).map { |i| [i, i]} %>
+    <% inseam_range.unshift([nil, ""])%>
 
     <fieldset class="form-group">
       <%= f.label :inseam %>
@@ -62,6 +67,7 @@
     </fieldset>
 
     <% shoulder_range = (14..22).map { |i| [i, i]} %>
+    <% shoulder_range.unshift([nil, ""])%>
 
     <fieldset class="form-group">
       <%= f.label :shoulders %>

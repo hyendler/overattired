@@ -36,17 +36,13 @@ class User < ActiveRecord::Base
 
 	# maybe match on waist?
 	def match_jackets(upper_string, upper_value, shoulders, gender)
-		p upper_string
-		p upper_value
-		p shoulders
-		p gender
 		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(category: "Jacket").where(["measurements.#{upper_string} >= ? AND measurements.#{upper_string} <= ?", upper_value - 1, upper_value + 2]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1, shoulders + 2])
 	end
 
 	# need to come back to the issue of suits
 	def match
 		gender = self.measurement.gender
-		matched_products = {dresses: {}, skirts: {}, trousers: {}, tops: {}, jackets: {}}
+		matched_products = {}
 
 		if gender == "female"
 			waist = self.measurement.waist
@@ -54,21 +50,43 @@ class User < ActiveRecord::Base
 			shoulders = self.measurement.shoulders
 			hips = self.measurement.hips
 
-			matched_products[:dresses] = match_dresses(waist, bust, hips)
-			matched_products[:skirts] = match_skirts(waist, hips)
-			matched_products[:trousers] = match_trousers(waist, "hips", hips, gender)
-			matched_products[:tops] = match_tops("bust", bust, shoulders, gender)
-			matched_products[:jackets] = match_jackets("bust", bust, shoulders, gender)
+			if match_dresses(waist, bust, hips)
+				matched_products[:dresses] = match_dresses(waist, bust, hips)
+			end
+
+			if match_skirts(waist, hips)
+				matched_products[:skirts] = match_skirts(waist, hips)
+			end
+
+			if match_trousers(waist, "hips", hips, gender)
+				matched_products[:trousers] = match_trousers(waist, "hips", hips, gender)
+			end
+
+			if match_tops("bust", bust, shoulders, gender)
+				matched_products[:tops] = match_tops("bust", bust, shoulders, gender)
+			end
+
+			if match_jackets("bust", bust, shoulders, gender)
+				matched_products[:jackets] = match_jackets("bust", bust, shoulders, gender)
+			end
+
 		else #gender will be male
 			waist = self.measurement.waist
 			chest = self.measurement.chest
 			inseam = self.measurement.inseam
 			shoulders = self.measurement.shoulders
 
-			matched_products[:trousers] = match_trousers(waist, "inseam", inseam, gender)
-			matched_products[:tops] = match_tops("chest", chest, shoulders, gender)
-			matched_products[:jackets] = match_jackets("chest", chest, shoulders, gender)
+			if match_trousers(waist, "inseam", inseam, gender)[0]
+				matched_products[:trousers] = match_trousers(waist, "inseam", inseam, gender)
+			end
 
+			if match_tops("chest", chest, shoulders, gender)[0]
+				matched_products[:tops] = match_tops("chest", chest, shoulders, gender)
+			end
+
+			if match_jackets("chest", chest, shoulders, gender)[0]
+				matched_products[:jackets] = match_jackets("chest", chest, shoulders, gender)
+			end
 		end
 
 		return matched_products
