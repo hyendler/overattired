@@ -70,8 +70,10 @@ def parse_gender(listing)
 end
 
 # request all products (200 max) in OverAttired Vintage Shop, Include Main Image url
-# save first url with 100 listing limit (offset = 0)
-# save second url with 100 listing limit (offset of 100 listings)
+# file comes back from etsy with 100 listings per hit in a paginated json
+# to save all products, we make more than one call with offsets configured:
+# first url with 100 listing limit (offset = 0)
+# second url with 100 listing limit (offset of 100 listings, offset=100)
 
 def scrape_etsy(url)
   data = Net::HTTP.get(url)
@@ -82,24 +84,38 @@ end
 
 # CALL THIS METHOD IN CONTROLLER TO STORE NEW PRODUCTS
 def store_data_from_etsy
-  # delete all products from database
-  Product.delete_all
+  all_active_listings = []
   # (see note above re offsets)
+  # more offsets can be added here to increase the number of total products requested
   offset_array = ["offset=0", "offset=100"]
   # iterate through offset_array to call etsy API and store parse data into JSON
   offset_array.each do |offset|
     url = URI("https://openapi.etsy.com/v2/shops/10849718/listings/active?includes=MainImage&limit=100&#{offset}&api_key=#{ENV["ETSY_KEYSTRING"]}")
-    # call etsy api
-    parsed_data = scrape_etsy(url)
+    # call etsy api = #scrape_etsy
+    active_listing_array = scrape_etsy(url)
+    # push results into all_active_listings
+    all_active_listings << active_listing_array
     # iterate through parsed JSON and store product and measurement
-    parsed_data["results"].each do |listing|
+    active_listing_array["results"].each do |listing|
       save_product(listing)
+    end
+  end
+
+  # flatten out the array of arrays - only one level
+  all_active_listings.flatten(1)
+  # iterate through all active products in database
+  Product.where(active: true).find_each do |product|
+  #   # if the product's url is not included in the active_listing_array the product should be treated as sold, active = false
+    if !all_active_listings.include?(product.url)
+      product.update(active: false)
     end
   end
 end
 
 def save_product(listing)
   product = Product.new
+  # any new product will have an active status
+  product.active = true
   # save product title (possibly also subtitle and generic size)
   title_array = parse_title(listing)
   if title_array.length == 3

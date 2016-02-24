@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get :send_updates, to: 'admin/users#send_updates', as: :send_updates
 
-  get :update_products_form_etsy , to: 'admin/products#update_products_form_etsy', as: :update_products_from_etsy
+  get :update_products_from_etsy , to: 'admin/products#update_products_from_etsy', as: :update_products_from_etsy
 
   resources :products do
     resources :measurements
