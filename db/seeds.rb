@@ -17,11 +17,12 @@ Measurement.delete_all
 Product.create(
   title: "Vintage 1950s Suit",
   subtitle: "Red and Black 50s Suit with Peplum",
-  url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1",
+  url: "https://www.etsy.com",
   size: "Medium",
   description: "This suit is totally classy! The black rayon has very thin red striped woven through. The jacket has a V neckline and a collar trimmed with bows. It buttons down the waist with fabric covered buttons (the bottom button is faked with a hook behind it. There is a lightly flare peplum trimmed with an extra flap in back, with even more bows! The front of the jacket is fitted with normal darts, but the back has a fascinating horizontal curved seam for fit. The skirt is a classic straight silhouette with a vertical tuck down the front, and a kick pleat in back. It fastens with a side metal zipper and button. This suit is in excellent vintage condition, with no holes, stains, odors to note. It has been pinned on model to show fit.",
     price: 110.00,
-    image_url: "https://img0.etsystatic.com/127/0/10849718/il_570xN.923959732_kn6l.jpg"
+    image_url: "https://img0.etsystatic.com/127/0/10849718/il_570xN.923959732_kn6l.jpg",
+    active: true
     )
 #tags: "Clothing", "Women's Clothing", "Suits", "Black 50s suit", "Red 1950's suit", "peplum", "pencil skirt", "black and red", "Overattired", "Medium Med M", "Rayon suit", "1940's 40's", "Striped suit", "V neck", "business suit", "kick pleat"
 
@@ -43,7 +44,8 @@ Product.create(
   size: "small",
   price: 50.00,
   description: "This wool skirt features a great variety of lovely colors! It is pleated from the waist, and vertically striped in Forest Green, Navy Blue, Royal Purple and Yellow! The flattering wide waistband has buttonhole style belt loops. The skirt fastens with a metal zipper and two buttons.This skirt is in excellent vintage condition, with no holes, stains, odors to note.",
-  image_url: "https://img1.etsystatic.com/115/0/10849718/il_570xN.923686109_es36.jpg"
+  image_url: "https://img1.etsystatic.com/115/0/10849718/il_570xN.923686109_es36.jpg",
+  active: true
   )
 #tags: "Clothing", "Women's Clothing", "Skirts", "Striped 50s Skirt", "Pleated 1950's Skirt", "Forest Green", "Navy Blue", "Royal Purple", "Yellow", "Vertical stripes", "Wool skirt", "Midi Skirt", "Overattired", "Small Sm S", "Pleats", "Blue Grey"
 
@@ -59,7 +61,8 @@ Product.create(
   size: "Medium Large",
   price: 55.00,
   description: "This black jacket is a wardrobe staple with just enough charming details to keep it interesting! Made of a soft true black wool and only very lightly padded at the shoulders, it is also fully lined. The jacket has a sweet curved notched collar and real pockets, both of which are decorated with a western style curved appliqué. It fastens in front with 4 fabric covered buttons, and even has an extra button inside just in case! The long sleeves have a small turned up cuff. This jacket is in good vintage condition, with no holes, stains, odors to note. It has been pinned on model to show fit.",
-  image_url: "https://img1.etsystatic.com/135/0/10849718/il_570xN.923647269_5f8c.jpg"
+  image_url: "https://img1.etsystatic.com/135/0/10849718/il_570xN.923647269_5f8c.jpg",
+  active: true
   )
 #tags: "Clothing", "Women's Clothing", "Jackets & Coats", "Black wool jacket", "50s coat", "1950s blazer", "western vintage", "Overattired", "Large Lg L", "Medium Med M", "covered buttons", "business jacket", "suit jacket", "pockets", "tailored coat", "1940s 40s"
 
@@ -75,7 +78,8 @@ Product.create(
   subtitle: "Cranberry Wool Gabardine 40s 50s Coat",
   size: "Large",
   description: "Gorgeous late 1940s / early 1950s rich cranberry colored wool gabardine jacket with large notched lapels, great curvy pocket details, and self covered buttons up the front. Beautifully tailored and fully lined. Made by 'Best Apparel Seattle'. This jacket is in excellent vintage condition, with no holes, stains, odors to note - some incredibly minor wear on the inside of the collar and one tiny pin head hole in the fabric, neither of which are not seen during wear. It has been pinned on model to show fit.",
-  image_url: "https://img0.etsystatic.com/118/0/10849718/il_570xN.906733234_pfvx.jpg"
+  image_url: "https://img0.etsystatic.com/118/0/10849718/il_570xN.906733234_pfvx.jpg",
+  active: true
   )
 # tags: "Clothing", "Women's Clothing", "Jackets & Coats", "1940s coat", "1950s wool coat", "wool garbardine", "red garbardine", "40s jacket", "40s blazer", "large lg l", "overattired", "cranberry red", "garnet jacket", "large lapel", "Tailored coat", "pockets"
 
@@ -91,7 +95,8 @@ Product.create(
   size: "Small",
   price: 55.00,
   description: "Great little black dress by Catalina! Slightly stretchy jersey knit in inky black. Long sleeved and pencil fit skirt. Matching let included. Nylon zipper up the back. This dress is in excellent vintage condition, with no holes, stains, odors to note.",
-  image_url: "https://img1.etsystatic.com/117/0/10849718/il_570xN.919541553_h2yw.jpg"
+  image_url: "https://img1.etsystatic.com/117/0/10849718/il_570xN.919541553_h2yw.jpg",
+  active: true
   )
 # tags: "Clothing", "Women's Clothing", "Dresses", "1960s dress", "belted jersey dress", "long sleeved dress", "belt dress", "60s catalina", "Overattired", "small sm s", "inky black", "knit dress", "fitted dress", "pencil dress"
 
@@ -111,7 +116,8 @@ Product.create(
   size: "Extra Large",
   price: 55.00,
   description: "This great paisley shirtwaist dress is was made by Palm Fashion of 100% Dacron Polyester. It is a great example of 50s permanent press technology- the knife pleats in the skirt are just as precise as when it was made, and the fabric won't even think about wrinkling! The fabric is slightly sheer when held up to the light, so wearing a slip underneath would be advisable. It fastens with pearlescent grey buttons down the front and one hook at the waist. Belt is shown for inspiration only and is not included. There is a little bit of pilling throughout the dress, but it is still in great wearable vintage condition, and has been priced accordingly. There are no holes, stains, odors to note. It has been belted on model to show fit.",
-  image_url: "https://img1.etsystatic.com/111/0/10849718/il_570xN.923501861_7lpr.jpg"
+  image_url: "https://img1.etsystatic.com/111/0/10849718/il_570xN.923501861_7lpr.jpg",
+  active: true
   )
 # tags: "Clothing", "Women's Clothing", "Dresses", "Paisley 50s dress", "Green 1950s Dress", "Purple and green", "Extra Large XL", "shirtwaist dress", "short sleeved dress", "Dacron", "1960s 60s", "Fit and flare", "Overattired", "pleated skirt", "button up dress", "collared dress"
 
@@ -128,7 +134,8 @@ Product.create(
   subtitle: "Brown Striped 50s Two Piece Suit",size: "40",
   price: 225.00,
   description: "This 50s two piece suit by Fieldshire is made of tone on tone striped fabric with a great mid-century look! The single breasted narrow lapel jacket closes with two buttons and has a single vent at back. The lower outside pockets are welted and have an optional pocket flap. The trousers have a flat front, close with a metal zipper fly, and are cuffed. This suit is in excellent vintage condition with no holes, stains, or odors to note.",
-  image_url: "https://img1.etsystatic.com/121/0/10849718/il_570xN.922417961_hyn1.jpg"
+  image_url: "https://img1.etsystatic.com/121/0/10849718/il_570xN.922417961_hyn1.jpg",
+  active: true
   )
 # tags: "clothing", "Men's Clothing", "Suits & Sport Coats", "Suits", "overattired", "vintage menswear", "brown 50s suit", "striped 1950s suit", "single breasted suit", "s small med medium m", "36 waist", "brown two piece suit", "fleck 2 piece suit", "Maroon suit", "brown suit jacket", "atomic suit"
 
@@ -150,7 +157,8 @@ Product.create(
   size: "42",
   price: 250.00,
   description: "This fantastic single breasted suit is made in a 1930s Belted Back style with box pleated flap pockets of a brown and blue tweed wool with an intricate pattern. The belted back has a western style yoke and a single center box pleat above the belt with a single vent below. The flat front pants have no cuffs, and a slight flare. This Suit is in excellent vintage condition, with no holes, stains, odors to note.",
-  image_url: "https://img1.etsystatic.com/139/0/10849718/il_570xN.922386237_sxkb.jpg"
+  image_url: "https://img1.etsystatic.com/139/0/10849718/il_570xN.922386237_sxkb.jpg",
+  active: true
   )
 # tags: "Clothing", "Men's Clothing", "Suits & Sports Coats", "Suits", "overattired", "1930s suit", "1970s suit", "belted back", "belt back jacket", "brown wool suit", "Size 42", "vintage menswear", "small s medium med m", "2 piece suit", "70s-does-30s", "tweed 70s suit", "western suit"
 
@@ -169,7 +177,8 @@ Product.create(
   size: "40",
   price: 225.00,
   description: "Can you imagine a more classic 1940s suit? The true blue wool and giant peaked lapels are just perfect! The suit is made by Siegel's of San Francisco from a smooth wool twill. The double breasted jacket has 6 outer buttons. Two are functional, and there is an extra keeper button on the inside of the jacket. The two lower jacket pockets are welted, and the pocket on the right has an additional smaller pocket inside! The back is unvented. The Hollywood waist trousers have front pleats and dropped belt loops. The back left pocket has a great pointed button tab, and the trousers are cuffed. Please note: The blue color is vibrant and true throughout the suit, with no fading. Our lights reflected off this to create the apparent fade in some photos. This suit is in excellent vintage condition with no holes, stains, or odors to note.",
-  image_url: "https://img0.etsystatic.com/125/0/10849718/il_570xN.922661168_e5qc.jpg"
+  image_url: "https://img0.etsystatic.com/125/0/10849718/il_570xN.922661168_e5qc.jpg",
+  active: true
   )
 # tags: "Clothing", "Men's Clothing", "Suits & Sports Coats", "Suits", "True blue suit", "blue 1940s suit", "40s double breasted", "peaked lapels", "hollywood waist", "dropped loop", "overattired", "vintage menswear", "small sm s", "WWII suit", "two piece suit", "blue 2 piece suit", "42"
 
