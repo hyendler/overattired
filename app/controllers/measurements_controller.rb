@@ -13,9 +13,13 @@ class MeasurementsController < ApplicationController
   # ----------------------------------------
 
   def contact
-    h = JSON.generate({ 'name' => params[:name],
-                        'email' => params[:email],
-                        'message' => params[:message] })
+    @user = User.find(@measurement.measurable.id)
+    h = { 'name' => @user.first_name,
+          'email' => @user.email }
+          
+    # h = JSON.generate({ 'name' => params[:name],
+    #                     'email' => params[:email],
+    #                     'message' => params[:message] })
 
     PostmanWorker.perform_async(h, 5)
 
