@@ -76,3 +76,5 @@ class MeasurementsController < ApplicationController
   end
 
 end
+
+# this is a comment
