@@ -1,6 +1,8 @@
 <h1>This is the Products Index page located at views/admin/products/index</h1>
 
-
+<p><%= link_to "Add New Product", new_admin_product_path %></p>
+<p><%= link_to "See All Customers", admin_users_path %></p>
+<!-- <p><%#= link_to "Import Products from Etsy", :controller => :products_controller, :action => :update_products_form_etsy %></p> -->
 
 <ul>
   <% @products.each do |product| %>
