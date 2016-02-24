@@ -1,14 +1,3 @@
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#char-count').html($('#counted').val().length);
-    });
-
-    $('#counted').keyup(function() {
-        $('#char-count').html($(this).val().length);
-    });
-    $('#char-count').html($('#counted').val().replace(/\n/g, "\n\r").length);
-    $('#char-count').html($(this).val().replace(/\n/g, "\n\r").length)
-</script>
 
 <h1>Add a Measurements</h1>
 
@@ -87,10 +76,9 @@
     </fieldset>
 
     <fieldset class="form-group">
-      <%= f.label :comment %>
-      <label for="comment"></label>
-      <textarea class="form-control" id="counted" name="comment" rows='6'></textarea>
-      <p>Current character count: <span id="char-count">0</span> / 400</p>
+      <%= f.label :comment %><br>
+      <small class="text-muted">Please let us know any sizing concerns, styling preferences, preferred decade or era, and general comments about products you would like to see.</small>
+    <%= f.text_area :comment, class: "form-control", rows: '6' %>
     </fieldset>
 
   <p>
