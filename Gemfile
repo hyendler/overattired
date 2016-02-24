@@ -62,7 +62,3 @@ group :development do
   # Use Capistrano for deployment
   # gem 'capistrano-rails', group: :development
 end
-
-# group :development, :test do
-#   gem 'rspec-rails', '~> 3.0'
-# end
