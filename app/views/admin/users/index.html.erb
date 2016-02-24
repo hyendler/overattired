@@ -5,6 +5,9 @@
   <% @users.each do |user| %>
     <ul>
       <h3><%= user.first_name %> <%= user.last_name %></h3>
+        <% if user.admin %>
+        <b>adminstrator</b>
+        <% end %>
       <ul>
         <li><%= user.email %></li>
       </ul>

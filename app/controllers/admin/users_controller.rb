@@ -12,11 +12,11 @@ class Admin::UsersController < Admin::BaseController
 	  	@user = User.find(n)
 	  	# if user does not have a measurement object or it has no matches
 	  	if ( @user.measurement == nil ) || (@user.match == [])
-	  		n += 1
+	  	elsif @user.admin 
 	  	else
 	  		MatchMailer.match_email(@user).deliver_now
-	  		n += 1
 	  	end
+	  	n += 1
   	end
   	flash[:notice] = "Matches have been sent."
 	redirect_to admin_path
