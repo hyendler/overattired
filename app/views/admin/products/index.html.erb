@@ -26,7 +26,6 @@
 	  	<tbody>
 	  		<% @products.each do |product| %>
 	  		<tr>
-<!-- 	  			<th scope="row"></th> -->
 	  			<td><%= link_to "#{product.title}", admin_product_path(product.id) %></td>
 	  			<td><%= product.subtitle %></td>
 	  			<td><%= product.measurement.gender %></td>
@@ -35,7 +34,8 @@
 
 	  		</tr>
 		  	<% end %>
-
+		  </tbody>
+		</table>
 	</div>
 </div>
 
