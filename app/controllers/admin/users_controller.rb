@@ -10,8 +10,9 @@ class Admin::UsersController < Admin::BaseController
   	n = 6 # this is ID of the first user in your database
   	2.times do # set this the number of users you want to go through
 	  	@user = User.find(n)
-	  	if @user.match == [] # is there are no matches don't send an email to this user
-	  		n +=1
+	  	# if user does not have a measurement object or it has no matches
+	  	if ( @user.measurement == nil ) || (@user.match == [])
+	  		n += 1
 	  	else
 	  		MatchMailer.match_email(@user).deliver_now
 	  		n += 1
