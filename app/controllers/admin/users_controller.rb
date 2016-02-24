@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   before_action :authenticate_user!
+  before_action :set_user, only: [:show, :destroy]
   before_filter :verify_admin
 
   def index
@@ -32,6 +33,20 @@ class Admin::UsersController < Admin::BaseController
   	p "**************************************"
   	flash[:notice] = "Matches have been sent."
 	redirect_to admin_path
+  end
+
+  def show
+    @matches = @user.match
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to "/admin/users"
+  end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end
