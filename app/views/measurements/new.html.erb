@@ -1,3 +1,4 @@
+
 <h1>Add a Measurements</h1>
 
 <%= form_for([@measurable, @measurement]) do |f| %>
@@ -73,6 +74,13 @@
       <%= f.label :shoulders %>
       <%= f.select :shoulders, shoulder_range, {}, {:class => "measurement-input form-control"} %>
     </fieldset>
+
+    <fieldset class="form-group">
+      <%= f.label :comment %><br>
+      <small class="text-muted">Please let us know any sizing concerns, styling preferences, preferred decade or era, and general comments about products you would like to see.</small>
+    <%= f.text_area :comment, class: "form-control", rows: '6' %>
+    </fieldset>
+
   <p>
     <%= f.submit %>
   </p>

@@ -60,7 +60,7 @@ class MeasurementsController < ApplicationController
   end
 
   def measurement_params
-    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :gender, :shoulders, :sleeve_length, :overall_length)
+    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :comment, :gender, :shoulders, :sleeve_length, :overall_length)
   end
 
   def find_measurable
@@ -76,3 +76,5 @@ class MeasurementsController < ApplicationController
   end
 
 end
+
+# this is a comment
