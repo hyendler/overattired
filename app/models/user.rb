@@ -14,24 +14,20 @@ class User < ActiveRecord::Base
 	# 	matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
 	# end
 
-
-
-
-	# match on Waist/Bust/Hips
-	# want to match on hip, but need to take care of hip free issue
 	def match_dresses(waist, bust, hips)
 		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where(category: "Dress").where(["measurements.waist >= ? AND measurements.waist <= ?", waist - 1, waist + 2]).where(["measurements.bust >= ? AND measurements.bust <= ?", bust - 1, bust + 2]).where(["(measurements.hips >= ? AND measurements.hips <= ?) OR measurements.hips IS NULL", hips - 1, hips + 2])
 	end
 
 	#NOTE: category on product is saved as a string Pants, but called trousers everywhere else in the code
-	def match_trousers(waist, hips)
-		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where(category: "Pants").where(["measurements.waist >= ? AND measurements.waist <= ?", waist - 1, waist + 2]).where(["measurements.hips >= ? AND measurements.hips <= ?", hips - 1, hips + 2])
+	#match on waist and hips
+	def match_trousers(waist, lower_string, lower_value, gender)
+		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(category: "Pants").where(["measurements.waist >= ? AND measurements.waist <= ?", waist - 1, waist + 2]).where(["(measurements.#{lower_string} >= ? AND measurements.#{lower_string} <= ?) OR measurements.#{lower_string} IS NULL", lower_value - 1, lower_value + 2])
 	end
 
 	#match on bust, shoulders
-	#NOTE: what if user shoulders does not exist
-	def match_tops(bust, shoulders)
-		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => "female").where("category = ? OR category = ?", "Sweater", "Shirt").where(["measurements.bust >= ? AND measurements.bust <= ?", bust - 1, bust + 2]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1, shoulders + 2])
+	#NOTE: what if user shoulders does not exist - also current method might just work is user shoulders is null
+	def match_tops(upper_string, upper_value, shoulders, gender)
+		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where("category = ? OR category = ?", "Sweater", "Shirt").where(["measurements.#{upper_string} >= ? AND measurements.#{upper_string} <= ?", upper_value - 1.0, upper_value + 2.0]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1.0, shoulders + 2.0])
 	end
 
 	def match_skirts(waist, hips)
@@ -39,13 +35,18 @@ class User < ActiveRecord::Base
 	end
 
 	# maybe match on waist?
-	def match_jackets(bust, shoulders)
-		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => "female").where(category: "Jacket").where(["measurements.bust >= ? AND measurements.bust <= ?", bust - 1, bust + 2]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1, shoulders + 2])
+	def match_jackets(upper_string, upper_value, shoulders, gender)
+		p upper_string
+		p upper_value
+		p shoulders
+		p gender
+		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(category: "Jacket").where(["measurements.#{upper_string} >= ? AND measurements.#{upper_string} <= ?", upper_value - 1, upper_value + 2]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1, shoulders + 2])
 	end
 
+	# need to come back to the issue of suits
 	def match
 		gender = self.measurement.gender
-		matched_products = {dresses: nil, trousers: nil, tops: nil, skirts: nil, jackets: nil}
+		matched_products = {dresses: {}, skirts: {}, trousers: {}, tops: {}, jackets: {}}
 
 		if gender == "female"
 			waist = self.measurement.waist
@@ -54,15 +55,20 @@ class User < ActiveRecord::Base
 			hips = self.measurement.hips
 
 			matched_products[:dresses] = match_dresses(waist, bust, hips)
-			matched_products[:trousers] = match_trousers(waist, hips)
-			matched_products[:tops] = match_tops(bust, shoulders)
 			matched_products[:skirts] = match_skirts(waist, hips)
-			matched_products[:jackets] = match_jackets(bust, shoulders)
+			matched_products[:trousers] = match_trousers(waist, "hips", hips, gender)
+			matched_products[:tops] = match_tops("bust", bust, shoulders, gender)
+			matched_products[:jackets] = match_jackets("bust", bust, shoulders, gender)
 		else #gender will be male
 			waist = self.measurement.waist
 			chest = self.measurement.chest
 			inseam = self.measurement.inseam
 			shoulders = self.measurement.shoulders
+
+			matched_products[:trousers] = match_trousers(waist, "inseam", inseam, gender)
+			matched_products[:tops] = match_tops("chest", chest, shoulders, gender)
+			matched_products[:jackets] = match_jackets("chest", chest, shoulders, gender)
+
 		end
 
 		return matched_products

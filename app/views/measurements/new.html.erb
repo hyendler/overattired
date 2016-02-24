@@ -60,6 +60,13 @@
       <%= f.label :inseam %>
       <%= f.select :inseam, inseam_range, {}, {:class => "measurement-input form-control"} %>
     </fieldset>
+
+    <% shoulder_range = (14..22).map { |i| [i, i]} %>
+
+    <fieldset class="form-group">
+      <%= f.label :shoulders %>
+      <%= f.select :shoulders, shoulder_range, {}, {:class => "measurement-input form-control"} %>
+    </fieldset>
   <p>
     <%= f.submit %>
   </p>
