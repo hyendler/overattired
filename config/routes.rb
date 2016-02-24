@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get "/admin", to: "admin/products#index"
 
+  get :send_updates, to: 'admin/users#send_updates', as: :send_updates
+
   resources :products do
     resources :measurements
   end

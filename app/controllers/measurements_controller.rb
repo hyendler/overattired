@@ -5,7 +5,6 @@ class MeasurementsController < ApplicationController
   def send_user_mail
     @user = User.find(@measurement.measurable.id)
     UserMailer.welcome_email(@user).deliver_now
-    p @user.measurement
   end
 
   def show
