@@ -6,7 +6,6 @@ class Admin::ProductsController < Admin::BaseController
   before_filter :verify_admin
 
   def index
-    # store_data_from_etsy
   	@products = Product.all
   end
 
@@ -48,6 +47,12 @@ class Admin::ProductsController < Admin::BaseController
 
   def destroy
     @product.destroy
+    redirect_to admin_products_path
+  end
+
+  # also remove any sold products
+  def update_products_form_etsy
+    store_data_from_etsy
     redirect_to admin_products_path
   end
 
