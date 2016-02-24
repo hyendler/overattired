@@ -50,13 +50,9 @@ class Admin::ProductsController < Admin::BaseController
     redirect_to admin_products_path
   end
 
-  # will write custom route to get here and call ETSY
   # also remove any sold products
   def update_products_form_etsy
-    # store_data_from_etsy
-    p "-----------------------------"
-    p "I'm here updating!"
-    p "-----------------------------"
+    store_data_from_etsy
     redirect_to admin_products_path
   end
 
