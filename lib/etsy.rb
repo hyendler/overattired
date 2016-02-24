@@ -7,7 +7,11 @@ require 'json'
 
 #PARSING PRODUCT DATA
 def parse_title(listing)
+  p "******************************"
+  p listing
+  p "******************************"
   whole_title = listing["title"]
+  p whole_title
   title_array = whole_title.split(/\|/)
 end
 
@@ -92,7 +96,7 @@ def store_data_from_etsy
     # call etsy api
     parsed_data = scrape_etsy(url)
     # iterate through parsed JSON and store product and measurement
-    parsed_data.each do |listing|
+    parsed_data["results"].each do |listing|
       save_product(listing)
     end
   end
