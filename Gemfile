@@ -40,8 +40,12 @@ gem 'pry'
 gem 'whenever', :require => false
 
 gem 'faker'
+
+# gems needed for using sidekiq with emails
 gem "letter_opener"
 gem "launchy"
+gem 'sidekiq'
+
 # seed data with faker
 
 # Use Unicorn as the app server
