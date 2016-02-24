@@ -7,11 +7,7 @@ require 'json'
 
 #PARSING PRODUCT DATA
 def parse_title(listing)
-  p "******************************"
-  p listing
-  p "******************************"
   whole_title = listing["title"]
-  p whole_title
   title_array = whole_title.split(/\|/)
 end
 
