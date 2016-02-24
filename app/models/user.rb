@@ -88,4 +88,21 @@ class User < ActiveRecord::Base
 
 end
 
+def initial_matches
+	initial_matches = self.match
+	# save each match to matches table
+	return initial_matches
+end
 
+def new_matches
+	all_matches = self.match
+	new_matches = []
+	all_matches.each do |match|
+		# if the match already exists in matches tale
+			# don't send it
+		# else
+			# it's a new match, push into new_matches array
+		# end
+	end
+	return new_matches
+end

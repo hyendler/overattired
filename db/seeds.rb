@@ -195,18 +195,18 @@ Measurement.create(measurable_type: Product, measurable_id: 9, gender: "male" , 
 
 
 User.create(first_name: "Lindsey", last_name: "Stevens", email: "lindsey@gmail.com", password: "12345678")
-Measurement.create(measurable_type: User, measurable_id: 1, gender: "female", hips: 36, waist: 25, bust: 35)
+Measurement.create(measurable_type: User, measurable_id: 1, gender: "female", hips: 36, waist: 25, bust: 35, shoulders: 0)
 
 
 User.create(first_name: "Hanah", last_name: "Yen", email: "hanah@gmail.com", password: "12345678")
-Measurement.create(measurable_type: User, measurable_id: 2, gender: "female", hips: 42, waist: 33, bust: 40)
+Measurement.create(measurable_type: User, measurable_id: 2, gender: "female", hips: 42, waist: 33, bust: 40, shoulders: 0)
 
 
 User.create(first_name: "Ovi", last_name: "Calvin", email: "ovi@gmail.com", password: "12345678")
-Measurement.create(measurable_type: User, measurable_id: 3, gender: "male" , waist: 30, chest: 42, inseam: 31)
+Measurement.create(measurable_type: User, measurable_id: 3, gender: "male" , waist: 30, chest: 42, inseam: 31, shoulders: 0)
 
 User.create(first_name: "Stuart", last_name: "Ed", email: "stuart@gmail.com", password: "12345678")
-Measurement.create(measurable_type: User, measurable_id: 4, gender: "male" , waist: 33, chest: 43, inseam: 29)
+Measurement.create(measurable_type: User, measurable_id: 4, gender: "male" , waist: 33, chest: 43, inseam: 29, shoulders: 0)
 
 # Measurement.create(measurable_type: User, measurable_id: 5, gender: "female", hips: 42, waist: 33, bust: 40)
 # Measurement.create(measurable_type: User, measurable_id: 6, gender: "female", hips: 42, waist: 33, bust: 40)
