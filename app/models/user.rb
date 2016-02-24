@@ -7,13 +7,6 @@ class User < ActiveRecord::Base
 
   has_one :measurement, as: :measurable, dependent: :destroy
 
- #  	def querying(unit, range, gender)
-
-	# 	value = self.measurement[unit]
-
-	# 	matched_products = Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(["measurements.#{unit} >= ? AND measurements.#{unit} <= ?", value, value + range])
-	# end
-
 	def match_dresses(waist, bust, hips)
 		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where(category: "Dress").where(["measurements.waist >= ? AND measurements.waist <= ?", waist - 1, waist + 2]).where(["measurements.bust >= ? AND measurements.bust <= ?", bust - 1, bust + 2]).where(["(measurements.hips >= ? AND measurements.hips <= ?) OR measurements.hips IS NULL", hips - 1, hips + 2])
 	end
@@ -93,7 +86,5 @@ class User < ActiveRecord::Base
 	end
 
 end
-
-#flatten
 
 
