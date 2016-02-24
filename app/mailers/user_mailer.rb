@@ -4,16 +4,7 @@ class UserMailer < ApplicationMailer
   def welcome_email(user)
   	@user = user
   	@url = 'http://overattired.com'
-  	
-  	mail(to: @user.email, subject: 'Welcome to Over Attired!')
-  
-
-   def send_updates(user)
-  	@users = User.all
-  	@users.each do |user|
-  		mail(to: user.email, subject: 'Here are your matches!')
-  	end
+  	mail(to: "reginawong14@gmail.com", subject: 'Welcome to Over Attired!')
   end
-  
 
 end

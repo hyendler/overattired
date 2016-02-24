@@ -6,9 +6,11 @@ class Admin::UsersController < Admin::BaseController
     @users = User.all
   end
 
-  def send_order_mail
-  	@users = User.all
-  	UserMailer.send_updates(@user).deliver_now
+  def send_updates
+  	@user = User.last
+  	MatchMailer.match_email(@user).deliver_now
+  	flash[:notice] = "Matches have been sent."
+  	redirect_to admin_path
   end
 
 end

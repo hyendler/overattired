@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get "/admin", to: "admin/products#index"
 
-  get :send_order_mail, to: 'admin/users#send_order_mail', as: :send_order_mail
+  get :send_updates, to: 'admin/users#send_updates', as: :send_updates
 
   resources :products do
     resources :measurements
