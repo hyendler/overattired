@@ -199,9 +199,9 @@ Measurement.create(measurable_type: User, measurable_id: 3, gender: "male" , wai
 User.create(first_name: "Stuart", last_name: "Ed", email: "stuart@gmail.com", password: "12345678")
 Measurement.create(measurable_type: User, measurable_id: 4, gender: "male" , waist: 33, chest: 43, inseam: 29)
 
-Measurement.create(measurable_type: User, measurable_id: 5, gender: "female", hips: 42, waist: 33, bust: 40)
-Measurement.create(measurable_type: User, measurable_id: 6, gender: "female", hips: 42, waist: 33, bust: 40)
-Measurement.create(measurable_type: User, measurable_id: 7, gender: "female", hips: 42, waist: 33, bust: 40)
+# Measurement.create(measurable_type: User, measurable_id: 5, gender: "female", hips: 42, waist: 33, bust: 40)
+# Measurement.create(measurable_type: User, measurable_id: 6, gender: "female", hips: 42, waist: 33, bust: 40)
+# Measurement.create(measurable_type: User, measurable_id: 7, gender: "female", hips: 42, waist: 33, bust: 40)
 
 
 # ADMIN
