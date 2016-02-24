@@ -6,6 +6,13 @@ class UserMailer < ApplicationMailer
   	@url = 'http://overattired.com'
   	
   	mail(to: @user.email, subject: 'Welcome to Over Attired!')
+  
+
+   def send_updates(user)
+  	@user = user
+  	@url = 'http://overattired.com'
+  	
+  	mail(to: @user.email, subject: 'Welcome to Over Attired!')
   end
   
 

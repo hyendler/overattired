@@ -1,9 +1,10 @@
 <h1>Hello from User Index Page</h1>
-
+<h4> These are a list of all the users </h4>
+<br>
 <ul>
   <% @users.each do |user| %>
     <ul>
-      <li><%= user.first_name %> <%= user.last_name %></li>
+      <h3><%= user.first_name %> <%= user.last_name %></h3>
       <ul>
         <li><%= user.email %></li>
       </ul>
@@ -11,4 +12,5 @@
   <% end %>
 </ul>
 
-<button type="button" class="btn btn-info btn-lg"><%= link_to "Back to all products", admin_path %></button>
+<button type="button" class="btn btn-info btn-md"><%= link_to "Back to all products", admin_path %></button>
+<button type="button" class="btn btn-default btn-md"><%= link_to "E-mail All Users Matches", send_order_mail_path %></button>
