@@ -43,23 +43,23 @@ class User < ActiveRecord::Base
 			shoulders = self.measurement.shoulders
 			hips = self.measurement.hips
 
-			if match_dresses(waist, bust, hips)
+			if match_dresses(waist, bust, hips)[0]
 				matched_products[:dresses] = match_dresses(waist, bust, hips)
 			end
 
-			if match_skirts(waist, hips)
+			if match_skirts(waist, hips)[0]
 				matched_products[:skirts] = match_skirts(waist, hips)
 			end
 
-			if match_trousers(waist, "hips", hips, gender)
+			if match_trousers(waist, "hips", hips, gender)[0]
 				matched_products[:trousers] = match_trousers(waist, "hips", hips, gender)
 			end
 
-			if match_tops("bust", bust, shoulders, gender)
+			if match_tops("bust", bust, shoulders, gender)[0]
 				matched_products[:tops] = match_tops("bust", bust, shoulders, gender)
 			end
 
-			if match_jackets("bust", bust, shoulders, gender)
+			if match_jackets("bust", bust, shoulders, gender)[0]
 				matched_products[:jackets] = match_jackets("bust", bust, shoulders, gender)
 			end
 
