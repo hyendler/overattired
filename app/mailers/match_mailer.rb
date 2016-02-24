@@ -3,7 +3,7 @@ class MatchMailer < ApplicationMailer
 
    def match_email(user)
     @user = user
-  	mail(to: @user.email, subject: "Heya #{@user.first_name}! Here are your matches!")
+  	mail(to: @user.email, subject: "Hola #{@user.first_name}! Here are your matches!")
   end
   
 end
