@@ -40,6 +40,8 @@ gem 'pry'
 gem 'whenever', :require => false
 
 gem 'faker'
+gem "letter_opener"
+gem "launchy"
 # seed data with faker
 
 # Use Unicorn as the app server

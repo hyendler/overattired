@@ -1,12 +1,17 @@
 class MeasurementsController < ApplicationController
   before_action :set_measurement, only: [:show, :edit, :update]
-  after_action :send_user_mail, only: [:create]
+  
+  # ----------------------------------------
+  # THESE ARE THE METHOD NEEDED TO SEND USER WELCOME EMAIL UPON
+  # CREATING A MEASUREMENT FORM
+  # after_action :send_user_mail, only: [:create]
 
-  def send_user_mail
-    @user = User.find(@measurement.measurable.id)
-    UserMailer.welcome_email(@user).deliver_now
-  end
-
+  # def send_user_mail
+  #   @user = User.find(@measurement.measurable.id)
+  #   UserMailer.welcome_email(@user).deliver_now
+  # end
+  # ----------------------------------------
+  
   def show
     # returns @measurement
   end
