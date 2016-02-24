@@ -70,7 +70,6 @@ def parse_sleeves(listing)
   end
 end
 
-
 def parse_gender(listing)
   category_path = listing["category_path"]
   if category_path.include? "Men"
@@ -84,6 +83,8 @@ def store_data_from_etsy
   measurement = Measurement.new
 
   parsed_data = scrape_etsy
+
+  Product.delete_all
 
   parsed_data["results"].each do |listing|
     product = Product.new
@@ -130,39 +131,3 @@ def store_data_from_etsy
     end
   end
 end
-
-
-
-
-
-
-# def store_data_from_etsy
-
-#   DATA["results"].each do |listing|
-#     bust = parse_measurement(listing, "Bust")
-#     shoulders = parse_measurement(listing, "Shoulders")
-#     waist = parse_measurement(listing, "Waist")
-#     chest = parse_measurement(listing, "Chest")
-#     inseam = parse_measurement(listing, "Inseam")
-#     overall_length = parse_length(listing)
-#     hips = parse_measurement(listing, "Hips")
-#     sleeve_length = parse_sleeves(listing)
-#     gender = parse_gender(listing)
-
-#   end
-
-# end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
