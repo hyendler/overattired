@@ -1,12 +1,42 @@
-<h1>This is the Products Index page located at views/admin/products/index</h1>
 
-<button type="button" class="btn btn-default btn-md"><%= link_to "Import Products from Etsy", update_products_from_etsy_path %></button>
+<h1>Admin Index</h1>
 
-<ul>
-  <% @products.each do |product| %>
-  <li><%= link_to "#{product.title}", admin_product_path(product.id) %></li>
-  <% end %>
-</ul>
 
-<button type="button" class="btn btn-info btn-md"><%= link_to "Add New Product", new_admin_product_path %></button>
-<button type="button" class="btn btn-default btn-md"><%= link_to "See All Customers", admin_users_path %></button>
+<div class="row info-display">
+
+  <div class="col-md-3">
+    <div class="sidebar info-display__links">
+			<button type="button" class="btn btn-default btn-md"><%= link_to "Import Products from Etsy", update_products_from_etsy_path %></button>
+			<button type="button" class="btn btn-info btn-md"><%= link_to "Add New Product", new_admin_product_path %></button>
+			<button type="button" class="btn btn-default btn-md"><%= link_to "See All Customers", admin_users_path %></button>
+  	</div>
+  </div>
+
+  <div class="col-md-9">
+  	<table class="table">
+  		<thead>
+	  		<tr>
+	  			<th>Title</th>
+	  			<th>Subtitle</th>
+	  			<th>Gender</th>
+	  			<th>Category</th>
+	  			<th>Decade</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<% @products.each do |product| %>
+	  		<tr>
+<!-- 	  			<th scope="row"></th> -->
+	  			<td><%= link_to "#{product.title}", admin_product_path(product.id) %></td>
+	  			<td><%= product.subtitle %></td>
+	  			<td><%= product.measurement.gender %></td>
+	  			<td><%= product.category %></td>
+	  			<td><%= product.when_made %></td>
+
+	  		</tr>
+		  	<% end %>
+
+	</div>
+</div>
+
+
