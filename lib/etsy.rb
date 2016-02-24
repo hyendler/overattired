@@ -70,10 +70,8 @@ def parse_gender(listing)
 end
 
 # request all products (200 max) in OverAttired Vintage Shop, Include Main Image url
-# save first url with 100 listing limit
-URL_1 = URI("https://openapi.etsy.com/v2/shops/10849718/listings/active?includes=MainImage&limit=100&api_key=#{ENV["ETSY_KEYSTRING"]}")
-# save second url with 100 listing limit and offset of 100 listings
-URL_2 = URI("https://openapi.etsy.com/v2/shops/10849718/listings/active?includes=MainImage&limit=100&offset=100&api_key=#{ENV["ETSY_KEYSTRING"]}")
+# save first url with 100 listing limit (offset = 0)
+# save second url with 100 listing limit (offset of 100 listings)
 
 def scrape_etsy(url)
   data = Net::HTTP.get(url)
@@ -86,16 +84,17 @@ end
 def store_data_from_etsy
   # delete all products from database
   Product.delete_all
-  # call etsy API and store parse data into JSON
-  parsed_data_1 = scrape_etsy(URL_1)
-  # iterate through JSON and store product and measurement
-  parsed_data_1["results"].each do |listing|
-    save_product(listing)
-  end
-  # repeat for second call to Etsy
-  parsed_data_2 = scrape_etsy(URL_2)
-  parsed_data_2["results"].each do |listing|
-    save_product(listing)
+  # (see note above re offsets)
+  offset_array = ["offset=0", "offset=100"]
+  # iterate through offset_array to call etsy API and store parse data into JSON
+  offset_array.each do |offset|
+    url = URI("https://openapi.etsy.com/v2/shops/10849718/listings/active?includes=MainImage&limit=100&#{offset}&api_key=#{ENV["ETSY_KEYSTRING"]}")
+    # call etsy api
+    parsed_data = scrape_etsy(url)
+    # iterate through parsed JSON and store product and measurement
+    parsed_data.each do |listing|
+      save_product(listing)
+    end
   end
 end
 
