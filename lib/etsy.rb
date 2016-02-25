@@ -9,6 +9,11 @@ require 'json'
 def parse_title(listing)
   whole_title = listing["title"]
   title_array = whole_title.split(/\|/)
+  title_array.each do |title|
+    title.gsub!("&#39;", "'")
+    title.gsub!("&quot;", '"')
+  end
+  title_array
 end
 
 def parse_category(listing)
@@ -139,6 +144,7 @@ def save_product(listing)
   product.url = listing["url"]
   product.image_url = parse_image(listing)
   # if the product saves, also save its measurement
+  if product.title.match
   if product.save
     save_measurement(listing) ? product.measurement = save_measurement(listing) : false
   end
