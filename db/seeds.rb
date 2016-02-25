@@ -195,7 +195,7 @@ Measurement.create(measurable_type: Product, measurable_id: 9, gender: "male" , 
 
 
 User.create(first_name: "Lindsey", last_name: "Stevens", email: "lindsey@gmail.com", password: "12345678")
-Measurement.create(measurable_type: User, measurable_id: 1, gender: "female", hips: 36, waist: 25, bust: 35, shoulders: 0)
+Measurement.create(measurable_type: User, measurable_id: 1, gender: "female", hips: 36, waist: 25, bust: 35, shoulders: 16)
 
 
 User.create(first_name: "Hanah", last_name: "Yen", email: "hanah@gmail.com", password: "12345678")

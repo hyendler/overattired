@@ -88,10 +88,16 @@ class User < ActiveRecord::Base
 
 	# call this method in welcome_email template
 	def get_initial_matches
-		initial_matches = self.match
+		initial_matches_hash = self.match
 		# save each match to matches table
-		initial_matches.each { |product| Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now) }
-		return initial_matches
+		if !initial_matches_hash.empty?
+			initial_matches_hash.each_value do |products_array|
+				products_array.each do |product|
+					Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
+				end
+			end
+		end
+		return initial_matches_hash
 	end
 
 	# call this method in weekly_match_email template
