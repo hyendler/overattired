@@ -17,8 +17,14 @@ def parse_title(listing)
 end
 
 def parse_category(listing)
-  category_path = listing["category_path"]
-  category_path.last
+  title_array = parse_title(listing)
+  if title_array[0].include?("Suit")
+    category = "Suits"
+  else
+    category_path = listing["category_path"]
+    category = category_path.last
+  end
+  category
 end
 
 def description_parse(listing)
