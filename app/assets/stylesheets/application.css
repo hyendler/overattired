@@ -22,13 +22,28 @@
   src: url(/assets/MostraOneRegular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-family: 'Poiret One', cursive;
 }
+
 
 body, .navbar {
 	background-color: #75C5A9;
 	background-image: url("http://www.transparenttextures.com/patterns/arches.png");
 }
 
+h1, h2, h3, h4, h5, h6, button, input {
+	margin-top: 0px;
+	font-family: 'mostraOneRegular';
+}
+
+a, p, label {
+	font-family: 'Poiret One';
+	letter-spacing: 0.5px;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
 /* NAVBAR STYLING */
 
 .navbar {
@@ -63,7 +78,13 @@ body, .navbar {
 }
 
 .content-area {
-	background-color: rgba(255, 250, 240, 0.5)
+	background-color: rgba(255, 250, 240, 0.5);
+	border-radius: 20px;
+	padding: 20px;
+}
+
+.container.top {
+	margin-top: 60px;
 }
 
 
@@ -79,10 +100,7 @@ body, .navbar {
 @media (min-width: 768px){
 
 }
-h1, h2, h3, h4, h5, h6, a {
-	margin-top: 0px;
-	font-family: 'mostraOneRegular';
-}
+
 
 .info-display__links, .info-display__details {
 	margin-top: 10px;
