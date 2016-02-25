@@ -39,7 +39,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .info-display__links, .info-display__details {
-	margin-top: 15px;
+	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 .measurement-input {
