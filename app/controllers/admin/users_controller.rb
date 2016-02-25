@@ -10,9 +10,9 @@ class Admin::UsersController < Admin::BaseController
 # this is the method that sends all users emails and it filters it out by whether user is admin or does not exist or has no matches
   def send_updates
   	n = 1 # this is ID of the first user in your database
-  	p "**************************************"
-  	p "Send Updates Has been Intiated"
-  	p User.count
+  	# p "**************************************"
+  	# p "Send Updates Has been Intiated"
+  	# p User.count
   	while n < User.last.id # set this the number of users you want to go through
 
   		if User.exists?(n)
