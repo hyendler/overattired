@@ -1,10 +1,12 @@
-<% if @measurement.measurable_type == "Product" %>
+<% if @measurement.measurable_type == "User" %>
+<h1>Please Edit Your Indubitably Dapper, Conscientiously Chic Measurements: </h1>
 
-  <%= render "edit_product_measurement_form" %>
+   <%= render "form_user_measurement" %>
 
 <% else %>
 
-  <%= render "edit_user_measurement_form" %>
+	<p>I think you meant to edit a product measurement...</p>
+  	<%= link_to "Edit Product Details", edit_admin_product_path(@measurement.measurable_id) %>
 
 <% end %>
 
