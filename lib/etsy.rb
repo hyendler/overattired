@@ -24,6 +24,9 @@ end
 def description_parse(listing)
   description = listing["description"]
   description.split(/^(.*?)(?=Measurements)/).first.gsub("\n",' ')
+  description.gsub!("&#39;", "'")
+  description.gsub!("&quot;", '"')
+  description
 end
 
 def parse_image(listing)
@@ -143,9 +146,11 @@ def save_product(listing)
   product.category = parse_category(listing)
   product.url = listing["url"]
   product.image_url = parse_image(listing)
+  # if the product title includes Certificate - don't save it
+  if product.title.include?("Certificate")
+    product.destroy
   # if the product saves, also save its measurement
-  if product.title.match
-  if product.save
+  elsif product.save
     save_measurement(listing) ? product.measurement = save_measurement(listing) : false
   end
 end
