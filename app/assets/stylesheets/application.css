@@ -93,3 +93,14 @@ h1, h2, h3, h4, h5, h6, a {
 	width: 50px;
 }
 
+
+.color-circle {
+	background-color: #FFF0CE;
+	padding: 10px;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
