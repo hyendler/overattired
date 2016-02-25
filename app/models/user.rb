@@ -115,7 +115,12 @@ class User < ActiveRecord::Base
 				new_matches_hash.push(match)
 			end
 		end
-		return new_matches_hash
+		# now iterate over the new_matches_hash and save each instance in the Match table
+		new_matches_hash.each_value do |products_array|
+			products_array.each do |product|
+					Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
+			end
+		end
 	end
-
+	return new_matches_hash
 end
