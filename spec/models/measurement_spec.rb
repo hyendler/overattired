@@ -5,7 +5,11 @@ RSpec.describe Measurement, type: :model do
   let(:product1) {Product.create(name: "Vintage 1950s Suit", url: "https://www.etsy.com/listing/268532087/vintage-1950s-suit-red-and-black-50s?ref=shop_home_active_1")}
 
   let(:user_measurement1) {Measurement.create(measurable_type: User, measurable_id: 3, gender: "male" , waist: 30, chest: 42, inseam: 31)}
-  let(:user1) {User.create(first_name: "Ovi", last_name: "Calvin", email: "ovi@gmail.com", password: "12345678")}
+  let(:user1) {User.create(first_name: "Ovi", last_name: "Calvo", email: "ovi@gmail.com", password: "12345678")}
+
+  let(:no_gender_measurement) {Measurement.new(measurable_type: User, measurable_id: 3, waist: 30, chest: 42, inseam: 31)}
+
+  let (:bad_input_measurement) {Measurement.new(measurable_type: User, measurable_id: 3, chest: "hairy")}
 
   describe 'attributes' do
   	context 'for a male user' do
@@ -21,6 +25,18 @@ RSpec.describe Measurement, type: :model do
 	  it 'has an waist' do
 	  	expect(user_measurement1).to have_attributes(:waist => 30)
 	  end
+
+    context 'will raise an error' do
+      it 'when the gender field is empty' do
+        no_gender_measurement.save
+        expect(no_gender_measurement.errors[:gender]).to include("can't be blank")
+      end
+      # this test is not ready to run yet - need to continue custom validations on measurement model
+      # it 'when the chest measurement is not an integer' do
+      #   bad_input_measurement.save
+      #   expect(bad_input_measurement.errors[:chest]).to include("is not a number")
+      # end
+    end
 	end
 
 	context 'for a female product' do
