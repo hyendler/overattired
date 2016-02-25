@@ -13,8 +13,6 @@ class MeasurementsController < ApplicationController
 
   def edit
     @measurable = find_measurable
-    p "HIPS"
-    p params[:hips]
     # returns @measurement
   end
 
