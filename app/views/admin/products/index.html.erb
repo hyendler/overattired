@@ -4,9 +4,9 @@
 <div class="menu-option">
   <div class="col-md-12">
     <div class="sidebar info-display__links">
-			<button type="button" class="btn btn-primary btn-lg"><%= link_to "Import Products from Etsy", update_products_from_etsy_path %></button>
-			<button type="button" class="btn btn-secondary btn-lg"><%= link_to "Add New Product", new_admin_product_path %></button>
-			<button type="button" class="btn btn-secondary btn-lg"><%= link_to "See All Customers", admin_users_path %></button>
+			<%= link_to "Import Products from Etsy", update_products_from_etsy_path, class: "btn btn-primary btn-lg active" %>
+			<%= link_to "Add New Product", new_admin_product_path, class: "btn btn-secondary btn-lg" %>
+			<%= link_to "See All Customers", admin_users_path, class: "btn btn-secondary btn-lg"%>
   	</div>
   </div>
 </div>
