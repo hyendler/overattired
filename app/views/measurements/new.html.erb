@@ -1,5 +1,5 @@
 
-<h1>Add a Measurements</h1>
+<h1>Please Enter Your Indubitably Dapper, Conscientiously Chic Measurements: </h1>
 
 <%= form_for([@measurable, @measurement]) do |f| %>
 
@@ -34,6 +34,9 @@
       <% hips_range.unshift([nil, ""])%>
 
       <fieldset class="form-group">
+        <div style="display: none;" id="hips-image" class="measurement-image">
+          <%= image_tag "hips.png" %>
+        </div>
         <%= f.label :hips %>
         <%= f.select :hips, hips_range, {}, {class: "measurement-input form-control"} %>
       </fieldset>
@@ -42,6 +45,9 @@
       <% waist_range.unshift([nil, ""])%>
 
       <fieldset class="form-group">
+        <div style="display: none;" id="waist-image" class="measurement-image">
+          <%= image_tag "waist.png" %>
+        </div>
         <%= f.label :waist %>
         <%= f.select :waist, waist_range, {}, {class: "measurement-input form-control"} %>
       </fieldset>
@@ -50,6 +56,9 @@
       <% bust_range.unshift([nil, ""])%>
 
       <fieldset class="form-group">
+        <div style="display: none;" id="bust-image" class="measurement-image">
+          <%= image_tag "bust.png" %>
+        </div>
         <%= f.label :bust %>
         <%= f.select :bust, bust_range, {}, {class: "measurement-input form-control"} %>
       </fieldset>
@@ -58,6 +67,9 @@
       <% chest_range.unshift([nil, ""])%>
 
       <fieldset class="form-group">
+        <div style="display: none;" id="chest-image" class="measurement-image">
+          <%= image_tag "chest.jpg" %>
+        </div>
         <%= f.label :chest %>
         <%= f.select :chest, chest_range, {}, {:class => "measurement-input form-control"}%>
       </fieldset>
@@ -66,6 +78,9 @@
       <% inseam_range.unshift([nil, ""])%>
 
       <fieldset class="form-group">
+        <div style="display: none;" id="inseam-image" class="measurement-image">
+          <%= image_tag "inseam.jpg" %>
+        </div>
         <%= f.label :inseam %>
         <%= f.select :inseam, inseam_range, {}, {:class => "measurement-input form-control"} %>
       </fieldset>
@@ -74,6 +89,9 @@
       <% shoulder_range.unshift([nil, ""])%>
 
       <fieldset class="form-group">
+        <div style="display: none;" id="shoulders-image" class="measurement-image">
+          <%= image_tag "shoulders.jpg" %>
+        </div>
         <%= f.label :shoulders %>
         <%= f.select :shoulders, shoulder_range, {}, {:class => "measurement-input form-control"} %>
       </fieldset>
@@ -91,6 +109,7 @@
       <small class="text-muted">Please let us know any sizing concerns, styling preferences, preferred decade or era, and general comments about products you would like to see.</small>
     <%= f.text_area :comment, class: "form-control", rows: '6' %>
     </fieldset>
+
 
   </div>
 
