@@ -34,6 +34,9 @@ class User < ActiveRecord::Base
 	end
 
 	# need to come back to the issue of suits
+
+	# returns HASH where key is the Product Category and value is an array of Product objects
+	# e.g. {jackets: [product#1, product#4], suits: [product#6, product#9]}
 	def match
 		gender = self.measurement.gender
 		matched_products = {}
@@ -102,17 +105,17 @@ class User < ActiveRecord::Base
 
 	# call this method in weekly_match_email template
 	def get_new_matches
-		all_matches = self.match
-		new_matches = []
+		all_matches_hash = self.match
+		new_matches_hash = {}
 		# iterate through all matches for this user in Match table
 		Match.where(user_id: self.id).find_each do |match|
-			# if all_matches array for this user DOES NOT include the product id of this match
-			# then push that product into the new_matches array
-			if !all_matches.include?(product_id: match.product_id)
-				new_matches.push(match)
+			# if all_matches_hash array for this user DOES NOT include the product id of this match
+			# then push that product into the new_matches_hash array
+			if !all_matches_hash[:product.category].include?(product_id: match.product_id)
+				new_matches_hash.push(match)
 			end
 		end
-		return new_matches
+		return new_matches_hash
 	end
 
 end
