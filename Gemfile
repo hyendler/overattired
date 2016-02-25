@@ -42,7 +42,7 @@ gem 'whenever', :require => false
 gem 'faker'
 
 # gems needed for using sidekiq with emails
-gem "letter_opener"
+gem "letter_opener", :group => :development
 gem "launchy"
 gem 'sidekiq'
 

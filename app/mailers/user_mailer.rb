@@ -1,9 +1,10 @@
 class UserMailer < ApplicationMailer
   default from: 'overattired1@gmail.com'
 
-  def contact_email(user)
-    @name = user.first_name
-    @email = user.email
+  def contact_email(name, email)
+    @user = User.find_by_email(email)
+    @name = name
+    @email = email
     mail(from: 'overattired1@gmail.com',
          to: 'reginawong14@gmail.com',
          subject: 'Welcome E-mail!')

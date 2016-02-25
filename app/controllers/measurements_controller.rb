@@ -13,6 +13,7 @@ class MeasurementsController < ApplicationController
   # ----------------------------------------
 
   def contact
+    p '* ' * 1000
     @user = User.find(@measurement.measurable.id)
     h = { 'name' => @user.first_name,
           'email' => @user.email }
@@ -20,9 +21,10 @@ class MeasurementsController < ApplicationController
     # h = JSON.generate({ 'name' => params[:name],
     #                     'email' => params[:email],
     #                     'message' => params[:message] })
-
-    PostmanWorker.perform_async(h, 5)
-
+    p PostmanWorker.methods.sort
+    p "before worker call"
+    p PostmanWorker.perform_async(h, 5)
+    p "After worker call"
     # if instead of sidekiq I was just sending email from rails
     # VisitorMailer.contact_email(@name, @email, @message).deliver
 
