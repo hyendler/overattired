@@ -2,8 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    # returns @user
-    @matches = @user.match
+    if @user.measurement.nil?
+      redirect_to new_user_measurement_path(current_user.id)
+    else
+      @matches = @user.match
+    end
   end
 
   def edit
@@ -12,7 +15,6 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      # p @user.measurement
       redirect_to user_path
     else
       errs
