@@ -49,7 +49,6 @@ class MeasurementsController < ApplicationController
 
   def new
     @measurable = find_measurable
-
   	@measurement = Measurement.new
   end
 
@@ -76,5 +75,3 @@ class MeasurementsController < ApplicationController
   end
 
 end
-
-# this is a comment

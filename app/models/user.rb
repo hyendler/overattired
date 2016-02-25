@@ -121,6 +121,6 @@ class User < ActiveRecord::Base
 					Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
 			end
 		end
+		return new_matches_hash
 	end
-	return new_matches_hash
 end
