@@ -113,8 +113,8 @@ def store_data_from_etsy
   all_active_listings.flatten(1)
   # iterate through all active products in database
   Product.where(active: true).find_each do |product|
-  #   # if the product's url is not included in the active_listing_array the product should be treated as sold, active = false
-    if !all_active_listings.include?(product.url)
+  # if the product's url is NOT included in the active_listing_array and the created_at date is not today's date - the product should be treated as sold, active = false
+    if !all_active_listings.include?(product.url) && product.created_at < Date.today
       product.update(active: false)
     end
   end
