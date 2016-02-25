@@ -1,0 +1,88 @@
+
+<h1>Add a Measurements</h1>
+
+<%= form_for([@measurable, @measurement]) do |f| %>
+
+  <% if @measurement.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@measurement.errors.count, "error") %> prohibited
+        these edits from being saved:
+      </h2>
+      <ul>
+        <% @measurement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <fieldset class="form-group">
+      <%= f.radio_button :gender, 'female' %> 
+      <%= f.label :gender, 'Female', :value => 'female' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= f.radio_button :gender, 'male' %>
+      <%= f.label :gender, 'Male', :value => 'male' %>
+    </fieldset>
+
+    <% hips_range = (30..60).map { |i| [i, i]} %>
+    <% hips_range.unshift([nil, ""])%>
+
+    <fieldset class="form-group">
+      <%= f.label :hips %>
+      <%= f.select :hips, hips_range, {}, {class: "measurement-input form-control"} %>
+    </fieldset>
+
+    <% waist_range = (20..50).map { |i| [i, i]} %>
+    <% waist_range.unshift([nil, ""])%>
+
+    <fieldset class="form-group">
+      <%= f.label :waist %>
+      <%= f.select :waist, waist_range, {}, {class: "measurement-input form-control"} %>
+    </fieldset>
+
+    <% bust_range = (20..60).map { |i| [i, i]} %>
+    <% bust_range.unshift([nil, ""])%>
+
+    <fieldset class="form-group">
+      <%= f.label :bust %>
+      <%= f.select :bust, bust_range, {}, {class: "measurement-input form-control"} %>
+    </fieldset>
+
+    <% chest_range = (30..60).map { |i| [i, i]} %>
+    <% chest_range.unshift([nil, ""])%>
+
+    <fieldset class="form-group">
+      <%= f.label :chest %>
+      <%= f.select :chest, chest_range, {}, {:class => "measurement-input form-control"}%>
+    </fieldset>
+
+    <% inseam_range = (25..35).map { |i| [i, i]} %>
+    <% inseam_range.unshift([nil, ""])%>
+
+    <fieldset class="form-group">
+      <%= f.label :inseam %>
+      <%= f.select :inseam, inseam_range, {}, {:class => "measurement-input form-control"} %>
+    </fieldset>
+
+    <% shoulder_range = (14..22).map { |i| [i, i]} %>
+    <% shoulder_range.unshift([nil, ""])%>
+
+    <fieldset class="form-group">
+      <%= f.label :shoulders %>
+      <%= f.select :shoulders, shoulder_range, {}, {:class => "measurement-input form-control"} %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= f.label :comment %><br>
+      <small class="text-muted">Please let us know any sizing concerns, styling preferences, preferred decade or era, and general comments about products you would like to see.</small>
+    <%= f.text_area :comment, class: "form-control", rows: '6' %>
+    </fieldset>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

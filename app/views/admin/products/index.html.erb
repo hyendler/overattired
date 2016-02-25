@@ -1,0 +1,76 @@
+
+<h1>Admin Index</h1>
+
+<div class="menu-option">
+  <div class="col-md-12">
+    <div class="sidebar info-display__links">
+			<%= link_to "Import Products from Etsy", update_products_from_etsy_path, class: "btn btn-primary btn-lg active" %>
+			<%= link_to "Add New Product", new_admin_product_path, class: "btn btn-secondary btn-lg" %>
+			<%= link_to "See All Customers", admin_users_path, class: "btn btn-secondary btn-lg"%>
+  	</div>
+  </div>
+</div>
+ 
+
+<div class="row info-display">
+
+  <h3>Active Listings:</h3>
+  <div class="col-md-10">
+  	<table class="table table-hover">
+  		<thead>
+	  		<tr>
+	  			<th>Title</th>
+	  			<th>Subtitle</th>
+	  			<th>Gender</th>
+	  			<th>Category</th>
+	  			<th>Decade</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<% @products.each do |product| %>
+	  		<% if product.active %>
+	  		<tr>
+	  			<td><%= link_to "#{product.title}", admin_product_path(product.id) %></td>
+	  			<td><%= product.subtitle %></td>
+	  			<td><%= product.measurement.gender %></td>
+	  			<td><%= product.category %></td>
+	  			<td><%= product.when_made %></td>
+	  		</tr>
+	  		<% end %>
+		  	<% end %>
+		  </tbody>
+		</table>
+	</div>
+
+</div>
+<div class="row info-display">
+	<h3>Inactive Listings:</h3>
+	<div class="col-md-10">
+  	<table class="table table-hover">
+  		<thead>
+	  		<tr>
+	  			<th>Title</th>
+	  			<th>Subtitle</th>
+	  			<th>Gender</th>
+	  			<th>Category</th>
+	  			<th>Decade</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<% @products.each do |product| %>
+	  		<% if !(product.active) %>
+	  		<tr>
+	  			<td><%= link_to "#{product.title}", admin_product_path(product.id) %></td>
+	  			<td><%= product.subtitle %></td>
+	  			<td><%= product.measurement.gender %></td>
+	  			<td><%= product.category %></td>
+	  			<td><%= product.when_made %></td>
+	  		</tr>
+	  		<% end %>
+		  	<% end %>
+		  </tbody>
+		</table>
+	</div>
+
+</div>
+</div>
