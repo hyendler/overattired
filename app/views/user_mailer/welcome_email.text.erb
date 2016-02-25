@@ -1,0 +1,30 @@
+Welcome to example.com, <%= @user.first_name %>
+===============================================
+
+You have successfully signed up to overattired.com,
+your username is: <%= @user.email %>.
+
+To login to the site, just follow this link: <%= @url %>.
+
+    <h1> YOUR MATHCES </h1>
+
+    <% @user.get_initial_matches.each do |category, matches| %>
+      <ul>
+        <li><%= category.to_s %></li>
+          <% matches.each do |match| %>
+          <ul>
+            <li><%= match.title %></li>
+            <li><%= match.subtitle %></li>
+            <li>Category: <%= match.category %></li>
+            <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
+            <img src="<%= match.image_url %>">
+            <li>Price: $<%= match.price %></li>
+            <li>Size: <%= match.size %></li>
+            <li>Decade: <%= match.when_made %></li>
+            <li>Description: <%= match.description %></li>
+          </ul>
+        <% end %>
+      </ul>
+    <% end %>
+
+Thanks for joining and have a great day!
