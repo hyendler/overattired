@@ -33,7 +33,10 @@ class User < ActiveRecord::Base
 		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(category: "Jacket").where(["measurements.#{upper_string} >= ? AND measurements.#{upper_string} <= ?", upper_value - 1, upper_value + 2]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1, shoulders + 2])
 	end
 
-	# need to come back to the issue of suits
+	# again - maybe match on waist?
+	def match_suits(upper_string, upper_value, shoulders, gender)
+		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(category: "Suits").where(["measurements.#{upper_string} >= ? AND measurements.#{upper_string} <= ?", upper_value -1, upper_value + 2]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1, shoulders + 2])
+	end
 
 	# returns HASH where key is the Product Category and value is an array of Product objects
 	# e.g. {jackets: [product#1, product#4], suits: [product#6, product#9]}
@@ -83,6 +86,10 @@ class User < ActiveRecord::Base
 
 			if match_jackets("chest", chest, shoulders, gender)[0]
 				matched_products[:jackets] = match_jackets("chest", chest, shoulders, gender)
+			end
+
+			if match_suits("chest", chest, shoulders, gender)[0]
+				matched_products[:suits] = match_suits("chest", chest, shoulders, gender)
 			end
 		end
 
