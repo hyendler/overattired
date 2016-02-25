@@ -8,7 +8,7 @@
   <body>
 
     <h1> YOUR PRETTY MATCHES </h1>
-    <% @user.match.each do |product| %>
+    <% @user.get_initial_matches.each do |product| %>
       <p> Title: <%= product.title %></p>
       <p> Link: <%= product.url %></p>
     <% end %>
