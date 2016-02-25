@@ -27,17 +27,15 @@
               <% matches.each do |match| %>
               <ul>
                 <li><%= match.title %></li>
-                <ul>
-                  <li><%= match.subtitle %></li>
-                  <li>Category: <%= match.category %></li>
-                  <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
-                  <li><a href="<%= match.image_url %>">Image Link: <%= match.image_url %></a></li>
-                  <img src="<%= match.image_url %>">
-                  <li>Price: $<%= match.price %></li>
-                  <li>Size: <%= match.size %></li>
-                  <li>Decade: <%= match.when_made %></li>
-                  <li>Description: <%= match.description %></li>
-                </ul>
+                <li><%= match.subtitle %></li>
+                <li>Category: <%= match.category %></li>
+                <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
+                <li><a href="<%= match.image_url %>">Image Link: <%= match.image_url %></a></li>
+                <img src="<%= match.image_url %>">
+                <li>Price: $<%= match.price %></li>
+                <li>Size: <%= match.size %></li>
+                <li>Decade: <%= match.when_made %></li>
+                <li>Description: <%= match.description %></li>
               </ul>
             <% end %>
           </ul>
