@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 
 	# again - maybe match on waist?
 	def match_suits(upper_string, upper_value, shoulders, gender)
-		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gener" => gender).where(category: "Suits").where(["measurements.#{upper_string} >= ? AND measurements.#{upper_string} <= ?", upper_value -1, upper_value + 2]).where(["measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.sholders IS NULL", shoulders - 1, sholders +2])
+		Product.joins("INNER JOIN measurements ON measurements.measurable_id = products.id AND measurements.measurable_type = 'Product'").where("measurements.gender" => gender).where(category: "Suits").where(["measurements.#{upper_string} >= ? AND measurements.#{upper_string} <= ?", upper_value -1, upper_value + 2]).where(["(measurements.shoulders >= ? AND measurements.shoulders <= ?) OR measurements.shoulders IS NULL", shoulders - 1, shoulders + 2])
 	end
 
 	# returns HASH where key is the Product Category and value is an array of Product objects
