@@ -9,6 +9,11 @@ require 'json'
 def parse_title(listing)
   whole_title = listing["title"]
   title_array = whole_title.split(/\|/)
+  title_array.each do |title|
+    title.gsub!("&#39;", "'")
+    title.gsub!("&quot;", '"')
+  end
+  title_array
 end
 
 def parse_category(listing)
@@ -19,6 +24,9 @@ end
 def description_parse(listing)
   description = listing["description"]
   description.split(/^(.*?)(?=Measurements)/).first.gsub("\n",' ')
+  description.gsub!("&#39;", "'")
+  description.gsub!("&quot;", '"')
+  description
 end
 
 def parse_image(listing)
@@ -105,8 +113,8 @@ def store_data_from_etsy
   all_active_listings.flatten(1)
   # iterate through all active products in database
   Product.where(active: true).find_each do |product|
-  #   # if the product's url is not included in the active_listing_array the product should be treated as sold, active = false
-    if !all_active_listings.include?(product.url)
+  # if the product's url is NOT included in the active_listing_array and the created_at date is not today's date - the product should be treated as sold, active = false
+    if !all_active_listings.include?(product.url) && product.created_at < Date.today
       product.update(active: false)
     end
   end
@@ -138,8 +146,11 @@ def save_product(listing)
   product.category = parse_category(listing)
   product.url = listing["url"]
   product.image_url = parse_image(listing)
+  # if the product title includes Certificate - don't save it
+  if product.title.include?("Certificate")
+    product.destroy
   # if the product saves, also save its measurement
-  if product.save
+  elsif product.save
     save_measurement(listing) ? product.measurement = save_measurement(listing) : false
   end
 end
