@@ -41,6 +41,6 @@ var displayMeasurementPic = function(){
   	targeted.parent().children(".measurement-image").show();
 
   	// targeted.parent().append("<img src='/assets/images/hips.png'");
-  	
+  	//This comment will be DELETED//
 
 };
