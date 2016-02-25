@@ -31,14 +31,18 @@ body, .navbar {
 	background-image: url("http://www.transparenttextures.com/patterns/arches.png");
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1, h2, h3, h4, h5, h6, button, label {
 	margin-top: 0px;
 	font-family: 'mostraOneRegular';
 }
 
-a, p, label {
+a, p, em, input {
 	font-family: 'Poiret One';
 	letter-spacing: 0.5px;
+}
+
+em {
+	font-size: .8em;
 }
 
 .uppercase {
