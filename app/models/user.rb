@@ -88,21 +88,25 @@ class User < ActiveRecord::Base
 
 end
 
+# call this method in welcome_email template
 def initial_matches
 	initial_matches = self.match
 	# save each match to matches table
+	initial_matches.each { |product| Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now) }
 	return initial_matches
 end
 
+# call this method in weekly_match_email template
 def new_matches
 	all_matches = self.match
 	new_matches = []
-	all_matches.each do |match|
-		# if the match already exists in matches tale
-			# don't send it
-		# else
-			# it's a new match, push into new_matches array
-		# end
+	# iterate through all matches for this user in Match table
+	Match.where(user_id: self.id).find_each do |match|
+		# if all_matches array for this user DOES NOT include the product id of this match
+		# then push that product into the new_matches array
+		if !all_matches.include?(product_id: match.product_id)
+			new_matches.push(match)
+		end
 	end
 	return new_matches
 end
