@@ -11,9 +11,9 @@
 			<button type="button" class="btn btn-default btn-md"><%= link_to "See All Customers", admin_users_path %></button>
   	</div>
   </div>
-
+  <h2>Active Listings:</h2>
   <div class="col-md-9">
-  	<table class="table">
+  	<table class="table table-hover">
   		<thead>
 	  		<tr>
 	  			<th>Title</th>
@@ -21,6 +21,37 @@
 	  			<th>Gender</th>
 	  			<th>Category</th>
 	  			<th>Decade</th>
+	  			<th>Active</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<% @products.each do |product| %>
+
+	  		<tr>
+	  			<td><%= link_to "#{product.title}", admin_product_path(product.id) %></td>
+	  			<td><%= product.subtitle %></td>
+	  			<td><%= product.measurement.gender %></td>
+	  			<td><%= product.category %></td>
+	  			<td><%= product.when_made %></td>
+	  			<td><%= product.active %></td>
+	  		</tr>
+
+		  	<% end %>
+		  </tbody>
+		</table>
+	</div>
+
+	<h2>Inactive Listings:</h2>
+	<div class="col-md-9">
+  	<table class="table table-hover">
+  		<thead>
+	  		<tr>
+	  			<th>Title</th>
+	  			<th>Subtitle</th>
+	  			<th>Gender</th>
+	  			<th>Category</th>
+	  			<th>Decade</th>
+	  			<th>In stock?</th>
 	  		</tr>
 	  	</thead>
 	  	<tbody>
@@ -31,12 +62,19 @@
 	  			<td><%= product.measurement.gender %></td>
 	  			<td><%= product.category %></td>
 	  			<td><%= product.when_made %></td>
+	  			<td><% if product.active == true %>
+	  				yes
+	  				<% else %>
+	  				no
+	  				<% end %>
+	  			</td>
 
 	  		</tr>
 		  	<% end %>
 		  </tbody>
 		</table>
 	</div>
+
 </div>
 
 
