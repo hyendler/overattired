@@ -366,33 +366,33 @@ Welcome and thank you for signing up OverAttired, a free and easy way to user mo
                     <td align="center" valign="top" style="padding-bottom:40px;">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                            <tr>
-                          <% if @user.match == {} %>
+                          <% if @matches == {} %>
                           <h2><strong>Look out for new matches in your email soon!</strong></h2>
                           <% else %>
                           <h1><strong>You Have Matches!</strong></h1>
-          <h3>Your Matches:</h3>
+                          <h3>Your Matches:</h3>
 
-          <% @matches.each do |category, matches| %>
-          <ul>
-            <li><%= category.to_s %></li>
-              <% matches.each do |match| %>
-              <ul>
-                <li><%= match.title %></li>
-                <ul>
-                  <li><%= match.subtitle %></li>
-                  <li>Category: <%= match.category %></li>
-                  <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
-                  <li><a href="<%= match.image_url %>">Image Link: <%= match.image_url %></a></li>
-                  <img src="<%= match.image_url %>">
-                  <li>Price: $<%= match.price %></li>
-                  <li>Size: <%= match.size %></li>
-                  <li>Decade: <%= match.when_made %></li>
-                  <li>Description: <%= match.description %></li>
-                </ul>
-              </ul>
-            <% end %>
-          </ul>
-          <% end %>
+                          <% @matches.each do |category, matches| %>
+                          <ul>
+                            <li><%= category.to_s %></li>
+                              <% matches.each do |match| %>
+                              <ul>
+                                <li><%= match.title %></li>
+                                <ul>
+                                  <li><%= match.subtitle %></li>
+                                  <li>Category: <%= match.category %></li>
+                                  <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
+                                  <li><a href="<%= match.image_url %>">Image Link: <%= match.image_url %></a></li>
+                                  <img src="<%= match.image_url %>">
+                                  <li>Price: $<%= match.price %></li>
+                                  <li>Size: <%= match.size %></li>
+                                  <li>Decade: <%= match.when_made %></li>
+                                  <li>Description: <%= match.description %></li>
+                                </ul>
+                              </ul>
+                            <% end %>
+                          </ul>
+                          <% end %>
                           
 
                 <% end %>
