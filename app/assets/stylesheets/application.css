@@ -30,19 +30,20 @@
   font-weight: normal;
   font-style: normal;
   font-family: 'Poiret One', cursive;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 
 body, .navbar {
 	background-color: #75C5A9;
-	background-image: url("http://www.transparenttextures.com/patterns/arches.png");
+	background-image: url("arches.png");
 }
-
+/*
 .dark {
 	background-color: #474646;
 	background-image: url("http://www.transparenttextures.com/patterns/black-thread.png");
 
-}
+}*/
 
 
 /* NAVBAR STYLING */
@@ -52,6 +53,9 @@ body, .navbar {
 	border-radius: 0px;
 	border: 0px;
 	min-height: 60px;
+	-webkit-box-shadow: 0px 2px 11px 0px rgba(71,70,70,1);
+	-moz-box-shadow: 0px 2px 11px 0px rgba(71,70,70,1);
+	box-shadow: 0px 2px 11px 0px rgba(71,70,70,1);
 }
 
 .navbar-brand {
@@ -81,6 +85,23 @@ body, .navbar {
 
 /* GENERAL CONTAINER STYLING */
 
+
+@media (min-width: 992px){
+	.container {
+	    width: 900px;
+	    padding-left: 25px;
+	    padding-right: 25px;
+	}
+}
+
+@media (min-width: 1200px){
+	.container {
+	    width: 1000px;
+	    padding-left: 50px;
+	    padding-right: 50px;
+	}
+}
+
 .content-area {
 	background-color: rgba(255, 250, 240, 0.5);
 	border-radius: 10px;
@@ -88,33 +109,20 @@ body, .navbar {
 }
 
 .container.top {
-	margin-top: 60px;
+	padding-top: 120px;
+}
+
+.full-container {
+	background-color: rgb(255, 250, 240);
+	background-image: url("soft-wallpaper.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
 }
 
 
 
 
-
-@media (min-width: 1200px){
-	.container {
-	    /*width: 1000px;*/
-	}
-}
-
-@media (min-width: 768px){
-
-}
-
-
-.info-display__links, .info-display__details {
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
-
-.measurement-input {
-	width: 50px;
-}
-
+/* FRONT PAGE SECTION */
 
 .color-circle {
 	background-color: #FFF0CE;
@@ -125,4 +133,58 @@ body, .navbar {
     float: none;
     margin: 0 auto;
 }
+
+
+
+/* MEASUREMENT FORM */
+
+.measurement-input {
+	width: 50px;
+}
+
+
+/* USER/PRODUCT PAGE */
+
+.sidebar {
+	border-right: 1px solid #474646;
+	width: 80%;
+
+}
+
+.product-image {
+	width: 500px;
+	padding: 2px;
+	border-radius: 3px;
+	background-color: white;
+	margin: 0px 0px 10px 0px;
+}
+
+.info-display__links, .info-display__product {
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.info-display__details {
+	height: 104px;
+}
+
+.category {
+	font-family: 'mostraOneRegular';
+}
+
+
+
+.title {
+	font-size: 1.1em
+}
+
+.subtitle {
+	height: 40px;
+}
+
+
+
+
+
+
 
