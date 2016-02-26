@@ -1,18 +1,20 @@
-<div class="container top">
-<h1>Admin Index</h1>
+<div class="container top full-container">
 
 
 <div class="row">
 	<div class="col-md-3">
-		<div class="menu-option"><!--check to see if we even need this -->
 	    <div class="sidebar info-display__links">
-				<%= link_to "Import From Etsy", update_products_from_etsy_path, class: "btn btn-primary btn-lg active" %>
-				<%= link_to "Add New Product", new_admin_product_path, class: "btn btn-secondary btn-lg" %>
-				<%= link_to "See All Customers", admin_users_path, class: "btn btn-secondary btn-lg"%>
+				<p><%= link_to "Import From Etsy", update_products_from_etsy_path%></p>
+				<p><%= link_to "Add New Product", new_admin_product_path %></p>
+				<p><%= link_to "See All Customers", admin_users_path %></p>
 			</div><!--side bar close-->
 	  	</div><!--col close-->
-	</div><!--menu option close-->
 	<div class="col-md-9">
+	<div class="row">
+		<div class="col-md-9">
+		<h1>Admin Index</h1>
+		</div>
+	</div>
 		<div class="info-display center-me">
 		  <h3>Active Listings:</h3>
 		  	<table class="table table-hover">
