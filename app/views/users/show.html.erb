@@ -1,3 +1,5 @@
+<div class="dark">
+<div class="container top">
 <h1><%= @user.first_name %>'s Profile</h1>
 
 <div class="row info-display">
@@ -7,7 +9,7 @@
       <p><%= link_to "My Account", edit_user_path(@user) %></p>
 
       <% if @user.measurement %>
-        <p><%= link_to "My Measurements", edit_user_measurement_path(@user.id, @user.measurement.id) %></p>
+        <p><%= link_to "Edit My Measurements", edit_user_measurement_path(@user.id, @user.measurement.id) %></p>
       <% else %>
         <p><%= link_to "Add My Measurements", new_user_measurement_path(@user.id) %></p>
       <% end %>
@@ -60,6 +62,8 @@
     </div><!--row close-->
 
   </div>
+</div>
+</div>
 </div>
 
 
