@@ -186,3 +186,24 @@ body, .navbar {
 	margin-bottom: 10px;
 }
 
+#story-box-margin-bottom {
+	margin-bottom: 60px;
+}
+
+#story-box-header {
+	margin-top: 20px; 
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.btn-primary.raised {
+    box-shadow: 0 3px 0 0 #007299;
+}
+
+.btn-primary.raised:active, .btn-primary.raised.active {
+    background: #33a6cc;
+    box-shadow: none;
+    margin-bottom: -3px;
+    margin-top: 3px;
+}
+
