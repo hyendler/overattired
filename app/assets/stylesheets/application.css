@@ -17,13 +17,59 @@
 /* get all media queries in here, and check container widths at each size
 * organize product page to look similar in html
 */
-/*@font-face {
+@font-face {
   font-family: 'mostraOneRegular';
-  src: url('assets/MostraOneRegular.ttf');
+  src: url(/assets/MostraOneRegular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-*/
+
+body, .navbar {
+	background-color: #75C5A9;
+	background-image: url("http://www.transparenttextures.com/patterns/arches.png");
+}
+
+/* NAVBAR STYLING */
+
+.navbar {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	border: 0px;
+	min-height: 60px;
+}
+
+.navbar-brand {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+#logo {
+	width: 120px;
+	height: 120px;
+}
+
+/* CAROUSEL STYLING */
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+
+.carousel-caption {
+	position: relative;
+	left: auto;
+	right: auto;
+}
+
+.content-area {
+	background-color: rgba(255, 250, 240, 0.5)
+}
+
+
+
+
+
 @media (min-width: 1200px){
 	.container {
 	    /*width: 1000px;*/
@@ -33,9 +79,9 @@
 @media (min-width: 768px){
 
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, a {
 	margin-top: 0px;
-	/*font-family: 'mostraOneRegular';*/
+	font-family: 'mostraOneRegular';
 }
 
 .info-display__links, .info-display__details {
@@ -45,5 +91,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .measurement-input {
 	width: 50px;
+}
+
+
+.color-circle {
+	background-color: #FFF0CE;
+	padding: 10px;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
 }
 
