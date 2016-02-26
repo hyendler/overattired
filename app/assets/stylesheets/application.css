@@ -118,6 +118,7 @@ body, .navbar {
 
 .container.top {
 	padding-top: 120px;
+
 }
 
 .full-container {
@@ -211,5 +212,14 @@ body, .navbar {
 }
 
 .center-me {
-  margin: 0 auto;
+    margin: 0 auto;
 }
+
+/*   ADMIN INDEX   */
+
+.listing-container {
+	margin-right: 0 auto;
+	margin-left: 0 auto;
+	margin-bottom: 40px;
+}
+
