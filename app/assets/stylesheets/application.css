@@ -17,6 +17,13 @@
 /* get all media queries in here, and check container widths at each size
 * organize product page to look similar in html
 */
+
+/* gray #474646
+* deco green #75c5a9
+* cream #FFF0CE
+*
+ */
+
 @font-face {
   font-family: 'mostraOneRegular';
   src: url(/assets/MostraOneRegular.ttf) format("truetype");
@@ -31,23 +38,13 @@ body, .navbar {
 	background-image: url("http://www.transparenttextures.com/patterns/arches.png");
 }
 
-h1, h2, h3, h4, h5, h6, button, label {
-	margin-top: 0px;
-	font-family: 'mostraOneRegular';
+.dark {
+	background-color: #474646;
+	background-image: url("http://www.transparenttextures.com/patterns/black-thread.png");
+
 }
 
-a, p, em, input {
-	font-family: 'Poiret One';
-	letter-spacing: 0.5px;
-}
 
-em {
-	font-size: .8em;
-}
-
-.uppercase {
-	text-transform: uppercase;
-}
 /* NAVBAR STYLING */
 
 .navbar {
@@ -81,9 +78,12 @@ em {
 	right: auto;
 }
 
+
+/* GENERAL CONTAINER STYLING */
+
 .content-area {
 	background-color: rgba(255, 250, 240, 0.5);
-	border-radius: 20px;
+	border-radius: 10px;
 	padding: 20px;
 }
 
