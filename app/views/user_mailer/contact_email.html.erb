@@ -40,6 +40,15 @@
       padding:0;
       width:100% !important;
     }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      width: 400px;
+      height: auto;
+    }
+    li {
+      line-height: 135%;
+    }
   /*
   @tab Page
   @section heading 1
@@ -285,9 +294,6 @@
     .footerContent img{
       display:inline;
     }
-    #monkeyRewards img{
-      max-width:190px;
-    }
 </style></head>
     <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
       <center>
@@ -305,9 +311,7 @@
                                             <td width="20">
                                               <br>
                                             </td>
-                      <td valign="top" width="200" class="preheaderContent" mc:edit="preheader_links">
-                                                Email not displaying correctly?<br><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
-                                            </td>
+                      <td valign="top" width="200" class="preheaderContent" mc:edit="preheader_links"></td>
                       <!-- *|END:IF|* -->
                                         </tr>
                                     </table>
@@ -367,35 +371,34 @@ Welcome and thank you for signing up OverAttired, a free and easy way to user mo
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                            <tr>
                           <% if @matches == {} %>
-                          <h2><strong>Look out for new matches in your email soon!</strong></h2>
+                            <h2><strong>Look out for new matches in your email soon!</strong></h2>
                           <% else %>
-                          <h1><strong>You Have Matches!</strong></h1>
-                          <h3>Your Matches:</h3>
+                            <br>
+                            <br>
+                            <h1><strong>You Have Matches!</strong></h1>
 
-                          <% @matches.each do |category, matches| %>
-                          <ul>
-                            <li><%= category.to_s %></li>
-                              <% matches.each do |match| %>
+                            <% @matches.each do |category, matches| %>
                               <ul>
-                                <li><%= match.title %></li>
-                                <ul>
-                                  <li><%= match.subtitle %></li>
-                                  <li>Category: <%= match.category %></li>
-                                  <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
-                                  <li><a href="<%= match.image_url %>">Image Link: <%= match.image_url %></a></li>
-                                  <img src="<%= match.image_url %>">
-                                  <li>Price: $<%= match.price %></li>
-                                  <li>Size: <%= match.size %></li>
-                                  <li>Decade: <%= match.when_made %></li>
-                                  <li>Description: <%= match.description %></li>
+                                <li><h2><%= category.to_s.capitalize %></h2></li>
+                                  <% matches.each do |match| %>
+                                    <ul>
+                                      <li><h3><a href="<%= match.url %>"><%= match.title %></a></h3></li>
+                                      <ul>
+                                        <li><strong><%= match.subtitle %></strong></li>
+                                        <br>
+                                        <img width="400px" height="auto" src="<%= match.image_url %>">
+                                        <li><strong>Price: </strong>$<%= match.price %></li>
+                                        <li><strong>Size: </strong><%= match.size %></li>
+                                        <li><strong>Decade: </strong><%= match.when_made %></li>
+                                        <li><strong>Description: </strong><%= match.description %></li>
+                                        <br>
+                                        <br>
+                                      </ul>
+                                    </ul>
+                                  <% end %>
                                 </ul>
-                              </ul>
+                              <% end %>
                             <% end %>
-                          </ul>
-                          <% end %>
-                          
-
-                <% end %>
 
                                         </tr>
                                     </table>
@@ -426,7 +429,7 @@ Welcome and thank you for signing up OverAttired, a free and easy way to user mo
                                                         <td width="20">
                                                           <br>
                                                         </td>
-                                                        <td valign="top" width="200" id="monkeyRewards" class="footerContent" mc:edit="monkeyrewards"></td>
+                                                        <td></td>
                                                     </tr>
                                                 </table>
                                             </td>
