@@ -63,6 +63,13 @@ body, .navbar {
 	padding-bottom: 0px;
 }
 
+.navbar-default .navbar-nav>li>a {
+	font-family: 'mostraOneRegular';
+	color: white;
+	size: 1.8em;
+
+}
+
 #logo {
 	width: 120px;
 	height: 120px;
@@ -122,8 +129,8 @@ body, .navbar {
 }
 
 .full-container {
-	background-color: rgb(255, 250, 240);
-	background-image: url("soft-wallpaper.png");
+	background-color: rgba(255, 250, 240, 0.5);
+	
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
 }
