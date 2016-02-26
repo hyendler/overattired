@@ -30,6 +30,7 @@
   font-weight: normal;
   font-style: normal;
   font-family: 'Poiret One', cursive;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 
@@ -37,12 +38,12 @@ body, .navbar {
 	background-color: #75C5A9;
 	background-image: url("http://www.transparenttextures.com/patterns/arches.png");
 }
-
+/*
 .dark {
 	background-color: #474646;
 	background-image: url("http://www.transparenttextures.com/patterns/black-thread.png");
 
-}
+}*/
 
 
 /* NAVBAR STYLING */
@@ -92,29 +93,7 @@ body, .navbar {
 }
 
 
-
-
-
-@media (min-width: 1200px){
-	.container {
-	    /*width: 1000px;*/
-	}
-}
-
-@media (min-width: 768px){
-
-}
-
-
-.info-display__links, .info-display__details {
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
-
-.measurement-input {
-	width: 50px;
-}
-
+/* FRONT PAGE SECTION */
 
 .color-circle {
 	background-color: #FFF0CE;
@@ -125,4 +104,57 @@ body, .navbar {
     float: none;
     margin: 0 auto;
 }
+
+
+
+/* MEASUREMENT FORM */
+
+.measurement-input {
+	width: 50px;
+}
+
+
+/* USER/PRODUCT PAGE */
+
+.sidebar p, a
+ {
+	/*text-decoration: underline;*/
+}
+
+.product-image {
+	width: 500px;
+	padding: 2px;
+	border-radius: 2px;
+	background-color: white;
+	margin: 0px 0px 10px 0px;
+}
+
+.info-display__links, .info-display__product {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.info-display__details {
+	height: 104px;
+}
+
+.category {
+	font-family: 'mostraOneRegular';
+}
+
+
+
+.title {
+	font-size: 1.1em
+}
+
+.subtitle {
+	height: 40px;
+}
+
+
+
+
+
+
 
