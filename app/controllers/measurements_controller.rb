@@ -13,20 +13,21 @@ class MeasurementsController < ApplicationController
   # ----------------------------------------
 
   def contact
+    # Look in the rails server - if you see all the stars it means that this method has started running
     p '* ' * 1000
     @user = User.find(@measurement.measurable.id)
-    p "The contact method has been ran for #{@user.first_name}"
+    # p "The contact method has been ran for #{@user.first_name}"
+    # don't really need 'name' here can remove it for refactoring
     h = { 'name' => @user.first_name,
           'email' => @user.email}
-    p "THE INPUTS THAT GOES INTO THE EMAIL ARE:"
-    p h 
-    # h = JSON.generate({ 'name' => params[:name],
-    #                     'email' => params[:email],
-    #                     'message' => params[:message] })
-    # p PostmanWorker.methods.sort
-    p "before worker call"
+    # just testing whether the inputs show up:
+    # p "THE INPUTS THAT GOES INTO THE EMAIL ARE:"
+    # p h 
+    # p "before worker call"
     PostmanWorker.perform_async(h, 5)
-    p "After worker call"
+    # NOW GO LOOK IN THE app/workers/postman_worker.rb
+    # If you see the follow text, it means this method has ran! Good job.
+    # p "After worker call"
     # if instead of sidekiq I was just sending email from rails
     # VisitorMailer.contact_email(@name, @email, @message).deliver
 
