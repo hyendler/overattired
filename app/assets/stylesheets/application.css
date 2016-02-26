@@ -77,6 +77,8 @@ body, .navbar {
   }
 
 .carousel-caption {
+	margin-top: 20px;
+	margin-bottom: 10px;
 	position: relative;
 	left: auto;
 	right: auto;
