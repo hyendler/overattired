@@ -4,7 +4,8 @@ class PostmanWorker
   include Sidekiq::Worker
 
   def perform(h, count)
-  	p "HELO KITTY " * 50
+    # THIS LINE TELL YOU THAT THIS PERFORM HAS RAN
+  	#p "HELO KITTY " * 50
     UserMailer.contact_email(h['name'], h['email']).deliver
   end
 end
