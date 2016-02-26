@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6, button, label {
 }
 
 
-a, em, input, .emphasis {
+em, input, .emphasis {
 	font-family: 'Poiret One';
 	letter-spacing: 0.5px;
 }
@@ -38,6 +38,12 @@ a, em, input, .emphasis {
 p, li, ul, ol {
 	font-family: 'Source Sans Pro';
 	font-weight: 300;
+}
+
+ a {
+	font-family: 'Source Sans Pro';
+	font-weight: 400;
+	color: #474646;
 }
 
 em {
