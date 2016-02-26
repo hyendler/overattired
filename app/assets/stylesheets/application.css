@@ -196,14 +196,12 @@ body, .navbar {
 	text-align: center;
 }
 
-.btn-primary.raised {
-    box-shadow: 0 3px 0 0 #007299;
+#register-button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
 }
 
-.btn-primary.raised:active, .btn-primary.raised.active {
-    background: #33a6cc;
-    box-shadow: none;
-    margin-bottom: -3px;
-    margin-top: 3px;
+.center-me {
+  margin: 0 auto;
 }
-
