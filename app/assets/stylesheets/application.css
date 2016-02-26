@@ -84,6 +84,10 @@ body, .navbar {
 	right: auto;
 }
 
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
 
 /* GENERAL CONTAINER STYLING */
 
