@@ -76,10 +76,18 @@ body, .navbar {
       margin: auto;
   }
 
+
+
 .carousel-caption {
+	margin-top: 20px;
+	margin-bottom: 10px;
 	position: relative;
 	left: auto;
 	right: auto;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
 }
 
 
@@ -110,6 +118,7 @@ body, .navbar {
 
 .container.top {
 	padding-top: 120px;
+
 }
 
 .full-container {
@@ -182,9 +191,39 @@ body, .navbar {
 	height: 40px;
 }
 
+.image-bottom {
+	margin-bottom: 10px;
+}
 
 
 
+/* index page */
 
+#story-box-margin-bottom {
+	margin-bottom: 60px;
+}
 
+#story-box-header {
+	margin-top: 20px; 
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#register-button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.center-me {
+    margin: 0 auto;
+}
+
+/*   ADMIN INDEX   */
+
+.listing-container {
+	margin-right: 0 auto;
+	margin-left: 0 auto;
+	margin-bottom: 40px;
+}
 
