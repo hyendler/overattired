@@ -30,4 +30,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :destroy]
   end
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
 end

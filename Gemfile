@@ -23,9 +23,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'sinatra', '>= 1.3.0', :require => nil
 # protect user data with devise
 gem 'devise'
+gem 'autoscaler'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,6 +41,12 @@ gem 'pry'
 gem 'whenever', :require => false
 
 gem 'faker'
+
+# gems needed for using sidekiq with emails
+gem "letter_opener", :group => :development
+gem "launchy"
+gem 'sidekiq'
+
 # seed data with faker
 
 # Use Unicorn as the app server
