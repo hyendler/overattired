@@ -31,3 +31,12 @@ module OverAttired
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
+
+module NameOfMyApp
+  class Application < Rails::Application
+    # …
+
+    require Rails.root.join("lib/custom_public_exceptions")
+    config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
+  end
+end

@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
+
 end
