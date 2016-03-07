@@ -7,7 +7,7 @@ class UserMeasurementsController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     # returns @measurement
   end
 
@@ -20,11 +20,23 @@ class UserMeasurementsController < ApplicationController
     end
   end
 
-  # def new
-  # end
+  def new
+    @user = User.find(params[:user_id])
+    @measurement = UserMeasurement.new
+  end
 
-  # def create
-  # end
+  def create
+    @user = User.find(params[:user_id])
+    @measurement = UserMeasurement.new(user_measurement_params)
+    @measurement.user_id = @user.id
+
+    if @measurement.save
+      redirect_to user_path(@user)
+    else
+      errs
+      render 'new'
+    end
+  end
 
   # ----------------------------------------
   # THESE ARE THE METHOD NEEDED TO SEND USER WELCOME EMAIL UPON
@@ -40,8 +52,8 @@ class UserMeasurementsController < ApplicationController
   def contact
     # Look in the rails server - if you see all the stars it means that this method has started running
     p '* ' * 1000
-    @user = User.find(@measurement.measurable.id)
-    # p "The contact method has been ran for #{@user.first_name}"
+    @user = User.find(params[:user_id])
+    # p "The contact method ran for #{@user.first_name}"
     # don't really need 'name' here can remove it for refactoring
     h = { 'name' => @user.first_name,
           'email' => @user.email}
@@ -62,6 +74,8 @@ class UserMeasurementsController < ApplicationController
 
   def set_measurement
     @measurement = UserMeasurement.find(params[:id])
+    puts "I'M HERE"
+    p @measurement
   end
 
   def user_measurement_params
