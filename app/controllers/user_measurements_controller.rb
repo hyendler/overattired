@@ -11,6 +11,16 @@ class UserMeasurementsController < ApplicationController
     # returns @measurement
   end
 
+  def update
+
+  end
+
+  # def new
+  # end
+
+  # def create
+  # end
+
   # ----------------------------------------
   # THESE ARE THE METHOD NEEDED TO SEND USER WELCOME EMAIL UPON
   # CREATING A MEASUREMENT FORM
