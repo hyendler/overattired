@@ -30,12 +30,10 @@
       <div class="col-md-12 info-display__product">
         <h3>Your Measurements</h3>
         <% if @user.measurement && @user.measurement.gender == "female"%>
-          <p><strong>Shoulders: </strong><%= @user.measurement.shoulders %></p>
           <p><strong>Bust: </strong><%= @user.measurement.bust %></p>
           <p><strong>Waist: </strong><%= @user.measurement.waist %></p>
           <p><strong>Hips: </strong><%= @user.measurement.hips %></p>
         <% elsif @user.measurement %>
-          <p><strong>Shoulders: </strong><%= @user.measurement.shoulders %></p>
           <p><strong>Chest: </strong><%= @user.measurement.chest %></p>
           <p><strong>Waist: </strong><%= @user.measurement.waist %></p>
           <p><strong>Inseam: </strong><%= @user.measurement.inseam %></p>
@@ -68,7 +66,7 @@
     <% end %>
 
 
-   
+
 
   </div>
 </div>
