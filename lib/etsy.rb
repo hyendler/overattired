@@ -162,7 +162,7 @@ def save_product(listing)
 end
 
 def save_measurement(listing)
-  measurement = Measurement.new
+  measurement = ProductMeasurement.new
   # save measurement attributes
   measurement.bust = parse_measurement(listing, "Bust")
   measurement.shoulders = parse_measurement(listing, "Shoulders")
