@@ -12,7 +12,12 @@ class UserMeasurementsController < ApplicationController
   end
 
   def update
-
+    if @measurement.update(user_measurement_params)
+      redirect_to user_path(@measurement.user_id)
+    else
+      errs
+      render 'edit'
+    end
   end
 
   # def new
@@ -60,7 +65,7 @@ class UserMeasurementsController < ApplicationController
   end
 
   def user_measurement_params
-    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :comment, :gender)
+    params.require(:user_measurement).permit(:hips, :waist, :bust, :chest, :inseam, :comment, :gender)
   end
 
   def errs

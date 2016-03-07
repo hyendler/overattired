@@ -27,7 +27,7 @@ class ProductMeasurementsController < ApplicationController
   end
 
   def product_measurement_params
-    params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :gender, :shoulders, :sleeve_length, :overall_length)
+    params.require(:product_measurement).permit(:hips, :waist, :bust, :chest, :inseam, :gender, :shoulders, :sleeve_length, :overall_length)
   end
 
   def find_measurable
