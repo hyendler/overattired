@@ -1,6 +1,7 @@
 class MeasurementsController < ApplicationController
   before_action :set_measurement, only: [:show, :edit, :update]
   after_action :contact, only: [:create]
+
   # ----------------------------------------
   # THESE ARE THE METHOD NEEDED TO SEND USER WELCOME EMAIL UPON
   # CREATING A MEASUREMENT FORM

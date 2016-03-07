@@ -4,7 +4,7 @@
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <%= image_tag "overattired_sign.jpg"%>
+        <%= image_tag "overattired-sign.jpg"%>
         <div class="carousel-caption">
           <h3>Overattired Storefront</h3>
           <p>Fitting you with the finest sartorial trends from decades of fashion, est. 2015</p>
@@ -13,7 +13,7 @@
 
       <div class="item">
         <!--img src="http://wearinghistoryblog.com/wp-content/uploads/2015/05/ea59d504f35f70ceafae2667277afd96_original.jpg" alt="Third slide" alt="Chania" width="460" height="345"-->
-        <%= image_tag "sammonica.jpg"%>
+        <%= image_tag "sam_and_monica_copy.jpg"%>
         <div class="carousel-caption">
           <h3>Sam and Monica</h3>
           <p>Overattired's dapper proprietors</p>
@@ -30,17 +30,26 @@
       </div>
   
     </div>
+    <a class="left carousel-control carousel-control.left" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control carousel-control.right" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div><!--carousel -->
 
-    <div class="container content-area">
+    <div class="container content-area" id="story-box-margin-bottom">
       <div class="row">
-        <h1></h1>
+        <h1 id="story-box-header">Find Your Ideal Match</h1>
       </div>
       <div class="row">
         <div class="col-md-4">
 
           <div class="col-centered" style="text-align: center">
             
-            <%= image_tag "edit.png", class: "img-circle color-circle" %>
+            <%= image_tag "edit.png", class: "img-circle color-circle image-bottom" %>
 
           </div>
           <h3 class="section-subheading text-center">Sign Up</h3>
@@ -49,7 +58,7 @@
         <div class="col-md-4">
           <div class="col-centered" style="text-align: center">
             
-              <%= image_tag "tool-1.png", class: "img-circle color-circle" %>
+              <%= image_tag "tool-1.png", class: "img-circle color-circle image-bottom" %>
             
           </div>
           <h3 class="section-subheading text-center">Get Measured</h3>
@@ -58,12 +67,15 @@
         <div class="col-md-4">
           <div class="col-centered" style="text-align: center">
             <div>
-              <%= image_tag "summer.png", class: "img-circle color-circle"%>
+              <%= image_tag "summer.png", class: "img-circle color-circle image-bottom"%>
             </div>
           </div>
           <h3 class="section-subheading text-center">Receive Matches</h3>
           <p class="text-muted text-center">Voila! We will provide you with tailored matches based on your size.  When something arrives in the shop that fits you we will let you know.  That perfect piece found you!</p>
 
         </div>
+        <div class="row text-center">
+          <%= link_to "register", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+        </div>
       </div>
-    </div>
+    </div><!-- content area -->

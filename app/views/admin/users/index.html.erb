@@ -1,15 +1,21 @@
-<h1>Hello from User Index Page</h1>
+<div class="container top full-container">
+
+<h1>Users Index Page</h1>
 
 <div class="row info-display">
-
   <div class="col-md-3">
     <div class="sidebar info-display__links">
-    <button type="button" class="btn btn-info btn-md"><%= link_to "Back to all products", admin_path %></button>
-    <button type="button" class="btn btn-default btn-md"><%= link_to "E-mail All Users Matches", send_updates_path %></button>
+      <p><%= link_to "Back to all products", admin_path %></p>
+      <p><%= link_to "E-mail All Users Matches", send_updates_path %></p>
     </div>
   </div>
 
   <div class="col-md-9">
+  <div class="row">
+    <div class="col-md-9">
+    <h1>Admin Index</h1>
+    </div>
+  </div>
     <div class="row">
       <h3>Users</h3>
       <div class="col-md-12">
@@ -45,7 +51,7 @@
               </td>
               <% end %>
               <td></td>
-              <td><%= link_to "Delete User", admin_user_path(user), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "btn btn-danger" %></td>
+              <td><%= link_to "Delete User", admin_user_path(user), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "btn btn-primary" %></td>
             </tr>
             <% end %>
           <% end %>
