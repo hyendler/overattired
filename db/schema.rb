@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224230137) do
-
+ActiveRecord::Schema.define(version: 20160307201423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,25 +28,6 @@ ActiveRecord::Schema.define(version: 20160224230137) do
   add_index "matches", ["product_id"], name: "index_matches_on_product_id", using: :btree
   add_index "matches", ["user_id"], name: "index_matches_on_user_id", using: :btree
 
-  create_table "measurements", force: :cascade do |t|
-    t.string   "gender"
-    t.float    "hips"
-    t.float    "waist"
-    t.float    "bust"
-    t.float    "chest"
-    t.float    "inseam"
-    t.integer  "measurable_id"
-    t.string   "measurable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.float    "shoulders"
-    t.float    "sleeve_length"
-    t.float    "overall_length"
-    t.string   "comment"
-  end
-
-  add_index "measurements", ["measurable_type", "measurable_id"], name: "index_measurements_on_measurable_type_and_measurable_id", using: :btree
-
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
@@ -61,6 +41,18 @@ ActiveRecord::Schema.define(version: 20160224230137) do
     t.string   "image_url"
     t.float    "price"
     t.boolean  "active"
+  end
+
+  create_table "user_measurements", force: :cascade do |t|
+    t.string   "gender"
+    t.float    "hips"
+    t.float    "waist"
+    t.float    "bust"
+    t.float    "chest"
+    t.float    "inseam"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
