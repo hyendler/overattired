@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307201423) do
+ActiveRecord::Schema.define(version: 20160307202121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20160307201423) do
 
   add_index "matches", ["product_id"], name: "index_matches_on_product_id", using: :btree
   add_index "matches", ["user_id"], name: "index_matches_on_user_id", using: :btree
+
+  create_table "product_measurements", force: :cascade do |t|
+    t.string   "gender"
+    t.float    "hips"
+    t.float    "waist"
+    t.float    "bust"
+    t.float    "chest"
+    t.float    "inseam"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
