@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   get :privacy_policy, to: 'home#privacy_policy', as: :privacy_policy
 
   resources :products do
-    resources :measurements
+    resources :product_measurements
   end
 
   resources :users do
-    resources :measurements
+    resources :user_measurements
   end
 
   namespace :admin do

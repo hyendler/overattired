@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     if @user.measurement.nil?
-      redirect_to new_user_measurement_path(current_user.id)
+      redirect_to new_user_user_measurement_path(current_user.id)
     else
       @matches = @user.match
     end

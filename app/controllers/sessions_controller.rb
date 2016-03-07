@@ -3,7 +3,7 @@ class SessionsController < Devise::SessionsController
 		if resource.admin
 			admin_path
 		elsif !current_user.measurement
-      new_user_measurement_path(current_user.id)
+      new_user_user_measurement_path(current_user.id)
     else
       user_path(current_user.id)
 		end
