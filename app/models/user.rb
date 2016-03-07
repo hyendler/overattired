@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :measurement, as: :measurable, dependent: :destroy
+  has_one :user_measurement, dependent: :destroy
   has_many :matches
 
 	def match_dresses(waist, bust, hips)
