@@ -7,7 +7,7 @@ class UserMeasurementsController < ApplicationController
   end
 
   def edit
-    @measurable = find_measurable
+    # @measurable = find_measurable # do we need this?
     # returns @measurement
   end
 
@@ -51,6 +51,10 @@ class UserMeasurementsController < ApplicationController
 
   def user_measurement_params
     params.require(:measurement).permit(:hips, :waist, :bust, :chest, :inseam, :comment, :gender)
+  end
+
+  def find_measurable
+    @measurable = User.find(params[:user_id])
   end
 
   def errs
