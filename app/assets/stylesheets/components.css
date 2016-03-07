@@ -1,0 +1,67 @@
+/* BTN STYLINGS */
+
+.btn-primary {
+	font-family: 'mostraOneRegular';
+	background-color: #CFAE66;
+	color: black;
+	border: 0px;
+	font-weight: 400;
+}	
+
+.btn-primary:hover {
+	background-color: #C4A15C;
+	color: black;
+}
+
+.btn-primary:active:focus {
+	background-color: #C4A15C;
+	color: black;
+	-webkit-box-shadow: inset 5px 5px 10px -5px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 5px 5px 10px -5px rgba(0,0,0,0.75);
+	box-shadow: inset 5px 5px 10px -5px rgba(0,0,0,0.75);
+}
+
+
+/* FONT TEXT STYLINGS */
+
+h1, h2, h3, h4, h5, h6, button, label {
+	margin-top: 0px;
+	font-family: 'mostraOneRegular';
+}
+
+
+em, input, .emphasis {
+	font-family: 'Poiret One';
+	letter-spacing: 0.5px;
+}
+
+p, li, ul, ol {
+	font-family: 'Source Sans Pro';
+	font-weight: 300;
+}
+
+ a {
+	font-family: 'Source Sans Pro';
+	font-weight: 400;
+	color: #474646;
+}
+
+em {
+	font-size: .8em;
+}
+
+.large {
+	font-size: 1.2em;
+}
+
+.underline {
+	text-decoration: underline black;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+
+*/
+/* FORM */
