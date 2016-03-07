@@ -2,10 +2,10 @@ class Product < ActiveRecord::Base
   validates :url, uniqueness: true
   validates :title, :url, presence: true
 
-  has_one :product_measurement, dependent: :destroy
+  has_one :measurement, foreign_key: "product_id", class_name: "ProductMeasurement", dependent: :destroy
   has_many :matches
 
-  # accepts_nested_attributes_for :measurement
+  accepts_nested_attributes_for :measurement
 
   # Possible Pseudocode for valid urls
   # validate :valid_urls
