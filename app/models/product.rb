@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  has_one :measurement, as: :measurable, dependent: :destroy
+  has_one :product_measurement, dependent: :destroy
   has_many :users
   accepts_nested_attributes_for :measurement
   validates :url, uniqueness: true
