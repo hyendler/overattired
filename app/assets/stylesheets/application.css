@@ -143,6 +143,7 @@ body, .navbar {
 .color-circle {
 	background-color: #FFF0CE;
 	padding: 10px;
+<<<<<<< 3810929722b5abd8a74fcfdb96a1f922cae2c518
 }
 
 .col-centered {
@@ -158,6 +159,23 @@ body, .navbar {
 	width: 50px;
 }
 
+=======
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+
+
+/* MEASUREMENT FORM */
+
+.measurement-input {
+	width: 50px;
+}
+
+>>>>>>> try to resolve merge conflict because I didn't git fetch/pull after hanah's last edit
 
 /* USER/PRODUCT PAGE */
 
@@ -240,5 +258,3 @@ body, .navbar {
 	margin-left: 0 auto;
 	margin-bottom: 40px;
 }
-
-
