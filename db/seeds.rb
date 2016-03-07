@@ -202,7 +202,7 @@ ProductMeasurement.create(product_id: 2, gender: "female", hips: 36, waist: 27, 
 
 
 User.create(first_name: "Lindsey", last_name: "Stevens", email: "lindsey@gmail.com", password: "12345678")
-UserMeasurement.create(user_id: 1, gender: "female", hips: 36, waist: 25, bust: 35)
+UserMeasurement.create(user_id: 1, gender: "female", hips: 36, waist: 25, bust: 35, comment: "I love this stuff!")
 
 
 # User.create(first_name: "Hanah", last_name: "Yen", email: "hanah@gmail.com", password: "12345678")
