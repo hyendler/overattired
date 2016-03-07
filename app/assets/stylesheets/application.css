@@ -126,3 +126,8 @@ body, .navbar {
     margin: 0 auto;
 }
 
+/* this is styling for the 404 error page */
+#four{
+	margin-left: 50px;
+	margin-top: 150px;
+}
