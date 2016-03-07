@@ -1,0 +1,260 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* get all media queries in here, and check container widths at each size
+* organize product page to look similar in html
+*/
+
+/* gray #474646
+* deco green #75c5a9
+* cream #FFF0CE
+*
+ */
+
+@font-face {
+  font-family: 'mostraOneRegular';
+  src: url(/assets/MostraOneRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'Poiret One', cursive;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+body, .navbar {
+	background-color: #75C5A9;
+	background-image: url("arches.png");
+}
+/*
+.dark {
+	background-color: #474646;
+	background-image: url("http://www.transparenttextures.com/patterns/black-thread.png");
+
+}*/
+
+
+/* NAVBAR STYLING */
+
+.navbar {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	border: 0px;
+	min-height: 60px;
+	-webkit-box-shadow: 0px 2px 11px 0px rgba(71,70,70,1);
+	-moz-box-shadow: 0px 2px 11px 0px rgba(71,70,70,1);
+	box-shadow: 0px 2px 11px 0px rgba(71,70,70,1);
+}
+
+.navbar-brand {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.navbar-default .navbar-nav>li>a {
+	font-family: 'mostraOneRegular';
+	color: white;
+	size: 1.8em;
+
+}
+
+#logo {
+	width: 120px;
+	height: 120px;
+}
+
+/* CAROUSEL STYLING */
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+
+
+
+.carousel-caption {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	position: relative;
+	left: auto;
+	right: auto;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+
+
+/* GENERAL CONTAINER STYLING */
+
+
+@media (min-width: 992px){
+	.container {
+	    width: 900px;
+	    padding-left: 25px;
+	    padding-right: 25px;
+	}
+}
+
+@media (min-width: 1200px){
+	.container {
+	    width: 1000px;
+	    padding-left: 50px;
+	    padding-right: 50px;
+	}
+}
+
+.content-area {
+	background-color: rgba(255, 250, 240, 0.5);
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.container.top {
+	padding-top: 120px;
+
+}
+
+.full-container {
+	background-color: rgba(255, 250, 240, 0.5);
+	
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+}
+
+
+
+
+/* FRONT PAGE SECTION */
+
+.color-circle {
+	background-color: #FFF0CE;
+	padding: 10px;
+<<<<<<< 3810929722b5abd8a74fcfdb96a1f922cae2c518
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+
+
+/* MEASUREMENT FORM */
+
+.measurement-input {
+	width: 50px;
+}
+
+=======
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+
+
+/* MEASUREMENT FORM */
+
+.measurement-input {
+	width: 50px;
+}
+
+>>>>>>> try to resolve merge conflict because I didn't git fetch/pull after hanah's last edit
+
+/* USER/PRODUCT PAGE */
+
+.sidebar {
+	border-right: 1px solid #474646;
+	width: 80%;
+
+}
+
+.product-image {
+	width: 500px;
+	padding: 2px;
+	border-radius: 3px;
+	background-color: white;
+	margin: 0px 0px 10px 0px;
+}
+
+.info-display__links, .info-display__product {
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.info-display__details {
+	height: 104px;
+}
+
+.category {
+	font-family: 'mostraOneRegular';
+}
+
+
+
+.title {
+	font-size: 1.1em
+}
+
+.subtitle {
+	height: 40px;
+}
+
+.image-bottom {
+	margin-bottom: 10px;
+}
+
+
+
+/* index page */
+
+#story-box-margin-bottom {
+	margin-bottom: 60px;
+}
+
+#story-box-header {
+	margin-top: 20px; 
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#register-button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.center-me {
+    margin: 0 auto;
+}
+
+
+/* this is styling for the 404 error page */
+#four{
+	margin-left: 50px;
+	margin-top: 150px;
+}
+
+/*   ADMIN INDEX   */
+
+.listing-container {
+	margin-right: 0 auto;
+	margin-left: 0 auto;
+	margin-bottom: 40px;
+}

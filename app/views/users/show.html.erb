@@ -1,0 +1,78 @@
+<div class="container top full-container">
+
+
+
+<div class="row info-display">
+  <div class="col-md-3">
+    <div class="sidebar info-display__links">
+
+      <p><%= link_to "My Account", edit_user_path(@user) %></p>
+
+      <% if @user.measurement %>
+        <p><%= link_to "Edit My Measurements", edit_user_user_measurement_path(@user.id, @user.measurement.id) %></p>
+      <% else %>
+        <p><%= link_to "Add My Measurements", new_user_user_measurement_path(@user.id) %></p>
+      <% end %>
+
+      <p><%= link_to "Delete My Account", user_path(@user), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %><p>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-9">
+  <div class="row">
+      <div class="col-md-9">
+        <h1><%= @user.first_name %>'s Profile</h1>
+      </div>
+    </div>
+   <div class="row">
+      <div class="col-md-12 info-display__product">
+        <h3>Your Measurements</h3>
+        <% if @user.measurement && @user.measurement.gender == "female"%>
+          <p><strong>Bust: </strong><%= @user.measurement.bust %></p>
+          <p><strong>Waist: </strong><%= @user.measurement.waist %></p>
+          <p><strong>Hips: </strong><%= @user.measurement.hips %></p>
+        <% elsif @user.measurement %>
+          <p><strong>Chest: </strong><%= @user.measurement.chest %></p>
+          <p><strong>Waist: </strong><%= @user.measurement.waist %></p>
+          <p><strong>Inseam: </strong><%= @user.measurement.inseam %></p>
+        <% end %>
+      </div><!--col close-->
+    </div><!--row close-->
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Your Matches</h3>
+      </div>
+    </div>
+
+    <% @matches.each do |category, matches| %>
+    <div class="row">
+      <% matches.each do |match| %>
+      <div class="col-md-6 info-display__product">
+        <div class="info-display__details"
+          <p><span class="category large"><%= category.to_s %> >></span> <span class="uppercase title emphasis"><%= match.title %></span></p>
+          <p class=""><%= match.subtitle %></p>
+          <p>$<%= match.price %>   |   <%= match.size %>   |   <%= match.when_made %></p>
+        </div>
+        <img src="<%= match.image_url %>" class="img-responsive product-image">
+          <div class="row text-center">
+            <a href="<%= match.url %>" class="btn btn-primary btn-sm">On Etsy >></a>
+          </div>
+      </div>
+      <% end %>
+    </div><!--row close-->
+    <% end %>
+
+
+
+
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
