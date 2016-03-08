@@ -1,0 +1,87 @@
+<div class="container top full-container">
+
+	<h1><%= "Details for #{@product.title}" %></h1>
+
+	<div class="row info-display">
+	  <div class="col-md-3">
+	    <div class="sidebar info-display__links">
+				<p><%= link_to "Edit Product Details", edit_admin_product_path %></p>
+
+				<% if !@product.measurement %>
+				<p><%= link_to "Add Product Measurements", new_product_measurement_path(@product.id) %></p>
+				<% end %>
+
+				<p><%= link_to "Delete Product", admin_product_path, method: :delete %></p>
+				<p><%= link_to "<< Back to All Products", admin_products_path %></p>
+			</div>
+		</div>
+
+		<div class="col-md-9">
+	    <div class="row">
+	      <div class="col-md-12">
+					<h2>Product Details</h2>
+					<p>
+					  <strong>Title:</strong>
+					  <%= @product.title %>
+					</p>
+
+					<p>
+					  <strong>Sub Title:</strong>
+					  <%= @product.subtitle %>
+					</p>
+
+					<p>
+					  <strong>Price:</strong>
+					  $ <%= @product.price %>
+					</p>
+
+					<p>
+					  <strong>Category:</strong>
+					  <%= @product.category %>
+					</p>
+
+					<p>
+					  <strong>Decade:</strong>
+					  <%= @product.when_made %>
+					</p>
+
+					<p>
+					  <strong>Listing Link:</strong>
+					  <a href=<%= @product.url %>><%= @product.url %></a>
+					</p>
+
+					<p>
+					  <strong>Image Link:</strong>
+					  <a href=<%= @product.image_url %>><%= @product.image_url %></a>
+					</p>
+				</div><!--col-12-close-->
+			</div><!-- row close-->
+
+
+			<div class="row">
+		    <div class="col-md-12">
+
+					<% if @product.measurement %>
+
+						<h2>Product Measurements</h2>
+						  <p><strong>Gender: </strong><%= @product.measurement.gender %></p>
+
+						<% if @product.measurement.gender == 'female' || @product.measurement.gender == 'Female' %>
+						  <p><strong>Hips: </strong><%= @product.measurement.hips %></p>
+						  <p><strong>Waist: </strong><%= @product.measurement.waist %></p>
+						  <p><strong>Bust: </strong><%= @product.measurement.bust %></p>
+						  <p><strong>Shoulders: </strong><%= @product.measurement.shoulders %></p>
+						<% else %>
+						  <p><strong>Waist: </strong><%= @product.measurement.waist %></p>
+						  <p><strong>Chest: </strong><%= @product.measurement.chest %></p>
+						  <p><strong>Inseam: </strong><%= @product.measurement.inseam %></p>
+						   <p><strong>Shoulders: </strong><%= @product.measurement.shoulders %></p>
+						<% end %>
+
+					<% end %>
+
+				</div><!-- col-12-close -->
+			</div><!--row close-->
+	  </div><!-- col-9-close-->
+	</div><!--row close-->
+</div><!--container close-->
