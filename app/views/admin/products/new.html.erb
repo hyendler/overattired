@@ -1,3 +1,4 @@
+<div class="container top full-container">
 <h1> Create a new product </h1>
 
 <%= form_for :product, url: admin_products_path, method: :post, html: { class: "test_class" } do |f| %>
@@ -16,51 +17,69 @@
     </div>
   <% end %>
 
-  <fieldset class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :subtitle %>
-    <%= f.text_field :subtitle, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :price %>
-    <%= f.text_field :price, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :category %>
-    <%= f.text_field :category, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :url %>
-    <%= f.text_field :url, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :size %>
-    <%= f.text_field :size, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :when_made, "Decade" %>
-    <%= f.select :when_made, [["1920s", "1920s"], ["1930s", "1930s"], ["1940s", "1940s"], ["1950s", "1950s"], ["1960s", "1960s"], ["1970s", "1970s"], ["1980s", "1980s"]], {}, :class => "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, :class => "form-control" %>
-  </fieldset>
-
+  <div class="row">
+    <fieldset class="form-group col-md-4">
+      <%= f.label :title %>
+      <%= f.text_field :title, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-4">
+      <%= f.label :subtitle %>
+      <%= f.text_field :subtitle, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-2">
+      <%= f.label :price %>
+      <%= f.text_field :price, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-4">
+      <%= f.label :category %>
+      <%= f.text_field :category, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-10">
+      <%= f.label :url %>
+      <%= f.text_field :url, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-10">
+      <%= f.label :image_url %>
+      <%= f.text_field :image_url, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-4">
+      <%= f.label :size %>
+      <%= f.text_field :size, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-4">
+      <%= f.label :when_made, "Decade" %>
+      <%= f.select :when_made, [["1920s", "1920s"], ["1930s", "1930s"], ["1940s", "1940s"], ["1950s", "1950s"], ["1960s", "1960s"], ["1970s", "1970s"], ["1980s", "1980s"]], {}, :class => "form-control" %>
+    </fieldset>
+  </div>
+  
+  <div class="row">
+    <fieldset class="form-group col-md-8">
+      <%= f.label :description %>
+      <%= f.text_area :description, :class => "form-control", :rows => "6" %>
+    </fieldset>
+  </div>
+  
   <%= f.fields_for :measurement_attributes do |measurements_form| %>
 
     <fieldset class="form-group">
@@ -126,3 +145,4 @@
     </p>
 
 <% end %>
+</div>

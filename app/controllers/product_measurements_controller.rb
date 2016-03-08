@@ -6,19 +6,36 @@ class ProductMeasurementsController < ApplicationController
   end
 
   def edit
-    @measurable = find_measurable
+    @product = Product.find(params[:product_id])
     # returns @measurement
   end
 
   def update
-
+    if @measurement.update(product_measurement_params)
+      redirect_to product_path(@measurement.product_id)
+    else
+      errs
+      render 'edit'
+    end
   end
 
-  # def new
-  # end
+  def new
+    @product = Product.find(params[:product_id])
+    @measurement = ProductMeasurement.new
+  end
 
-  # def create
-  # end
+  def create
+    @product = Product.find(params[:product_id])
+    @measurement = ProductMeasurement.new(product_measurement_params)
+    @measurement.product_id = @product.id
+
+    if @measurement.save
+      redirect_to product_path(@product)
+    else
+      errs
+      render 'new'
+    end
+  end
 
   private
 
