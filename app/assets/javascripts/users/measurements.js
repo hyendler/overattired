@@ -25,12 +25,12 @@ $(document).ready(function() {
 
 
 var bindListeners = function(){
-	$('#measurement_hips').on('click', displayMeasurementPic)
-	$('#measurement_shoulders').on('click', displayMeasurementPic)
-	$('#measurement_inseam').on('click', displayMeasurementPic)
-	$('#measurement_bust').on('click', displayMeasurementPic)
-	$('#measurement_waist').on('click', displayMeasurementPic)
-	$('#measurement_chest').on('click', displayMeasurementPic)
+	$('#user_measurement_hips').on('click', displayMeasurementPic)
+	$('#user_measurement_shoulders').on('click', displayMeasurementPic)
+	$('#user_measurement_inseam').on('click', displayMeasurementPic)
+	$('#user_measurement_bust').on('click', displayMeasurementPic)
+	$('#user_measurement_waist').on('click', displayMeasurementPic)
+	$('#user_measurement_chest').on('click', displayMeasurementPic)
 }
 
 var displayMeasurementPic = function(){
