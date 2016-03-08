@@ -25,6 +25,7 @@ class Admin::ProductsController < Admin::BaseController
 
   def create
     @product = Product.new(product_params)
+    @product.active = true;
     if @product.save
       redirect_to admin_products_path
     else
@@ -58,7 +59,7 @@ class Admin::ProductsController < Admin::BaseController
 
 private
   def product_params
-    params.require(:product).permit(:name, :url, measurement_attributes: [:id, :gender, :hips, :waist, :chest, :inseam, :bust])
+    params.require(:product).permit(:title, :subtitle, :category, :when_made, :image_url, :size, :url, measurement_attributes: [:id, :gender, :hips, :waist, :chest, :inseam, :bust])
   end
 
   def set_product
