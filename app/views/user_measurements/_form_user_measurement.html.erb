@@ -17,12 +17,12 @@
   <div class="row">
     <div class="col-md-4">
 
-      <fieldset class="form-group">
+      <fieldset class="form-group" id="show-female">
         <%= f.radio_button :gender, 'female' %>
         <%= f.label :gender, 'Female', :value => 'female' %>
       </fieldset>
 
-      <fieldset class="form-group">
+      <fieldset class="form-group" id="show-male">
         <%= f.radio_button :gender, 'male' %>
         <%= f.label :gender, 'Male', :value => 'male' %>
       </fieldset>
@@ -30,7 +30,7 @@
       <% hips_range = (30..60).map { |i| [i, i]} %>
       <% hips_range.unshift([nil, ""])%>
 
-      <fieldset class="form-group">
+      <fieldset id="radio-show-hips" class="form-group">
         <div style="display: none;" id="hips-image" class="measurement-image">
           <%= image_tag "hips.png" %>
         </div>
@@ -41,7 +41,7 @@
       <% waist_range = (20..50).map { |i| [i, i]} %>
       <% waist_range.unshift([nil, ""])%>
 
-      <fieldset class="form-group">
+      <fieldset id="radio-show-waist" class="form-group">
         <div style="display: none;" id="waist-image" class="measurement-image">
           <%= image_tag "waist.png" %>
         </div>
@@ -52,7 +52,7 @@
       <% bust_range = (20..60).map { |i| [i, i]} %>
       <% bust_range.unshift([nil, ""])%>
 
-      <fieldset class="form-group">
+      <fieldset id="radio-show-bust" class="form-group">
         <div style="display: none;" id="bust-image" class="measurement-image">
           <%= image_tag "bust.png" %>
         </div>
@@ -63,7 +63,7 @@
       <% chest_range = (30..60).map { |i| [i, i]} %>
       <% chest_range.unshift([nil, ""])%>
 
-      <fieldset class="form-group">
+      <fieldset id="radio-show-chest" class="form-group">
         <div style="display: none;" id="chest-image" class="measurement-image">
           <%= image_tag "chest.jpg" %>
         </div>
@@ -74,7 +74,7 @@
       <% inseam_range = (25..35).map { |i| [i, i]} %>
       <% inseam_range.unshift([nil, ""])%>
 
-      <fieldset class="form-group">
+      <fieldset id="radio-show-inseam" class="form-group">
         <div style="display: none;" id="inseam-image" class="measurement-image">
           <%= image_tag "inseam.jpg" %>
         </div>
