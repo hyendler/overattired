@@ -47,35 +47,6 @@
 //   })
 // })
 
-$(document).ready(function(){
-  $('#radio-show-bust').hide();
-  $('#radio-show-hips').hide();
-  $('#radio-show-chest').hide();
-  $('#radio-show-waist').hide();
-  $('#radio-show-inseam').hide();
-  $('#show-female').on('click', function (){
-    $('#radio-show-waist').show();
-    $('#radio-show-bust').show();
-    $('#radio-show-hips').show();
-    $('#radio-show-chest').hide();
-    $('#radio-show-inseam').hide();
-  })
-})
-
-$(document).ready(function(){
-  $('#radio-show-bust').hide();
-  $('#radio-show-hips').hide();
-  $('#radio-show-chest').hide();
-  $('#radio-show-waist').hide();
-  $('#radio-show-inseam').hide();
-  $('#show-male').on('click', function (){
-    $('#radio-show-waist').show();
-    $('#radio-show-chest').show();
-    $('#radio-show-inseam').show();
-    $('#radio-show-bust').hide();
-    $('#radio-show-hips').hide();
-  }) 
-})
 
 
 $(document).ready(function() {
@@ -84,6 +55,13 @@ $(document).ready(function() {
 
 
 var bindListeners = function(){
+  $('#radio-show-bust').hide();
+  $('#radio-show-hips').hide();
+  $('#radio-show-chest').hide();
+  $('#radio-show-waist').hide();
+  $('#radio-show-inseam').hide();
+  $('#show-male').on('click', displayMaleMeasurements)
+  $('#show-female').on('click', displayFemaleMeasurements)
 	$('#user_measurement_hips').on('click', displayMeasurementPic)
 	$('#user_measurement_shoulders').on('click', displayMeasurementPic)
 	$('#user_measurement_inseam').on('click', displayMeasurementPic)
@@ -103,3 +81,21 @@ var displayMeasurementPic = function(){
   	//This comment will be DELETED//
 
 };
+
+var displayMaleMeasurements = function(){
+    $('#radio-show-waist').show();
+    $('#radio-show-chest').show();
+    $('#radio-show-inseam').show();
+    $('#radio-show-bust').hide();
+    $('#radio-show-hips').hide();
+};
+
+var displayFemaleMeasurements = function(){
+  $('#radio-show-waist').show();
+  $('#radio-show-bust').show();
+  $('#radio-show-hips').show();
+  $('#radio-show-chest').hide();
+  $('#radio-show-inseam').hide();
+};
+
+
