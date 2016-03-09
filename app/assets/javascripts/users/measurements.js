@@ -18,6 +18,65 @@
 
 // };
 
+// $(function() {
+//   $('fieldset#show-female').on('change', function(event){
+//     event.preventDefault();
+//     $('fieldset#radio-show-hips').toggle();
+//   });
+// });
+
+// $(document).ready(function(){
+//   $('input[type="radio"]').on('change', function(){
+//     if ( $('fieldset').attr('id') == 'show-female') {
+//       console.log("I'm here");
+//       $('#radio-show-hips').show();
+//       console.log("I'm at the hips");
+//       $('#radio-show-waist').show();
+//       $('#radio-show-bust').show();
+//       console.log("I'm at hiding things");
+//       $('#radio-show-chest').hide();
+//       $('#radio-show-inseam').hide();
+//     } else if ($('fieldset').attr('id') == 'show-male') {
+//       $('#radio-show-waist').show();
+//       console.log("I'm being male");
+//       $('#radio-show-chest').show();
+//       $('#radio-show-inseam').show();
+//       $('#radio-show-hips').hide();
+//       $('#radio-show-bust').hide();
+//     }
+//   })
+// })
+
+$(document).ready(function(){
+  $('#radio-show-bust').hide();
+  $('#radio-show-hips').hide();
+  $('#radio-show-chest').hide();
+  $('#radio-show-waist').hide();
+  $('#radio-show-inseam').hide();
+  $('#show-female').on('click', function (){
+    $('#radio-show-waist').show();
+    $('#radio-show-bust').show();
+    $('#radio-show-hips').show();
+    $('#radio-show-chest').hide();
+    $('#radio-show-inseam').hide();
+  })
+})
+
+$(document).ready(function(){
+  $('#radio-show-bust').hide();
+  $('#radio-show-hips').hide();
+  $('#radio-show-chest').hide();
+  $('#radio-show-waist').hide();
+  $('#radio-show-inseam').hide();
+  $('#show-male').on('click', function (){
+    $('#radio-show-waist').show();
+    $('#radio-show-chest').show();
+    $('#radio-show-inseam').show();
+    $('#radio-show-bust').hide();
+    $('#radio-show-hips').hide();
+  }) 
+})
+
 
 $(document).ready(function() {
   bindListeners();
