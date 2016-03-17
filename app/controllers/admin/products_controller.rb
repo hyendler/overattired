@@ -53,8 +53,8 @@ class Admin::ProductsController < Admin::BaseController
 
   # also remove any sold products
   def update_products_from_etsy
-    ScrapingWorker.perform_at(5.minutes.from_now)
-    store_data_from_etsy
+    ScrapingWorker.perform_at(2.minutes.from_now)
+
     redirect_to admin_products_path
   end
 
