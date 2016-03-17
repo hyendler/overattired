@@ -96,6 +96,12 @@ def scrape_etsy(url)
   return parsed_data
 end
 
+def testing_method
+  p "%" * 50
+  p "ETSY HAS BEEN SCRAPPED"
+  p "%" * 50
+end
+
 # CALL THIS METHOD IN CONTROLLER TO STORE NEW PRODUCTS
 def store_data_from_etsy
   all_active_listings = []
