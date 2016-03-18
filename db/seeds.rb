@@ -1,4 +1,4 @@
-git# This file should contain all the record creation needed to seed the database with its default values.
+# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
@@ -38,21 +38,21 @@ ProductMeasurement.delete_all
 # hipss: 41
 # Length: 27
 
-Product.create(
-  title: "Vintage 1950's Skirt",
-  url: "https://www.etsy.com/listing/268527485/vintage-1950s-skirt-pleated-and-striped?ref=shop_home_active_2",
-  subtitle: "Pleated and Striped 50s Wool Skirt",
-  size: "small",
-  category: "Skirt",
-  price: 50.00,
-  when_made: "1940s",
-  description: "This wool skirt features a great variety of lovely colors! It is pleated from the waist, and vertically striped in Forest Green, Navy Blue, Royal Purple and Yellow! The flattering wide waistband has buttonhole style belt loops. The skirt fastens with a metal zipper and two buttons.This skirt is in excellent vintage condition, with no holes, stains, odors to note.",
-  image_url: "https://img1.etsystatic.com/115/0/10849718/il_570xN.923686109_es36.jpg",
-  active: true
-  )
-#tags: "Clothing", "Women's Clothing", "Skirts", "Striped 50s Skirt", "Pleated 1950's Skirt", "Forest Green", "Navy Blue", "Royal Purple", "Yellow", "Vertical stripes", "Wool skirt", "Midi Skirt", "Overattired", "Small Sm S", "Pleats", "Blue Grey"
+# Product.create(
+#   title: "Vintage 1950's Skirt",
+#   url: "https://www.etsy.com/listing/268527485/vintage-1950s-skirt-pleated-and-striped?ref=shop_home_active_2",
+#   subtitle: "Pleated and Striped 50s Wool Skirt",
+#   size: "small",
+#   category: "Skirt",
+#   price: 50.00,
+#   when_made: "1940s",
+#   description: "This wool skirt features a great variety of lovely colors! It is pleated from the waist, and vertically striped in Forest Green, Navy Blue, Royal Purple and Yellow! The flattering wide waistband has buttonhole style belt loops. The skirt fastens with a metal zipper and two buttons.This skirt is in excellent vintage condition, with no holes, stains, odors to note.",
+#   image_url: "https://img1.etsystatic.com/115/0/10849718/il_570xN.923686109_es36.jpg",
+#   active: true
+#   )
+# #tags: "Clothing", "Women's Clothing", "Skirts", "Striped 50s Skirt", "Pleated 1950's Skirt", "Forest Green", "Navy Blue", "Royal Purple", "Yellow", "Vertical stripes", "Wool skirt", "Midi Skirt", "Overattired", "Small Sm S", "Pleats", "Blue Grey"
 
-ProductMeasurement.create(product_id: 1, gender: "female", waist: 26, hips: 36)
+# ProductMeasurement.create(product_id: 1, gender: "female", waist: 26, hips: 36)
 # Waist: 26
 # hipss: free
 # Overall Length: 30
@@ -91,21 +91,21 @@ ProductMeasurement.create(product_id: 1, gender: "female", waist: 26, hips: 36)
 # Overall Length: 26
 # Sleeve Length: 25
 
-Product.create(
-  title: "Vintage 1960s Dress",
-  url: "https://www.etsy.com/listing/267581417/vintage-1960s-dress-black-jersey-belted?ref=shop_home_active_3",
-  subtitle: "Black Jersey Belted Dress",
-  size: "Small",
-  category: "Dress",
-  when_made: "1960s",
-  price: 55.00,
-  description: "Great little black dress by Catalina! Slightly stretchy jersey knit in inky black. Long sleeved and pencil fit skirt. Matching let included. Nylon zipper up the back. This dress is in excellent vintage condition, with no holes, stains, odors to note.",
-  image_url: "https://img1.etsystatic.com/117/0/10849718/il_570xN.919541553_h2yw.jpg",
-  active: true
-  )
-# tags: "Clothing", "Women's Clothing", "Dresses", "1960s dress", "belted jersey dress", "long sleeved dress", "belt dress", "60s catalina", "Overattired", "small sm s", "inky black", "knit dress", "fitted dress", "pencil dress"
+# Product.create(
+#   title: "Vintage 1960s Dress",
+#   url: "https://www.etsy.com/listing/267581417/vintage-1960s-dress-black-jersey-belted?ref=shop_home_active_3",
+#   subtitle: "Black Jersey Belted Dress",
+#   size: "Small",
+#   category: "Dress",
+#   when_made: "1960s",
+#   price: 55.00,
+#   description: "Great little black dress by Catalina! Slightly stretchy jersey knit in inky black. Long sleeved and pencil fit skirt. Matching let included. Nylon zipper up the back. This dress is in excellent vintage condition, with no holes, stains, odors to note.",
+#   image_url: "https://img1.etsystatic.com/117/0/10849718/il_570xN.919541553_h2yw.jpg",
+#   active: true
+#   )
+# # tags: "Clothing", "Women's Clothing", "Dresses", "1960s dress", "belted jersey dress", "long sleeved dress", "belt dress", "60s catalina", "Overattired", "small sm s", "inky black", "knit dress", "fitted dress", "pencil dress"
 
-ProductMeasurement.create(product_id: 2, gender: "female", hips: 36, waist: 27, bust: 37)
+# ProductMeasurement.create(product_id: 2, gender: "female", hips: 36, waist: 27, bust: 37)
 # *****NOTE: measurements are in a range, so we have to somehow account for that in the database
 # Shoulders: 15
 # Bust: 37 to 41

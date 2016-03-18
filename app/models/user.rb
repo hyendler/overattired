@@ -108,26 +108,52 @@ class User < ActiveRecord::Base
 	end
 
 	# call this method in weekly_match_email template
+	# note: difference between product matches, and Matches model
 	def get_new_matches
-		all_matches_hash = self.match
-		new_matches_hash = []
-		# iterate through all matches for this user in Match table
-		Match.where(user_id: self.id).find_each do |match|
-			# if all_matches_hash array for this user DOES NOT include the product id of this match
+		# need an array of users matches via algorithm
+		all_product_matches_array = self.match_hash_flatten
+		new_product_matches_array = []
+
+		# iterate through all the users Matches
+		self.matches.each do |match|
+			# if all_matches_array for this user DOES NOT include the product of this match
 			# then push that product into the new_matches_hash array
-			if !all_matches_hash.include?(product_id: match.product_id)
-				new_matches_hash.push(match)
+			product = Product.find(match.product_id)
+			if !all_product_matches_array.include?(product)
+				new_product_matches_array.push(product)
 			end
 		end
 		# now iterate over the new_matches_hash and save each instance in the Match table
-		new_matches_hash.each_value do |products_array|
-			products_array.each do |product|
-					Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
+		new_product_matches_array.each do |product|
+			Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
 			end
 		end
-		# method that acutally reformats the data
-		# 
-		return new_matches_hash
+
+		match_array_to_hash(new_product_matches_array)
+		#reformat new_product_matches_array into hash in order to send it to email in the data format
+
 	end
+
+	def match_hash_flatten
+		# self.match will include ALL product matches, new and old ones
+		# also, all_matches_hash is in the format of {"skirts" => [products, etc], "jackets" => [products, etc]}
+		all_matches_hash = self.match
+		all_matches_array = []
+
+		all_matches_hash.each_value do |array|
+			all_matches_array << array
+		end
+		all_matches_array.flatten!
+		return all_matches_array
+	end
+
+	def match_array_to_hash(array)
+		hash = {}
+		array.each do |product|
+			hash[product.category] << product
+		end
+
+	end
+
 end
 
