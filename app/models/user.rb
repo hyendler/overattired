@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
 	#match on bust for women, chest for men
 	def match_tops(upper_string, upper_value, gender)
-		Product.joins("INNER JOIN product_measurements ON product_measurements.product_id = products.id").where("product_measurements.gender" => gender).where("category = ? OR category = ?", "Sweater", "Shirt").where(["product_measurements.#{upper_string} >= ? AND product_measurements.#{upper_string} <= ?", upper_value - 1.0, upper_value + 2.0])
+		Product.joins("INNER JOIN product_measurements ON product_measurements.product_id = products.id").where("product_measurements.gender" => gender).where("category = ? OR category = ? OR category = ?", "Sweater", "Shirt", "Blouse").where(["product_measurements.#{upper_string} >= ? AND product_measurements.#{upper_string} <= ?", upper_value - 1.0, upper_value + 2.0])
 	end
 
 	def match_skirts(waist, hips)
@@ -126,7 +126,6 @@ class User < ActiveRecord::Base
 		# now iterate over the new_matches_hash and save each instance in the Match table
 		new_product_matches_array.each do |product|
 			Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
-			end
 		end
 
 		match_array_to_hash(new_product_matches_array)
@@ -143,15 +142,14 @@ class User < ActiveRecord::Base
 		all_matches_hash.each_value do |array|
 			all_matches_array << array
 		end
+
 		all_matches_array.flatten!
 		return all_matches_array
 	end
 
 	def match_array_to_hash(array)
-		hash = {}
-		array.each do |product|
-			hash[product.category] << product
-		end
+		conversion_key_hash = { "Dress" => :dresses, ""}
+		hash = array.group_by { |product| product.category }
 
 	end
 
