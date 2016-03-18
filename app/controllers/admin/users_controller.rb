@@ -9,27 +9,7 @@ class Admin::UsersController < Admin::BaseController
 
 # this is the method that sends all users emails and it filters it out by whether user is admin or does not exist or has no matches
   def send_updates
-  	n = 1 # this is ID of the first user in your database
-  	# p "**************************************"
-  	# p "Send Updates Has been Intiated"
-  	# p User.count
-  	while n < User.last.id # set this the number of users you want to go through
-
-  		if User.exists?(n)
-	  		@user = User.find(n)
-
-	  		if @user.admin
-        elsif ( @user.measurement == nil ) || (@user.match == [])
-	  		else
-	  			MatchMailer.match_email(@user).deliver_now
-	  		end
-
-	  	end
-
-	  	n += 1
-	  	# if user does not have a measurement object or it has no matches
-
-  	end
+    mail_users
   	p "**************************************"
   	flash[:notice] = "Matches have been sent."
 	redirect_to admin_path
@@ -42,6 +22,31 @@ class Admin::UsersController < Admin::BaseController
   def destroy
     @user.destroy
     redirect_to "/admin/users"
+  end
+
+  def mail_users
+    n = 1 # this is ID of the first user in your database
+    while n <= User.last.id # set this the number of users you want to go through
+
+      if User.exists?(n)
+        @user = User.find(n)
+        puts "----------"
+        puts @user
+        if @user.admin
+          puts "I'm an admin!"
+        elsif ( @user.measurement == nil ) || (@user.get_new_matches == [])
+          puts "I have no new matches!"
+        else
+          puts "I'm sending an email!"
+          MatchMailer.match_email(@user).deliver_now
+        end
+
+      end
+
+      n += 1
+      # if user does not have a measurement object or it has no matches
+
+    end
   end
 
   private

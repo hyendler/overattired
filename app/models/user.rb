@@ -110,12 +110,12 @@ class User < ActiveRecord::Base
 	# call this method in weekly_match_email template
 	def get_new_matches
 		all_matches_hash = self.match
-		new_matches_hash = {}
+		new_matches_hash = []
 		# iterate through all matches for this user in Match table
 		Match.where(user_id: self.id).find_each do |match|
 			# if all_matches_hash array for this user DOES NOT include the product id of this match
 			# then push that product into the new_matches_hash array
-			if !all_matches_hash[:product.category].include?(product_id: match.product_id)
+			if !all_matches_hash.include?(product_id: match.product_id)
 				new_matches_hash.push(match)
 			end
 		end
@@ -125,6 +125,9 @@ class User < ActiveRecord::Base
 					Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
 			end
 		end
+		# method that acutally reformats the data
+		# 
 		return new_matches_hash
 	end
 end
+

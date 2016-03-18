@@ -98,7 +98,7 @@ end
 
 def testing_method
   p "%" * 50
-  p "ETSY HAS BEEN SCRAPPED"
+  p "ETSY HAS BEEN SCRAPED"
   p "%" * 50
 end
 
