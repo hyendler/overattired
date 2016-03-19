@@ -108,6 +108,7 @@ class User < ActiveRecord::Base
 	end
 
 	# call this method in weekly_match_email template
+	# returns a hash of matches, same format as self.match method
 	# note: difference between product matches, and Matches model
 	def get_new_matches
 		# need an array of users matches via algorithm
@@ -123,13 +124,14 @@ class User < ActiveRecord::Base
 				new_product_matches_array.push(product)
 			end
 		end
+
 		# now iterate over the new_matches_hash and save each instance in the Match table
 		new_product_matches_array.each do |product|
 			Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
 		end
 
-		match_array_to_hash(new_product_matches_array)
 		#reformat new_product_matches_array into hash in order to send it to email in the data format
+		match_array_to_hash(new_product_matches_array)
 
 	end
 
@@ -137,21 +139,26 @@ class User < ActiveRecord::Base
 		# self.match will include ALL product matches, new and old ones
 		# also, all_matches_hash is in the format of {"skirts" => [products, etc], "jackets" => [products, etc]}
 		all_matches_hash = self.match
-		all_matches_array = []
-
-		all_matches_hash.each_value do |array|
-			all_matches_array << array
-		end
-
-		all_matches_array.flatten!
+		all_matches_array = all_matches_hash.values.flatten!
 		return all_matches_array
 	end
 
 	def match_array_to_hash(array)
-		conversion_key_hash = { "Dress" => :dresses, ""}
+		conversion_hash = { "Dress" => :dresses,  "Skirt" => :skirts, "Jacket" => :jackets, "Blouse" => :tops, "Sweater" => :tops, "Shirt" => :tops, "Suits" => :suits, "Pants" => :trousers}
 		hash = array.group_by { |product| product.category }
-
+		hash = hash.map {|key, value| [conversion_hash[key], value] }.to_h
+		return hash
 	end
 
 end
+
+
+
+
+
+
+
+
+
+
 
