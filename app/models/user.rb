@@ -113,6 +113,11 @@ class User < ActiveRecord::Base
 	def get_new_matches
 		# need an array of users matches via algorithm
 		all_product_matches_array = self.match_hash_flatten
+		p "all_product_matches_array aka self.match"
+		p all_product_matches_array
+		p "********"
+		p "self.matches"
+		p self.matches
 		new_product_matches_array = []
 
 		# iterate through all the users Matches
@@ -125,6 +130,8 @@ class User < ActiveRecord::Base
 			end
 		end
 
+		p "new product matches array"
+		p new_product_matches_array
 		# now iterate over the new_matches_hash and save each instance in the Match table
 		new_product_matches_array.each do |product|
 			Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)

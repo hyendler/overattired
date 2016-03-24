@@ -5,8 +5,15 @@ class ScrapingWorker
   include Sidetiq::Schedulable
 
   # this is UTC
-  recurrence { hourly.minute_of_hour(0, 10, 20, 30, 40, 50) }
-  # recurrence { daily.hour_of_day(4).minute_of_hour(43) }
+  # this is used for testing purposes
+  # recurrence { hourly.minute_of_hour(0, 10, 20, 30, 40, 50) }
+  # recurrence { daily.hour_of_day(4).minute_of_hour(0) }
+
+
+
+  # this is the official time 9:00 to be send out daily
+  recurrence { daily.hour_of_day(16) }
+
 
 
   def perform
@@ -31,7 +38,9 @@ class ScrapingWorker
 
     all_users.each do |user|
       new_matches = user.get_new_matches
+      p  "**************"
       p user
+      p new_matches
       if ( user.measurement == nil ) || (user.match == {}) || (new_matches = {})
       else
         MatchMailer.match_email(user, new_matches).deliver_now
