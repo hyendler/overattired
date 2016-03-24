@@ -119,13 +119,13 @@ class User < ActiveRecord::Base
 		p "self.matches"
 		p self.matches
 		new_product_matches_array = []
+		matches = self.matches
 
 		# iterate through all the users Matches
-		self.matches.each do |match|
+		all_product_matches_array.each do |product|
 			# if all_matches_array for this user DOES NOT include the product of this match
 			# then push that product into the new_matches_hash array
-			product = Product.find(match.product_id)
-			if !all_product_matches_array.include?(product)
+			if !matches.include?(product_id: product.id)
 				new_product_matches_array.push(product)
 			end
 		end
