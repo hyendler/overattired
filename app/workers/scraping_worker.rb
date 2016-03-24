@@ -30,7 +30,6 @@ class ScrapingWorker
 
 
   def mail_users
-    n = 1 # this is ID of the first user in your database
     all_users = User.where(:admin => false)
     # for all users, if the user is not admin
     # => if the measurement is nil or the user has no matches via user.match or if get_new_matches returns empty hash as well, don't send
