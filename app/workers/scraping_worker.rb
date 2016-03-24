@@ -5,11 +5,12 @@ class ScrapingWorker
   include Sidetiq::Schedulable
 
   # this is UTC
-  recurrence { daily.hour_of_day(4).minute_of_hour(43) }
+  recurrence { hourly.minute_of_hour(0, 10, 20, 30, 40, 50) }
+  # recurrence { daily.hour_of_day(4).minute_of_hour(43) }
 
 
   def perform
-  	# this just sends out something that says 
+  	# this just sends out something that says - can delete
   	testing_method
   	# this will scrape from etsy
   	store_data_from_etsy
@@ -21,27 +22,22 @@ class ScrapingWorker
   end
 
 
-   def mail_users
+  def mail_users
     n = 1 # this is ID of the first user in your database
-    while n < User.last.id # set this the number of users you want to go through
+    all_users = User.where(:admin => false)
+    # for all users, if the user is not admin
+    # => if the measurement is nil or the user has no matches via user.match or if get_new_matches returns empty hash as well, don't send
+    #   else send the email
 
-      if User.exists?(n)
-      	p "User exists!"
-        @user = User.find(n)
-        p @user
-        if @user.admin
-        elsif ( @user.measurement == nil ) || (@user.match == [])
-        else
-          MatchMailer.match_email(@user).deliver_now
-        end
-
+    all_users.each do |user|
+      new_matches = user.get_new_matches
+      p user
+      if ( user.measurement == nil ) || (user.match == {}) || (new_matches = {})
+      else
+        MatchMailer.match_email(user, new_matches).deliver_now
       end
-
-      n += 1
-      # if user does not have a measurement object or it has no matches
-
     end
   end
 
-
 end
+

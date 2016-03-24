@@ -8,7 +8,7 @@
   <body>
 
     <h1> YOUR PRETTY MATCHES </h1>
-    <% @user.get_new_matches.each do |category, matches| %>
+    <% @new_matches.each do |category, matches| %>
       <ul>
         <li><%= category.to_s %></li>
           <% matches.each do |match| %>

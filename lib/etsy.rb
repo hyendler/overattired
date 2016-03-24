@@ -96,6 +96,7 @@ def scrape_etsy(url)
   return parsed_data
 end
 
+# can delete this method once we are done testing:
 def testing_method
   p "%" * 50
   p "ETSY HAS BEEN SCRAPED"

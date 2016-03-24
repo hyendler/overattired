@@ -34,7 +34,7 @@ class Admin::UsersController < Admin::BaseController
         puts @user
         if @user.admin
           puts "I'm an admin!"
-        elsif ( @user.measurement == nil ) || (@user.get_new_matches == [])
+        elsif ( @user.measurement == nil ) || (@user.get_new_matches == {})
           puts "I have no new matches!"
         else
           puts "I'm sending an email!"
