@@ -108,23 +108,23 @@ class User < ActiveRecord::Base
 	end
 
 	# call this method in weekly_match_email template
-	# returns a hash of matches, same format as self.match method
-	# note: difference between product matches, and Matches model
+	# returns a hash of matches, same format as #match method
+	# note: difference between product matches, and Match model
 	def get_new_matches
-		# need an array of users matches via algorithm
+		# need an array of user's matches via algorithm
 		all_product_matches_array = self.match_hash_flatten
-		p "all_product_matches_array aka self.match"
-		p all_product_matches_array
-		p "********"
-		p "self.matches"
-		p self.matches
+		# p "all_product_matches_array aka self.match"
+		# p all_product_matches_array
+		# p "********"
+		# p "self.matches"
+		# p self.matches
 		new_product_matches_array = []
 		matches = self.matches
 
 		# iterate through all the users Matches
 		all_product_matches_array.each do |product|
 			# if all_matches_array for this user DOES NOT include the product of this match
-			# then push that product into the new_matches_hash array
+			# then push that product into the new_product_matches_array
 			if !matches.include?(product_id: product.id)
 				new_product_matches_array.push(product)
 			end
@@ -132,7 +132,7 @@ class User < ActiveRecord::Base
 
 		p "new product matches array"
 		p new_product_matches_array
-		# now iterate over the new_matches_hash and save each instance in the Match table
+		# now iterate over the new_product_matches_array and save each instance in the Match table
 		new_product_matches_array.each do |product|
 			Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
 		end
