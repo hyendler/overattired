@@ -1,3 +1,5 @@
+# Welcome E-mail
+
 class UserMailer < ApplicationMailer
   default from: 'overattired1@gmail.com'
 

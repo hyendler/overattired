@@ -8,10 +8,25 @@
   <body>
 
     <h1> YOUR PRETTY MATCHES </h1>
-    <% @user.get_initial_matches.each do |product| %>
-      <p> Title: <%= product.title %></p>
-      <p> Link: <%= product.url %></p>
+    <% @new_matches.each do |category, matches| %>
+      <ul>
+        <li><%= category.to_s %></li>
+          <% matches.each do |match| %>
+          <ul>
+            <li><%= match.title %></li>
+            <li><%= match.subtitle %></li>
+            <li>Category: <%= match.category %></li>
+            <li><a href="<%= match.url %>">Product Link: <%= match.url %></a></li>
+            <img width="50px" height="100px" src="<%= match.image_url %>">
+            <li>Price: $<%= match.price %></li>
+            <li>Size: <%= match.size %></li>
+            <li>Decade: <%= match.when_made %></li>
+            <li>Description: <%= match.description %></li>
+          </ul>
+        <% end %>
+      </ul>
     <% end %>
+
 
   </body>
 </html>
