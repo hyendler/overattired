@@ -6,13 +6,15 @@ class ScrapingWorker
 
   # this is UTC
   # this is used for testing purposes
-  # recurrence { hourly.minute_of_hour(0, 10, 20, 30, 40, 50) }
+  # UNCOMMENT THIS WHEN YOU ARE TESTING:
+  recurrence { hourly.minute_of_hour(0, 10, 20, 30, 40, 50) }
   # recurrence { daily.hour_of_day(4).minute_of_hour(0) }
 
 
 
-  # this is the official time 9:00 to be send out daily
-  recurrence { daily.hour_of_day(16) }
+  # this is the official time 9:00 to be send out daily:
+  # UNCOMMENT THIS WHEN LIVE:
+  # recurrence { daily.hour_of_day(16) }
 
 
 
@@ -37,11 +39,20 @@ class ScrapingWorker
 
     all_users.each do |user|
       new_matches = user.get_new_matches
-      p  "**************"
-      p user
-      p new_matches
+      p  "*" * 50
+      p "The mail_users method in scraping_workers.rb is running!"
+      # p "The following are results of new_matches or user.get_new_matches:"
+      # p new_matches
       if ( user.measurement == nil ) || (user.match == {}) || (new_matches = {})
+        p "This user will NOT get an email:"
+        p user
+        p "If there are new matches they show go here:"
+        p new_matches
       else
+        p "This user should get an email:"
+        p user
+        p "These matches should be in the email:"
+        p new_matches
         MatchMailer.match_email(user, new_matches).deliver_now
       end
     end

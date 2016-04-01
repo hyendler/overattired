@@ -130,7 +130,8 @@ class User < ActiveRecord::Base
 			end
 		end
 
-		p "new product matches array"
+		p "the 'get_new_matches' in models/user.rb is running"
+		p "the following are new_product_matches_array:"
 		p new_product_matches_array
 		# now iterate over the new_product_matches_array and save each instance in the Match table
 		new_product_matches_array.each do |product|
