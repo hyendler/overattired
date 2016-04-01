@@ -99,6 +99,7 @@ end
 # can delete this method once we are done testing:
 def testing_method
   p "%" * 50
+  p "the perform method in worker/scraping_worker.rb is now running!"
   p "ETSY HAS BEEN SCRAPED"
   p "%" * 50
 end

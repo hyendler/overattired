@@ -113,24 +113,37 @@ class User < ActiveRecord::Base
 	def get_new_matches
 		# need an array of user's matches via algorithm
 		all_product_matches_array = self.match_hash_flatten
-		# p "all_product_matches_array aka self.match"
-		# p all_product_matches_array
-		# p "********"
-		# p "self.matches"
-		# p self.matches
+
 		new_product_matches_array = []
+		#array of old matches (in MATCH class)
 		matches = self.matches
 
-		# iterate through all the users Matches
-		all_product_matches_array.each do |product|
-			# if all_matches_array for this user DOES NOT include the product of this match
-			# then push that product into the new_product_matches_array
-			if !matches.include?(product_id: product.id)
-				new_product_matches_array.push(product)
+		matches.each do |match_object|
+			unless all_product_matches_array.include?(Product.find(match_object.product_id))
+				new_product_matches_array.push(Product.find(match_object.product_id))
 			end
 		end
+		# iterate through all the users Matches
+		# all_product_matches_array.each do |product|
+		# 	# if all_matches_array for this user DOES NOT include the product of this match
+		# 	# then push that product into the new_product_matches_array
+		# 	# if !matches.include?(product_id: product.id)
+		# 	# 	new_product_matches_array.push(product)
+		# 	# end
+		# 	counter = 0
 
-		p "new product matches array"
+		# 	matches.each do |match_object|
+		# 		counter += 1
+		# 		if match_object.product_id != product.id
+		# 			p counter
+		# 			p "pushing product to new_product_array"
+		# 			new_product_matches_array.push(product)
+		# 		end
+		# 	end
+		# end
+
+		p "the 'get_new_matches' in models/user.rb is running"
+		p "the following are new_product_matches_array:"
 		p new_product_matches_array
 		# now iterate over the new_product_matches_array and save each instance in the Match table
 		new_product_matches_array.each do |product|
@@ -155,6 +168,9 @@ class User < ActiveRecord::Base
 		hash = array.group_by { |product| product.category }
 		hash = hash.map {|key, value| [conversion_hash[key], value] }.to_h
 		return hash
+	end
+
+	def scrape_etsy
 	end
 
 end
