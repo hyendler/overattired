@@ -7,7 +7,7 @@ class ScrapingWorker
   # this is UTC
   # this is used for testing purposes
   # UNCOMMENT THIS WHEN YOU ARE TESTING:
-  recurrence { hourly.minute_of_hour(0, 10, 20, 30, 40, 50) }
+  recurrence { hourly.minute_of_hour(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55) }
   # recurrence { daily.hour_of_day(4).minute_of_hour(0) }
 
 
@@ -43,10 +43,17 @@ class ScrapingWorker
       p "The mail_users method in scraping_workers.rb is running!"
       # p "The following are results of new_matches or user.get_new_matches:"
       # p new_matches
-      if ( user.measurement == nil ) || (user.match == {}) || (new_matches = {})
-        p "This user will NOT get an email:"
+      if user.measurement == nil
+        p "This user will NOT get an email because they have no measurement."
         p user
-        p "If there are new matches they show go here:"
+        p new_matches
+      elsif user.match == {}
+        p "This user will NOT get an email because they have no match objects."
+        p user
+        p new_matches
+      elsif new_matches = {}
+        p "This user will NOT get an email because get_new_matches return no new products."
+        p user
         p new_matches
       else
         p "This user should get an email:"
