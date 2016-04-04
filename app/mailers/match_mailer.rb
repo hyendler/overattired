@@ -4,7 +4,7 @@ class MatchMailer < ApplicationMailer
    def match_email(user, new_matches)
     @user = user
     @new_matches = new_matches
-  	mail(to: @user.email, subject: "Hola #{@user.first_name}! Here are your matches!")
+  	mail(to: @user.email, subject: "Overattired's New Matches for you, #{@user.first_name}! ")
   end
   
 end

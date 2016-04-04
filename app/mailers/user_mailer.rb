@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
     mail(from: 'overattired1@gmail.com',
         # NEED TO CHANGE THIS SO IT GOES TO ALL USERS
          to: "#{@email}",
-         subject: "Welcome E-mail!")
+         subject: "Welcome to Overattired!")
   end
 
 end
