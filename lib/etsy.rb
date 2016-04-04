@@ -98,14 +98,13 @@ end
 
 # can delete this method once we are done testing:
 def testing_method
-  p "%" * 50
-  p "the perform method in worker/scraping_worker.rb is now running!"
-  p "ETSY HAS BEEN SCRAPED"
-  p "%" * 50
+  p "the testing_method is located in lib/etsy.rb"
+  p "THE TEST METHOD HAS RAN!"
 end
 
 # CALL THIS METHOD IN CONTROLLER TO STORE NEW PRODUCTS
 def store_data_from_etsy
+  p "The 'store_data_from_etsy' method is located in lib/etsy.rb and is scraping etsy now and adding/updating products into the database"
   all_active_listings = []
   # (see note above re offsets)
   # more offsets can be added here to increase the number of total products requested

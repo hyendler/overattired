@@ -111,25 +111,32 @@ class User < ActiveRecord::Base
 	# returns a hash of matches, same format as #match method
 	# note: difference between product matches, and Match model
 	def get_new_matches
+		p "       "
+		p "the 'get_new_matches' in models/user.rb is running"
 		# need an array of user's matches via algorithm
 		all_product_matches_array = self.match_hash_flatten
+		"***All product matches array:***"
+		p all_product_matches_array
 
 		new_product_matches_array = []
 		#array of old matches (in MATCH class)
 		matches = self.matches
+		"***Matches:***"
+		p matches
 
-		matches.each do |match_object|
-			unless all_product_matches_array.include?(Product.find(match_object.product_id))
-				new_product_matches_array.push(Product.find(match_object.product_id))
+		# matches.each do |match_object|
+		# 	unless all_product_matches_array.include?(Product.find(match_object.product_id))
+		# 		new_product_matches_array.push(Product.find(match_object.product_id))
+		# 	end
+		# end
+		# iterate through all the users Matches
+		all_product_matches_array.each do |product|
+			# if all_matches_array for this user DOES NOT include the product of this match
+			# then push that product into the new_product_matches_array
+			if !matches.include?(Match.find_by(product_id: product.id))
+				new_product_matches_array.push(product)
 			end
 		end
-		# iterate through all the users Matches
-		# all_product_matches_array.each do |product|
-		# 	# if all_matches_array for this user DOES NOT include the product of this match
-		# 	# then push that product into the new_product_matches_array
-		# 	# if !matches.include?(product_id: product.id)
-		# 	# 	new_product_matches_array.push(product)
-		# 	# end
 		# 	counter = 0
 
 		# 	matches.each do |match_object|
@@ -142,20 +149,27 @@ class User < ActiveRecord::Base
 		# 	end
 		# end
 
-		p "the 'get_new_matches' in models/user.rb is running"
-		p "the following are new_product_matches_array:"
+		p "***new product matches:***"
 		p new_product_matches_array
+		
 		# now iterate over the new_product_matches_array and save each instance in the Match table
+		p "!*@&" * 20
 		new_product_matches_array.each do |product|
-			Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
+			match = Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
+			p "***Match Object***"
+			p match
 		end
 
 		#reformat new_product_matches_array into hash in order to send it to email in the data format
-		match_array_to_hash(new_product_matches_array)
+		final = match_array_to_hash(new_product_matches_array)
+		p "***final hash***"
+		p final
+		return final
 
 	end
 
 	def match_hash_flatten
+		p "the match_hash_flatten method has been called"
 		# self.match will include ALL product matches, new and old ones
 		# also, all_matches_hash is in the format of {"skirts" => [products, etc], "jackets" => [products, etc]}
 		all_matches_hash = self.match
@@ -164,6 +178,7 @@ class User < ActiveRecord::Base
 	end
 
 	def match_array_to_hash(array)
+		p "the match_array_to_hash method has been called"
 		conversion_hash = { "Dress" => :dresses,  "Skirt" => :skirts, "Jacket" => :jackets, "Blouse" => :tops, "Sweater" => :tops, "Shirt" => :tops, "Suits" => :suits, "Pants" => :trousers}
 		hash = array.group_by { |product| product.category }
 		hash = hash.map {|key, value| [conversion_hash[key], value] }.to_h
