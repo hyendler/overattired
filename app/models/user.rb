@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
 		all_product_matches_array.each do |product|
 			# if all_matches_array for this user DOES NOT include the product of this match
 			# then push that product into the new_product_matches_array
-			if !matches.include?(Match.find_by(product_id: product.id))
+			if !matches.include?(Match.find_by(product_id: product.id, user_id: self.id))
 				new_product_matches_array.push(product)
 			end
 		end
