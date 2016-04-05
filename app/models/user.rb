@@ -113,32 +113,27 @@ class User < ActiveRecord::Base
 	def get_new_matches
 		# need an array of user's matches via algorithm
 		all_product_matches_array = self.match_hash_flatten
-		# p "all_product_matches_array aka self.match"
-		# p all_product_matches_array
-		# p "********"
-		# p "self.matches"
-		# p self.matches
 		new_product_matches_array = []
+		#array of old matches (in MATCH class)
 		matches = self.matches
 
 		# iterate through all the users Matches
 		all_product_matches_array.each do |product|
 			# if all_matches_array for this user DOES NOT include the product of this match
 			# then push that product into the new_product_matches_array
-			if !matches.include?(product_id: product.id)
+			if !matches.include?(Match.find_by(product_id: product.id, user_id: self.id))
 				new_product_matches_array.push(product)
 			end
 		end
 
-		p "new product matches array"
-		p new_product_matches_array
 		# now iterate over the new_product_matches_array and save each instance in the Match table
 		new_product_matches_array.each do |product|
-			Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
+			match = Match.create(product_id: product.id, user_id: self.id, emailed: true, emailed_date_time: DateTime.now)
 		end
 
 		#reformat new_product_matches_array into hash in order to send it to email in the data format
-		match_array_to_hash(new_product_matches_array)
+		final = match_array_to_hash(new_product_matches_array)
+		return final
 
 	end
 
@@ -158,14 +153,3 @@ class User < ActiveRecord::Base
 	end
 
 end
-
-
-
-
-
-
-
-
-
-
-
