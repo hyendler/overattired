@@ -152,18 +152,4 @@ class User < ActiveRecord::Base
 		return hash
 	end
 
-	def scrape_etsy
-	end
-
 end
-
-
-
-
-
-
-
-
-
-
-
