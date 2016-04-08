@@ -61,6 +61,8 @@ group :development, :test do
   gem 'byebug'
   # Rspec for rails!
   gem 'rspec-rails', '~> 3.0'
+  # Sandbox install for Capybara:
+  gem 'capybara'
 end
 
 group :development do
