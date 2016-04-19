@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   
-  config.action_mailer.default_url_options = { host: 'https://overattired.herokuapp.com/'}
+  config.action_mailer.default_url_options = { host: ENV['HEROKU_PRODUCTION_URL']}
   #change mail delivery to either :smtp, :sendmail, :file, :test
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
