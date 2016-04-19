@@ -10,9 +10,11 @@ class UserMailer < ApplicationMailer
     @name = name
     @email = email
     @user = User.find_by_email(email)
+    p "USER"
+    p @user
     @matches = @user.get_initial_matches
     # THIS SHOULD BE SAM'S STORE EMAIL
-    mail(from: 'overattired1@gmail.com',
+    mail(from: ENV['GMAIL_EMAIL_DEV'],
         # NEED TO CHANGE THIS SO IT GOES TO ALL USERS
          to: "#{@email}",
          subject: "Welcome E-mail!")
