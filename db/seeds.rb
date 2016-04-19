@@ -201,8 +201,8 @@ ProductMeasurement.delete_all
 # # Inseam: 31” (plus another 3" to let out)
 
 
-User.create(first_name: "Lindsey", last_name: "Stevens", email: "lindsey@gmail.com", password: "12345678")
-UserMeasurement.create(user_id: 1, gender: "female", hips: 36, waist: 25, bust: 35, comment: "I love this stuff!")
+# User.create(first_name: "Lindsey", last_name: "Stevens", email: "lindsey@gmail.com", password: "12345678")
+# UserMeasurement.create(user_id: 1, gender: "female", hips: 36, waist: 25, bust: 35, comment: "I love this stuff!")
 
 
 # User.create(first_name: "Hanah", last_name: "Yen", email: "hanah@gmail.com", password: "12345678")
@@ -221,4 +221,4 @@ UserMeasurement.create(user_id: 1, gender: "female", hips: 36, waist: 25, bust: 
 
 
 # ADMIN
-User.create(first_name: "Sam", last_name: "Simmons", email: "admin@admin.com", password: "12345678", admin: true)
+User.create(first_name: "Hanah", last_name: "Yendler", email: "hyendler@gmail.com", password: ENV["ADMIN_PASSWORD"], admin: true)
