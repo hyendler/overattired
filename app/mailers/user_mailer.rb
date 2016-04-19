@@ -1,11 +1,11 @@
 # Welcome E-mail
 
 class UserMailer < ApplicationMailer
-  default from: 'overattired1@gmail.com'
+  default from: ENV['GMAIL_EMAIL_DEV']
 
   def contact_email(name, email)
     # THIS METHOD RAN IF YOU DO THIS
-    #p "the contact_email method has been called"
+    p "contact_email in User Mailer"
     #p "COFFEE" * 50
     @name = name
     @email = email

@@ -3,11 +3,11 @@ class ScrapingWorker
   include Sidetiq::Schedulable
 
   # For TESTING purposes only - uncomment the following(in UTC):
-  # recurrence { hourly.minute_of_hour(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55) }
+  recurrence { hourly.minute_of_hour(0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55) }
   # recurrence { daily.hour_of_day(4).minute_of_hour(0) }
 
   # runs ScrapingWorker 9:00 AM daily:
-  recurrence { daily.hour_of_day(16) }
+  # recurrence { daily.hour_of_day(16) }
 
 
   def perform
