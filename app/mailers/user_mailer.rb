@@ -1,7 +1,7 @@
 # Welcome E-mail
 
 class UserMailer < ApplicationMailer
-  default from: ENV['GMAIL_EMAIL_DEV']
+  default from: ENV['GMAIL_EMAIL_PROD']
 
   def contact_email(name, email)
     # THIS METHOD RAN IF YOU DO THIS

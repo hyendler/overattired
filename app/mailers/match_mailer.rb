@@ -1,5 +1,5 @@
 class MatchMailer < ApplicationMailer
-  default from: ENV['GMAIL_EMAIL_DEV']
+  default from: ENV['GMAIL_EMAIL_PROD']
 
    def match_email(user, new_matches)
     @user = user
