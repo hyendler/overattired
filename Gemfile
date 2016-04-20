@@ -56,7 +56,7 @@ gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-gem 'rails_serve_static_assets'
+gem 'rails_serve_static_assets', group: [:production]
 gem 'rails_stdout_logging'
 #Heroku Deployment Debugging to Fix Image Asset Pipeline issues
 
