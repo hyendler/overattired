@@ -5,7 +5,7 @@ class PostmanWorker
 
   def perform(h, count)
     # THIS LINE TELL YOU THAT THIS PERFORM HAS RAN
-  	#p "HELO KITTY " * 50
+  	p "POSTMAN WORKER"
     UserMailer.contact_email(h['name'], h['email']).deliver
   end
 end

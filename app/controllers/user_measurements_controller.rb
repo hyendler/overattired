@@ -1,6 +1,6 @@
 class UserMeasurementsController < ApplicationController
   before_action :set_measurement, only: [:show, :edit, :update]
-  # after_action :contact, only: [:create]
+  after_action :contact, only: [:create]
 
   def show
     # returns @measurement
@@ -53,7 +53,7 @@ class UserMeasurementsController < ApplicationController
 
   def contact
     # Look in the rails server - if you see all the stars it means that this method has started running
-    p '* ' * 1000
+    p "contact method in user_measurement controller"
     @user = User.find(params[:user_id])
     # p "The contact method ran for #{@user.first_name}"
     # don't really need 'name' here can remove it for refactoring
