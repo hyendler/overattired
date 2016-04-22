@@ -12,10 +12,12 @@ class UserMeasurementsController < ApplicationController
   end
 
   def update
+     @user = User.find(params[:user_id])
     if @measurement.update(user_measurement_params)
       redirect_to user_path(@measurement.user_id)
     else
       errs
+      puts "I'm about to render edit"
       render 'edit'
     end
   end
@@ -51,7 +53,7 @@ class UserMeasurementsController < ApplicationController
 
   def contact
     # Look in the rails server - if you see all the stars it means that this method has started running
-    p '* ' * 1000
+    p "contact method in user_measurement controller"
     @user = User.find(params[:user_id])
     # p "The contact method ran for #{@user.first_name}"
     # don't really need 'name' here can remove it for refactoring
@@ -74,8 +76,7 @@ class UserMeasurementsController < ApplicationController
 
   def set_measurement
     @measurement = UserMeasurement.find(params[:id])
-    puts "I'M HERE"
-    p @measurement
+    @measurement
   end
 
   def user_measurement_params

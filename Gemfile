@@ -49,18 +49,24 @@ gem 'autoscaler'
 gem "letter_opener", :group => :development
 gem "launchy"
 gem 'sidekiq'
-
+gem 'sidetiq'
 # seed data with faker
 gem 'faker'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'rails_serve_static_assets', group: [:production]
+gem 'rails_stdout_logging'
+#Heroku Deployment Debugging to Fix Image Asset Pipeline issues
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Rspec for rails!
   gem 'rspec-rails', '~> 3.0'
+  # Sandbox install for Capybara:
+  gem 'capybara'
 end
 
 group :development do

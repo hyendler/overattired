@@ -98,6 +98,7 @@ end
 
 # CALL THIS METHOD IN CONTROLLER TO STORE NEW PRODUCTS
 def store_data_from_etsy
+
   all_active_listings = []
   # (see note above re offsets)
   # more offsets can be added here to increase the number of total products requested
