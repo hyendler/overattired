@@ -49,7 +49,7 @@ gem 'autoscaler'
 gem "letter_opener", :group => :development
 gem "launchy"
 gem 'sidekiq'
-
+gem 'sidetiq'
 # seed data with faker
 gem 'faker'
 

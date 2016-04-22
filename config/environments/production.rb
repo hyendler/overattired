@@ -34,6 +34,7 @@ Rails.application.configure do
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
+  # trying one more time
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -78,7 +79,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   
-  config.action_mailer.default_url_options = { host: 'https://overattired.herokuapp.com/'}
+  config.action_mailer.default_url_options = { host: ENV['HEROKU_PRODUCTION_URL']}
   #change mail delivery to either :smtp, :sendmail, :file, :test
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -86,8 +87,8 @@ Rails.application.configure do
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
+    :user_name      => ENV['GMAIL_USERNAME_PROD'],
+    :password       => ENV['GMAIL_PASSWORD_PROD'],
     :domain         => 'heroku.com',
     :enable_starttls_auto => true  
   }

@@ -46,3 +46,4 @@ inches are still inches - size has changed over time
 * push notifications via email (mailchimp api)
 * tags
 * searching
+* how to set up/read our code on background processes: [How-To Guide](https://medium.com/@iregina/overattired-2-setting-up-background-processes-to-automate-etsy-scraping-email-sending-48f990d86ea7)
