@@ -1,48 +1,59 @@
 # OverAttired
 OverAttired Vintage Fashion - Modern Technology for a Vintage Fit
 
-A customer database for the Oakland vintage fashion shop, [OverAttired](https://www.etsy.com/shop/OverAttiredVintage?ref=l2-shopheader-name&show_panel=true)
+A customer product matching database for vintage clothing products from Overattired, a Oakland vintage fashion shop, [OverAttired Vintage Fashion](https://www.etsy.com/shop/OverAttiredVintage?ref=l2-shopheader-name&show_panel=true)
 
-inches are still inches - size has changed over time
+This web app is meant to serve to user stories - one would be of the admin/shopkeeper, and vintage clothing shoppers.
 
-# User Stories
 
-**User Story 1: Loyal Customer**
-* As a user I am a vintage enthusiast and I love Sam’s store
-* As a user I want to go to Sam’s shop and have a staff member measure me
-* As a user I want the database to save my measurements quickly
-* As a user I want to get an email with a link to etsy products that match my profile
-* As a user I want to receive email notifications when a new product matches my measurements
+### Technical Overview
 
-**User Story 2: Admin**
-* I am Sam
-* As a user I want my staff to use an iPad to record new customer profiles (measurements)
-* As a user I want to update customer profiles on the fly on an iPad
-* I want to visualize my customers' purchasing history in order to help guide purchasing decisions
+Technologies used: Ruby on Rails, JQuery/JS, PostgresSQL, Redis, Sidekiq, SideTiq, Boostrap, Capybara, Rspec.
 
-**User Story 3: Casual Customer**
-* As a user I am interested in vintage stuff but I don't dress vintage every day
-* As a user I have a specific event or item I'm looking for
-* As a user I will take my measurements at home and interact with a web app to build my own profile
-* As a user I want the app to guide me through available styles and size recommendations
-* As a user I to get an email with a link to etsy products that match my profile
-* As a user I want to receive email notifications when a new product matches my measurements
+Product database is populated by a background process that makes a daily Etsy API call at 9am PST. Right after the API call is made, if there are new products imported that match a user, the user will be emailed, and the match will be stored for future reference (so the user doesn't get the same match twice).
 
-# MVP Features
+Also, when a user signs up, they receive a welcome email with initial product matches.
 
-* responsive design - focus on mobile first
-* match customers to items
+Production is currently set up to run on Heroku.
 
-# MVP WIREFRAME:
 
-![OverAttired Mobile Wireframe](Overattired-WireframeMobile.png)
-# MVP SCHEMA:
+### Documentation
 
-![OverAttired initial schema image](overattired-schema.png)
+For further reading/explanation on our background processes: [How-To Guide](https://medium.com/@iregina/overattired-2-setting-up-background-processes-to-automate-etsy-scraping-email-sending-48f990d86ea7)
 
-# Additional Features
 
-* scrape Etsy to populate items in database for matching (etsy api)
-* push notifications via email (mailchimp api)
-* tags
-* searching
+### Installation
+Environment variables
+You will need for ENV:
+- an Etsy API KEY
+- email account and user for Postmanworker email capabilities
+
+Once you clone the project, make sure you have the bundler gem and then run bundle install and your rake commands.  A test customer, admin, and several products provided in the seed files, but are not recommended for production.
+
+
+### Running the project
+
+First run:
+redis-server /usr/local/etc/redis.conf
+
+Then run:
+bundle exec sidekiq
+
+Lastly:
+rails s
+
+You can see the queud background jobs at http://_your_directory_here_/sidekiq
+
+
+### Testing
+[Rails Testing Guide](http://guides.rubyonrails.org/testing.html)
+
+
+### Authors
+Lindsey Stevenson @lindsey-s
+Ovi Calvo @0viwan
+Regina Wong @iregina
+Hanah Yendler @hyendler
+
+![Overattired Group](overattired_group.jpg)
+
