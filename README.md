@@ -42,6 +42,8 @@ bundle exec sidekiq
 Lastly:
 rails s
 
+You can see the queud background jobs at http://_your_directory_here_/sidekiq
+
 
 ### Testing
 [Rails Testing Guide](http://guides.rubyonrails.org/testing.html)
@@ -52,3 +54,6 @@ Lindsey Stevenson @lindsey-s
 Ovi Calvo @0viwan
 Regina Wong @iregina
 Hanah Yendler @hyendler
+
+![Overattired Group](overattired_group.jpg)
+
